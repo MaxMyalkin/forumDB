@@ -37,25 +37,22 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="user.py" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/forumDB/views/user.py">
+      <file leaf-file-name="forum.py" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/forumDB/views/forum.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="24" column="0" selection-start="779" selection-end="1690" vertical-scroll-proportion="0.0" vertical-offset="345" max-vertical-offset="780">
+            <state line="41" column="0" selection-start="1508" selection-end="1508" vertical-scroll-proportion="0.0" vertical-offset="281" max-vertical-offset="705">
               <folding>
                 <element signature="e#0#11#0" expanded="true" />
-                <marker date="1395498034947" expanded="true" signature="1035:1133" placeholder="insert into ..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="forum.py" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/forumDB/views/forum.py">
+      <file leaf-file-name="urls.py" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/API_DB/urls.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="22" column="51" selection-start="927" selection-end="927" vertical-scroll-proportion="0.7429245" vertical-offset="15" max-vertical-offset="690">
-              <folding>
-                <element signature="e#0#11#0" expanded="true" />
-              </folding>
+            <state line="10" column="53" selection-start="417" selection-end="417" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="375">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -66,6 +63,17 @@
             <state line="3" column="25" selection-start="99" selection-end="99" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="135">
               <folding>
                 <element signature="e#26#50#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="user.py" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/forumDB/views/user.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="78" column="48" selection-start="3019" selection-end="3019" vertical-scroll-proportion="0.8584906" vertical-offset="806" max-vertical-offset="1290">
+              <folding>
+                <element signature="e#0#11#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -82,12 +90,12 @@
     <option name="changedFiles">
       <list>
         <option value="$PROJECT_DIR$/forumDB/user.py" />
-        <option value="$PROJECT_DIR$/API_DB/urls.py" />
         <option value="$PROJECT_DIR$/API_DB/settings.py" />
         <option value="$PROJECT_DIR$/forumDB/database.py" />
-        <option value="$PROJECT_DIR$/forumDB/views/user.py" />
         <option value="$PROJECT_DIR$/forumDB/views.py" />
         <option value="$PROJECT_DIR$/forumDB/views/forum.py" />
+        <option value="$PROJECT_DIR$/API_DB/urls.py" />
+        <option value="$PROJECT_DIR$/forumDB/views/user.py" />
       </list>
     </option>
   </component>
@@ -480,7 +488,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="41" />
+      <option name="time" value="46" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
@@ -501,13 +509,6 @@
     <entry file="file:///usr/share/pyshared/MySQLdb/cursors.py">
       <provider selected="true" editor-type-id="text-editor">
         <state line="167" column="49" selection-start="5319" selection-end="5319" vertical-scroll-proportion="0.8278302" vertical-offset="2124" max-vertical-offset="7605">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/API_DB/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="12" selection-start="219" selection-end="219" vertical-scroll-proportion="0.28301886" vertical-offset="0" max-vertical-offset="424">
           <folding />
         </state>
       </provider>
@@ -547,10 +548,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file:///usr/local/lib/python2.7/dist-packages/django/core/handlers/base.py">
+    <entry file="file://$PROJECT_DIR$/forumDB/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="114" column="0" selection-start="4779" selection-end="4779" vertical-scroll-proportion="0.33333334" vertical-offset="1363" max-vertical-offset="4020">
-          <folding />
+        <state line="3" column="25" selection-start="99" selection-end="99" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="135">
+          <folding>
+            <element signature="e#26#50#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -561,28 +564,32 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/forumDB/views.py">
+    <entry file="file://$PROJECT_DIR$/forumDB/views/forum.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="3" column="25" selection-start="99" selection-end="99" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="135">
+        <state line="41" column="0" selection-start="1508" selection-end="1508" vertical-scroll-proportion="0.0" vertical-offset="281" max-vertical-offset="705">
           <folding>
-            <element signature="e#26#50#0" expanded="true" />
+            <element signature="e#0#11#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/API_DB/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="10" column="53" selection-start="417" selection-end="417" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="375">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///usr/local/lib/python2.7/dist-packages/django/core/handlers/base.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="114" column="0" selection-start="4779" selection-end="4779" vertical-scroll-proportion="0.33333334" vertical-offset="1363" max-vertical-offset="4020">
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/forumDB/views/user.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="24" column="0" selection-start="779" selection-end="1690" vertical-scroll-proportion="0.0" vertical-offset="345" max-vertical-offset="780">
-          <folding>
-            <element signature="e#0#11#0" expanded="true" />
-            <marker date="1395498034947" expanded="true" signature="1035:1133" placeholder="insert into ..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/forumDB/views/forum.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="22" column="51" selection-start="927" selection-end="927" vertical-scroll-proportion="0.7429245" vertical-offset="15" max-vertical-offset="690">
+        <state line="78" column="48" selection-start="3019" selection-end="3019" vertical-scroll-proportion="0.8584906" vertical-offset="806" max-vertical-offset="1290">
           <folding>
             <element signature="e#0#11#0" expanded="true" />
           </folding>
