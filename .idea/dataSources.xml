@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DataSourceManagerImpl" format="xml" hash="848690932">
+    <data-source source="LOCAL" name="Data Source" uuid="d3da69d4-24a6-4675-b8df-77363aea039c">
+      <synchronize>true</synchronize>
+      <jdbc-driver>sun.jdbc.odbc.JdbcOdbcDriver</jdbc-driver>
+      <jdbc-url>jdbc:mysql//localhost:3306/forumDB</jdbc-url>
+      <user-name>maxim</user-name>
+      <user-password>df9bdf98df99df9edf9f</user-password>
+      <libraries />
+    </data-source>
+  </component>
+</project>
+
