@@ -14,6 +14,10 @@ urlpatterns = patterns('',
     url(r"^user/listFollowers/$", 'forumDB.views.user.list_followers', name='list_followers'),
     url(r"^user/listFollowing/$", 'forumDB.views.user.list_following', name='list_following'),
     url(r"^forum/create/$", 'forumDB.views.forum.create', name='forum_create'),
+    url(r"^forum/details/$", 'forumDB.views.forum.details', name='forum_details'),
+    url(r"^thread/create/$", 'forumDB.views.thread.create', name='thread_create'),
+    url(r"^thread/subscribe/$", 'forumDB.views.thread.subscribe', name='subscribe'),
+    url(r"^thread/unsubscribe/$", 'forumDB.views.thread.unsubscribe', name='unsubscribe'),
     # url(r'^API_DB/', include('API_DB.foo.urls')),
 
     # Uncomment the admin/doc line below to enable admin documentation:
