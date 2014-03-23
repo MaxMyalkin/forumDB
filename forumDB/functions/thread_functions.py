@@ -1,6 +1,6 @@
 from forumDB.functions.database import execSelectQuery, execInsertUpdateQuery
-from forumDB.functions.forum_functions import find_forum
-from forumDB.functions.user_functions import find_user
+from forumDB.functions.forum_functions import *
+from forumDB.functions.user_functions import *
 
 __author__ = 'maxim'
 
@@ -23,8 +23,8 @@ def save_thread(forum, title, isClosed, user, date, message, slug, isDeleted):
 
 def find_thread(type, value):
     thread = execSelectQuery(
-        'select date , forum , id , isClosed , isDeleted , message , slug , title , user  from Threads where ' + type + ' = ' + str(value),
-        [])
+        'select date, dislikes , forum , id , isClosed , isDeleted , likes , message ,points , posts, slug , title , '
+        'user  from Threads where ' + type + ' = %s', [value])
     if len(thread) == 0:
         return None
     else:
@@ -35,15 +35,42 @@ def get_main_info(thread):
     if not thread is None:
         return {
             'date': str(thread[0]),
-            'forum': thread[1],
-            'id': thread[2],
-            'isClosed': bool(thread[3]),
-            'isDeleted': bool(thread[4]),
-            'message': thread[5],
-            'slug': thread[6],
-            'title': thread[7],
-            'user': thread[8]
+            'forum': thread[2],
+            'id': thread[3],
+            'isClosed': bool(thread[4]),
+            'isDeleted': bool(thread[5]),
+            'message': thread[7],
+            'slug': thread[10],
+            'title': thread[11],
+            'user': thread[12],
+
         }
+    else:
+        return None
+
+
+def get_thread_details(thread , rel_user , rel_forum):
+    if not thread is None:
+        info = {
+            'date': str(thread[0]),
+            'dislikes': int(thread[1]),
+            'forum': thread[2],
+            'id': thread[3],
+            'isClosed': bool(thread[4]),
+            'isDeleted': bool(thread[5]),
+            'likes': int(thread[6]),
+            'message': thread[7],
+            'points': thread[8],
+            'posts': thread[9],
+            'slug': thread[10],
+            'title': thread[11],
+            'user': thread[12]
+        }
+        if rel_user is not None:
+            info['user'] = get_user_details(thread[12])
+        if rel_forum is not None:
+            info['forum'] = get_forum_details(thread[2],[])
+        return info
     else:
         return None
 
@@ -86,3 +113,21 @@ def subscription_info(subscription):
         'user': subscription[0],
         'thread': subscription[1]
     }
+
+
+def thread_vote(thread, vote):
+    if vote == 1:
+        execInsertUpdateQuery(
+            'update Threads set likes = likes + 1 , points = likes - dislikes where id =' + str(thread), [])
+    if vote == -1:
+        execInsertUpdateQuery(
+            'update Threads set dislikes = dislikes + 1, points = likes - dislikes where id =' + str(thread), [])
+    return get_thread_details(find_thread('id', thread) , None , None)
+
+
+def close_or_open(type, thread):
+    if type == 'open':
+        execInsertUpdateQuery('update Threads set isClosed = 0 where id = %s', [thread])
+    if type == 'close':
+        execInsertUpdateQuery('update Threads set isClosed = 1 where id = %s', [thread])
+    return get_thread_details(find_thread('id', thread) , None)

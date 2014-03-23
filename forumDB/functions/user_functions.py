@@ -36,7 +36,7 @@ def save_follow(follower, followee):
                                   [follower, followee])
     else:
         return None
-    return get_details(follower_user[1])
+    return get_user_details(follower_user[1])
 
 
 def remove_follow(follower, followee):
@@ -48,17 +48,18 @@ def remove_follow(follower, followee):
         if len(existed_follow) == 1:
             execInsertUpdateQuery('delete from Followers where follower = %s and followee = %s',
                                   [follower, followee])
-            return get_details(follower_user[1])  # email
+            return get_user_details(follower_user[1])  # email
     return None
 
 
-def get_details(email):
+def get_user_details(email):
     user = find_user(email)
     if user is None:
         return None
     info = get_main_info(user)
     info['followers'] = get_follows('follower', email)
     info['following'] = get_follows('followee', email)
+    info['subscriptions'] = get_list_subscriptions(email)
     return info
 
 
@@ -66,9 +67,9 @@ def get_list_followers(email, limit, since, order):
     user = find_user(email)
     if user is None:
         return None
-    info = get_main_info(user)
-    info['followers'] = get_follows_parametrized('follower', email, since, limit, order)
-    info['following'] = get_follows('followee', email)
+    info = []
+    for follower in get_follows_parametrized('follower', email, since, limit, order):
+        info.append(get_user_details(follower))
     return info
 
 
@@ -76,41 +77,43 @@ def get_list_following(email, limit, since, order):
     user = find_user(email)
     if user is None:
         return None
-    info = get_main_info(user)
-    info['following'] = get_follows_parametrized('followee', email, since, limit, order)
-    info['followers'] = get_follows('follower', email)
+    info = []
+    for follower in get_follows_parametrized('followee', email, since, limit, order):
+        info.append(get_user_details(follower))
     return info
 
 
 def get_follows(what, email):   # get following or followers
     list = []
-    if what == 'following':
-        for element in execSelectQuery('select followee from Followers where follower = %s', [email]):
-            list.append(element[0])
-    else:
-        for element in execSelectQuery('select follower from Followers where followee = %s', [email]):
-            list.append(element[0])
+    if what == 'followee':
+        select = 'followee'
+        where = 'follower'
+    if what == 'follower':
+        select = 'follower'
+        where = 'followee'
+    for element in execSelectQuery('select ' + select + ' from Followers where ' + where + ' = %s', [email]):
+        list.append(element[0])
     return list
 
 
 def get_follows_parametrized(what, email, since, limit, order):   # get following or followers
     list = []
-    if what == 'following':
+    if what == 'followee':
         where = 'follower'
         select = 'followee'
-    else:
+    if what == 'follower':
         where = 'followee'
         select = 'follower'
 
     if limit is None:
             for element in execSelectQuery('select ' + select + ' from Followers as f inner join Users as u '
                                            'on f.'+ select +' = u.email where ' + where + ' = %s and u.id >= ' + str(since) +
-                                                   ' order by u.email ' + order, [email]):
+                                                   ' order by u.name ' + order, [email]):
                 list.append(element[0])
     else:
        for element in execSelectQuery('select ' + select + ' from Followers as f inner join Users as u '
                                            'on f.'+ select +' = u.email where ' + where + ' = %s and u.id >= ' + str(since) +
-                                                   ' order by u.email ' + order + ' limit ' + str(limit), [email]):
+                                                   ' order by u.name ' + order + ' limit ' + str(limit), [email]):
                 list.append(element[0])
     return list
 
@@ -118,7 +121,7 @@ def get_follows_parametrized(what, email, since, limit, order):   # get followin
 def update_user(email, name, about):
     if find_user(email) is not None:
         execInsertUpdateQuery('update Users set name = %s , about = %s where email = %s', [name, about, email])
-        return get_details(email)
+        return get_user_details(email)
     else:
         return None
 
@@ -135,3 +138,10 @@ def get_main_info(user):
         }
     else:
         return None
+
+
+def get_list_subscriptions(email):
+    list = []
+    for element in execSelectQuery('select thread from Subscriptions where  user = %s', [email]):
+        list.append(element[0])
+    return list
