@@ -1,6 +1,6 @@
 import json
 from django.http import HttpResponse
-from forumDB.functions.common import response
+from forumDB.functions.common import response, get_optional_parameters
 from forumDB.functions.user_functions import *
 
 __author__ = 'maxim'
@@ -73,22 +73,7 @@ def list_followers(request):
         except KeyError:
             HttpResponse(status=400)
 
-        try:
-            since = request_data['since_id']
-        except KeyError:
-            since = 0
-
-        try:
-            limit = request_data['limit']
-        except KeyError:
-            limit = None
-
-        try:
-            order = request_data['order']
-        except KeyError:
-            order = 'desc'
-
-        response_data = get_list_followers(email, limit, since, order)
+        response_data = get_list_followers(email,get_optional_parameters(request_data , 'since_id'))
         return response(response_data)
     return HttpResponse(status=400)
 
@@ -101,22 +86,7 @@ def list_following(request):
         except KeyError:
             return HttpResponse(status=400)
 
-        try:
-            since = request_data['since_id']
-        except KeyError:
-            since = 0
-
-        try:
-            limit = request_data['limit']
-        except KeyError:
-            limit = None
-
-        try:
-            order = request_data['order']
-        except KeyError:
-            order = 'desc'
-
-        response_data = get_list_following(email, limit, since, order)
+        response_data = get_list_following(email, get_optional_parameters(request_data , 'since_id'))
         return response(response_data)
     return HttpResponse(status=400)
 

@@ -1,3 +1,4 @@
+from forumDB.functions.common import find
 from forumDB.functions.database import execSelectQuery, execInsertUpdateQuery
 
 __author__ = 'maxim'
@@ -24,8 +25,8 @@ def find_user(email):
 
 
 def save_follow(follower, followee):
-    follower_user = find_user(follower)
-    followee_user = find_user(followee)
+    follower_user = find('user' , None ,follower)
+    followee_user = find('user' , None ,followee)
     if follower_user == followee_user:
         return None
     if not follower_user is None and not followee_user is None:
@@ -40,8 +41,8 @@ def save_follow(follower, followee):
 
 
 def remove_follow(follower, followee):
-    follower_user = find_user(follower)
-    followee_user = find_user(followee)
+    follower_user = find('user' , None , follower)
+    followee_user = find('user' , None ,followee)
     if not follower_user is None and not followee_user is None:
         existed_follow = execSelectQuery(
             'select follower , followee from Followers where follower = %s and followee =%s', [follower, followee])
@@ -53,7 +54,7 @@ def remove_follow(follower, followee):
 
 
 def get_user_details(email):
-    user = find_user(email)
+    user = find('user' , None ,email)
     if user is None:
         return None
     info = get_main_info(user)
@@ -63,22 +64,22 @@ def get_user_details(email):
     return info
 
 
-def get_list_followers(email, limit, since, order):
-    user = find_user(email)
+def get_list_followers(email, optional_parameters):
+    user = find('user' , None ,email)
     if user is None:
         return None
     info = []
-    for follower in get_follows_parametrized('follower', email, since, limit, order):
+    for follower in get_follows_parametrized('follower', email, optional_parameters['since'], optional_parameters['limit'], optional_parameters['order']):
         info.append(get_user_details(follower))
     return info
 
 
-def get_list_following(email, limit, since, order):
-    user = find_user(email)
+def get_list_following(email, optional_parameters):
+    user = find('user' , None ,email)
     if user is None:
         return None
     info = []
-    for follower in get_follows_parametrized('followee', email, since, limit, order):
+    for follower in get_follows_parametrized('followee', email, optional_parameters['since'] , optional_parameters['limit'] , optional_parameters['order']):
         info.append(get_user_details(follower))
     return info
 
@@ -88,7 +89,7 @@ def get_follows(what, email):   # get following or followers
     if what == 'followee':
         select = 'followee'
         where = 'follower'
-    if what == 'follower':
+    else:
         select = 'follower'
         where = 'followee'
     for element in execSelectQuery('select ' + select + ' from Followers where ' + where + ' = %s', [email]):
@@ -101,7 +102,7 @@ def get_follows_parametrized(what, email, since, limit, order):   # get followin
     if what == 'followee':
         where = 'follower'
         select = 'followee'
-    if what == 'follower':
+    else:
         where = 'followee'
         select = 'follower'
 
@@ -119,7 +120,7 @@ def get_follows_parametrized(what, email, since, limit, order):   # get followin
 
 
 def update_user(email, name, about):
-    if find_user(email) is not None:
+    if find('user' , None ,email) is not None:
         execInsertUpdateQuery('update Users set name = %s , about = %s where email = %s', [name, about, email])
         return get_user_details(email)
     else:
@@ -132,7 +133,7 @@ def get_main_info(user):
             'about': user[0],
             'email': user[1],
             'id': user[2],
-            'isAnonymous': user[3],
+            'isAnonymous': bool(user[3]),
             'name': user[4],
             'username': user[5]
         }

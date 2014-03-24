@@ -24,4 +24,6 @@ urlpatterns = patterns('',
     url(r"^thread/close/$", 'forumDB.views.thread.close', name='thread_close'),
     url(r"^thread/list/$", 'forumDB.views.thread.list', name='thread_list'),
 
+    url(r"^post/create/$", 'forumDB.views.post.create', name='post_create'),
+
 )

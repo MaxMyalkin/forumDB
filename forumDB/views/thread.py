@@ -1,6 +1,6 @@
 import json
 from django.http import HttpResponse
-from forumDB.functions.common import response
+from forumDB.functions.common import response, get_optional_parameters
 from forumDB.functions.thread_functions import *
 
 __author__ = 'maxim'
@@ -128,27 +128,14 @@ def list(request):
         except KeyError:
             pass
 
-        try:
-            since = request_data['since']
-        except KeyError:
-            since = '0000-00-00 00:00:00'
-
-        try:
-            limit = request_data['limit']
-        except KeyError:
-            limit = None
-
-        try:
-            order = request_data['order']
-        except KeyError:
-            order = 'desc'
+        optional_parameters = get_optional_parameters(request_data , 'since')
 
         if user is None:
             if forum is None:
                 return HttpResponse(status=400)
             else:
-              response_data = get_listThreads( 'forum' ,forum , since , [] , limit , order)
+              response_data = get_listThreads( 'forum' ,forum , [] , optional_parameters)
         else:
-            response_data = get_listThreads( 'user' , user , since , [] , limit , order)
+            response_data = get_listThreads( 'user' , user , [] , optional_parameters)
         return response(response_data)
     return HttpResponse(status=400)
