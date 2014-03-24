@@ -1,7 +1,5 @@
-from forumDB.functions.database import execSelectQuery, execInsertUpdateQuery
 from forumDB.functions.forum_functions import *
 from forumDB.functions.user_functions import *
-
 __author__ = 'maxim'
 
 

@@ -22,5 +22,6 @@ urlpatterns = patterns('',
     url(r"^thread/vote/$", 'forumDB.views.thread.vote', name='thread_vote'),
     url(r"^thread/open/$", 'forumDB.views.thread.open', name='thread_open'),
     url(r"^thread/close/$", 'forumDB.views.thread.close', name='thread_close'),
+    url(r"^thread/list/$", 'forumDB.views.thread.list', name='thread_list'),
 
 )

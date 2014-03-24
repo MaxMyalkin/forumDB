@@ -63,6 +63,6 @@ def listThreads(request):
         except KeyError:
             order = 'desc'
 
-        response_data = get_listThreads(short_name , since , related , limit , order)
+        response_data = get_listThreads( 'forum' ,short_name , since , related , limit , order)
         return response(response_data)
      return HttpResponse(status=400)

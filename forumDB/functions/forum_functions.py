@@ -1,5 +1,5 @@
-from forumDB.functions.thread_functions import *
-from forumDB.functions.user_functions import *
+from forumDB.functions.database import execInsertUpdateQuery, execSelectQuery
+from forumDB.functions.user_functions import get_user_details
 
 __author__ = 'maxim'
 
@@ -40,7 +40,8 @@ def get_forum_details(short_name , related):
     return info
 
 
-def get_listThreads(short_name , since , related , limit , order):
+def get_listThreads(what , value , since , related , limit , order):
+    from forumDB.functions.thread_functions import get_thread_details,find_thread
     list = []
     user = None
     forum = None
@@ -50,9 +51,9 @@ def get_listThreads(short_name , since , related , limit , order):
         if el == 'forum':
             forum = 'ok'
     if limit is None:
-            for element in execSelectQuery('select slug from Threads where forum = %s ',[short_name]):
-                list.append(get_thread_details(find_thread('slug' , element[0]),user , forum))
+        for element in execSelectQuery('select slug from Threads where ' + what + ' = %s and date >= %s order by date '+ order , [since , value]):
+            list.append(get_thread_details(find_thread('slug' , element[0]), user , forum))
     else:
-       for element in execSelectQuery('select slug from Threads where forum = %s limit ' + str(limit),[short_name]):
-                list.append(get_thread_details(find_thread('slug' , element[0]),user , forum))
+       for element in execSelectQuery('select slug from Threads where ' + what +'  = %s order by date '+ order + ' limit %s', [ value , limit]):
+                list.append(get_thread_details(find_thread('slug' , element[0]), user , forum))
     return list

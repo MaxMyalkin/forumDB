@@ -111,3 +111,44 @@ def close(request):
         response_data = close_or_open('close', thread)
         return response(response_data)
     return HttpResponse(status=400)
+
+
+def list(request):
+    if request.method == 'POST':  #--------------------------------to Get------------------------------
+        request_data = json.loads(request.body)
+        user = None
+        forum = None
+        try:
+            user = request_data['user']
+        except KeyError:
+            pass
+
+        try:
+            forum = request_data['forum']
+        except KeyError:
+            pass
+
+        try:
+            since = request_data['since']
+        except KeyError:
+            since = '0000-00-00 00:00:00'
+
+        try:
+            limit = request_data['limit']
+        except KeyError:
+            limit = None
+
+        try:
+            order = request_data['order']
+        except KeyError:
+            order = 'desc'
+
+        if user is None:
+            if forum is None:
+                return HttpResponse(status=400)
+            else:
+              response_data = get_listThreads( 'forum' ,forum , since , [] , limit , order)
+        else:
+            response_data = get_listThreads( 'user' , user , since , [] , limit , order)
+        return response(response_data)
+    return HttpResponse(status=400)
