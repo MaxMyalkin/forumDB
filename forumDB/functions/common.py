@@ -50,6 +50,7 @@ def find(what, type, value):
             'select date, dislikes , forum , id , isClosed , isDeleted , likes , message ,points , posts, slug , title , '
             'user  from Threads where ' + type + ' = %s', [value])
 
+
     if len(object) == 0 or object is None:
         return None
     else:

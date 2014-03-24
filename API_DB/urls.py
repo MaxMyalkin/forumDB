@@ -1,7 +1,6 @@
 from django.conf.urls import patterns,  url
 
 urlpatterns = patterns('',
-
     url(r"^user/create/$", 'forumDB.views.user.create', name='user_create'),
     url(r"^user/follow/$", 'forumDB.views.user.follow', name='follow'),
     url(r"^user/unfollow/$", 'forumDB.views.user.unfollow', name='unfollow'),
@@ -23,7 +22,6 @@ urlpatterns = patterns('',
     url(r"^thread/open/$", 'forumDB.views.thread.open', name='thread_open'),
     url(r"^thread/close/$", 'forumDB.views.thread.close', name='thread_close'),
     url(r"^thread/list/$", 'forumDB.views.thread.list', name='thread_list'),
-
-    url(r"^post/create/$", 'forumDB.views.post.create', name='post_create'),
+    url(r"^thread/update/$", 'forumDB.views.thread.update', name='thread_update'),
 
 )

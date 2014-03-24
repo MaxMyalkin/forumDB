@@ -1,7 +1,8 @@
 import json
 from django.http import HttpResponse
-from forumDB.functions.common import response, get_optional_parameters
-from forumDB.functions.thread_functions import *
+from forumDB.functions.common import response, get_optional_parameters, find
+from forumDB.functions.forum.getters import get_listThreads
+from forumDB.functions.thread.thread_functions import close_or_open, thread_vote, get_thread_details, unsubscribe_thread, subscribe_thread, save_thread, thread_update
 
 __author__ = 'maxim'
 
@@ -71,7 +72,7 @@ def details(request):
                     forum = 'ok'
         except KeyError:
             pass
-        response_data = get_thread_details(find_thread('id', thread), user , forum)
+        response_data = get_thread_details(find('thread', 'id', thread), user, forum)
         return response(response_data)
     return HttpResponse(status=400)
 
@@ -128,14 +129,29 @@ def list(request):
         except KeyError:
             pass
 
-        optional_parameters = get_optional_parameters(request_data , 'since')
+        optional_parameters = get_optional_parameters(request_data, 'since')
 
         if user is None:
             if forum is None:
                 return HttpResponse(status=400)
             else:
-              response_data = get_listThreads( 'forum' ,forum , [] , optional_parameters)
+                response_data = get_listThreads('forum', forum, [], optional_parameters)
         else:
-            response_data = get_listThreads( 'user' , user , [] , optional_parameters)
+            response_data = get_listThreads('user', user, [], optional_parameters)
+        return response(response_data)
+    return HttpResponse(status=400)
+
+
+def update(request):
+    if request.method == 'POST':
+        request_data = json.loads(request.body)
+    try:
+        message = request_data['message']
+        slug = request_data['slug']
+        thread = request_data['thread']
+    except KeyError:
+        return HttpResponse(status=400)
+    response_data = thread_update(message , slug , thread)
+    if response_data is not None:
         return response(response_data)
     return HttpResponse(status=400)

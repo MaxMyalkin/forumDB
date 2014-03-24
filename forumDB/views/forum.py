@@ -1,7 +1,7 @@
 import json
 from django.http import HttpResponse
 from forumDB.functions.common import response, get_optional_parameters
-from forumDB.functions.forum_functions import *
+from forumDB.functions.forum.forum_functions import save_forum, get_forum_details, get_listThreads
 
 __author__ = 'maxim'
 
