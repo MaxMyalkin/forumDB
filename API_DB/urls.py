@@ -11,7 +11,6 @@ urlpatterns = patterns('',
 
     url(r"^forum/create/$", 'forumDB.views.forum.create', name='forum_create'),
     url(r"^forum/details/$", 'forumDB.views.forum.details', name='forum_details'),
-    url(r"^forum/listUsers/$", 'forumDB.views.forum.listUsers', name='forum_list_users'),
     url(r"^forum/listThreads/$", 'forumDB.views.forum.listThreads', name='forum_list_threads'),
 
     url(r"^thread/create/$", 'forumDB.views.thread.create', name='thread_create'),

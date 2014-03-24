@@ -36,6 +36,15 @@ def get_optional_parameters(request_data, since):
     return parameters
 
 
+def make_required(request_data, parameters):
+    required_data = {}
+    for parameter in parameters:
+        try:
+            required_data[parameter] = request_data[parameter]
+        except KeyError:
+            return None
+
+
 def find(what, type, value):
     object = None
     if what == 'user':
