@@ -21,8 +21,7 @@ def get_list_followers(required_params, optional_parameters):
     if user is None:
         return None
     info = []
-    for follower in get_follows_parametrized('follower', required_params['user'], optional_parameters['since'],
-                                             optional_parameters['limit'], optional_parameters['order']):
+    for follower in get_follows_parametrized('follower', required_params , optional_parameters):
         info.append(get_user_details(follower))
     return info
 
@@ -32,8 +31,7 @@ def get_list_following(required_params, optional_parameters):
     if user is None:
         return None
     info = []
-    for follower in get_follows_parametrized('followee', required_params['user'], optional_parameters['since'],
-                                             optional_parameters['limit'], optional_parameters['order']):
+    for follower in get_follows_parametrized('followee', required_params , optional_parameters):
         info.append(get_user_details(follower))
     return info
 
@@ -51,8 +49,9 @@ def get_follows(what, email):   # get following or followers
     return list
 
 
-def get_follows_parametrized(what, email, since, limit, order):   # get following or followers
+def get_follows_parametrized(what, required_params, optional_params ):   # get following or followers
     list = []
+
     if what == 'followee':
         where = 'follower'
         select = 'followee'
@@ -60,17 +59,20 @@ def get_follows_parametrized(what, email, since, limit, order):   # get followin
         where = 'followee'
         select = 'follower'
 
-    if limit is None:
-        for element in execSelectQuery('select ' + select + ' from Followers as f inner join Users as u '
-                                                            'on f.' + select + ' = u.email where ' + where + ' = %s and u.id >= ' + str(
-                since) +
-                                               ' order by u.name ' + order, [email]):
-            list.append(element[0])
+    query = 'select ' + select + ' from Followers as f inner join Users as u on f.' + select + ' = u.email where ' + where + ' = %s'
+
+    if optional_params['since_id'] is not None:
+        query += ' and u.id >= ' + str(optional_params['since_id'])
+
+    if optional_params['order'] is not None:
+        query += ' order by u.name ' + optional_params['order']
     else:
-        for element in execSelectQuery('select ' + select + ' from Followers as f inner join Users as u '
-                                                            'on f.' + select + ' = u.email where ' + where + ' = %s and u.id >= ' + str(
-                since) +
-                                               ' order by u.name ' + order + ' limit ' + str(limit), [email]):
+        query += ' order by u.name desc '
+
+    if optional_params['limit'] is not None:
+        query += ' limit ' + str(optional_params['limit'])
+
+    for element in execSelectQuery(query, [required_params['user']]):
             list.append(element[0])
     return list
 

@@ -1,31 +1,26 @@
 import json
 from django.http import HttpResponse
-from forumDB.functions.common import response, get_optional_parameters, make_required
+from forumDB.functions.common import response, make_required, make_optional
 from forumDB.functions.user.user_functions import *
 
 __author__ = 'maxim'
 
 
-def create(request):        # +++++++
+def create(request):
     if request.method == 'POST':
-        request_data = json.loads(request.body)
-        required_params =  make_required(request_data,['email','name','username','about'])
+        required_params = make_required("POST", request, ['email', 'name', 'username', 'about'])
         if required_params is None:
             return HttpResponse(status=400)
-        try:
-            anonymous = int(request_data['isAnonymous'])
-        except KeyError:
-            anonymous = 0
-        response_data = save_user( required_params , anonymous)
+        optional_parameters = make_optional("POST", request, ['isAnonymous'])
+        response_data = save_user(required_params, optional_parameters)
         return response(response_data)
     else:
         return HttpResponse(status=400)
 
 
-def follow(request): # +++++++
+def follow(request):
     if request.method == 'POST':
-        request_data = json.loads(request.body)
-        required_params =  make_required(request_data,['follower','followee'])
+        required_params = make_required("POST", request, ['follower', 'followee'])
         if required_params is None:
             return HttpResponse(status=400)
         response_data = save_follow(required_params)
@@ -33,10 +28,9 @@ def follow(request): # +++++++
     return HttpResponse(status=400)
 
 
-def unfollow(request): # +++++++
+def unfollow(request):
     if request.method == 'POST':
-        request_data = json.loads(request.body)
-        required_params =  make_required(request_data,['follower','followee'])
+        required_params = make_required("POST", request, ['follower', 'followee'])
         if required_params is None:
             return HttpResponse(status=400)
         response_data = remove_follow(required_params)
@@ -44,44 +38,41 @@ def unfollow(request): # +++++++
     return HttpResponse(status=400)
 
 
-def details(request):   # +++++++
-    if request.method == 'POST':  # ----------------------------fix to GET-------------------------------
-        #email = request.GET.get('email')
-        request_data = json.loads(request.body)
-        required_params = make_required(request_data, ['user'])
+def details(request):
+    if request.method == 'GET':
+        required_params = make_required("GET", request, ['user'])
         if required_params is None:
             return HttpResponse(status=400)
-        response_data = get_user_details(request_data['user'])
+        response_data = get_user_details(required_params['user'])
         return response(response_data)
     return HttpResponse(status=400)
 
 
-def list_followers(request): # +++++++
-    if request.method == 'POST':  # ----------------------------fix to GET-------------------------------
-        request_data = json.loads(request.body)
-        required_params = make_required(request_data , ['user'])
+def list_followers(request):
+    if request.method == 'GET':
+        required_params = make_required("GET", request, ['user'])
         if required_params is None:
             return HttpResponse(status=400)
-        response_data = get_list_followers(required_params,get_optional_parameters(request_data , 'since_id'))
+        optional_parameters = make_optional("GET", request, ['limit', 'since_id', 'order'])
+        response_data = get_list_followers(required_params, optional_parameters)
         return response(response_data)
     return HttpResponse(status=400)
 
 
-def list_following(request):  # +++++++
-    if request.method == 'POST':  # ----------------------------fix to GET-------------------------------
-        request_data = json.loads(request.body)
-        required_params = make_required(request_data , ['user'])
+def list_following(request):
+    if request.method == 'GET':
+        required_params = make_required("GET" , request, ['user'])
         if required_params is None:
             return HttpResponse(status=400)
-        response_data = get_list_following(required_params,get_optional_parameters(request_data , 'since_id'))
+        optional_parameters = make_optional("GET", request, ['limit', 'since_id', 'order'])
+        response_data = get_list_following(required_params, optional_parameters)
         return response(response_data)
     return HttpResponse(status=400)
 
 
 def update(request):
     if request.method == 'POST':
-        request_data = json.loads(request.body)
-        required_params = make_required(request_data , ['user', 'name' , 'about'])
+        required_params = make_required("POST", request, ['user', 'name', 'about'])
         if required_params is None:
             return HttpResponse(status=400)
         response_data = update_user(required_params)

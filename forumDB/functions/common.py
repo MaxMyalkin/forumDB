@@ -12,38 +12,41 @@ def response(response_data):
         return HttpResponse(status=400)
 
 
-def get_optional_parameters(request_data, since):
-    parameters = {}
-    if since == 'since':
-        try:
-            parameters['since'] = request_data['since']
-        except KeyError:
-            parameters['since'] = '0000-00-00 00:00:00'
-    else:
-        try:
-            parameters['since'] = request_data['since_id']
-        except KeyError:
-            parameters['since'] = 0
-    try:
-        parameters['limit'] = request_data['limit']
-    except KeyError:
-        parameters['limit'] = None
-
-    try:
-        parameters['order'] = request_data['order']
-    except KeyError:
-        parameters['order'] = 'desc'
-    return parameters
+def make_optional( request_type , request, parameters):
+    optional_parameters = {}
+    if request_type == "POST":
+        request_data = json.loads(request.body)
+        for parameter in parameters:
+            try:
+                optional_parameters[parameter] = request_data[parameter]
+            except KeyError:
+                optional_parameters[parameter] = None
+    if request_type == "GET":
+        for parameter in parameters:
+            try:
+                optional_parameters[parameter] = request.GET.get(parameter)
+            except KeyError:
+                optional_parameters[parameter] = None
+    return optional_parameters
 
 
-def make_required(request_data, parameters):
-    required_data = {}
-    for parameter in parameters:
-        try:
-            required_data[parameter] = request_data[parameter]
-        except KeyError:
-            return None
-    return required_data
+def make_required( request_type , request, parameters):
+    optional_parameters = {}
+    if request_type == "POST":
+        request_data = json.loads(request.body)
+        for parameter in parameters:
+            try:
+                optional_parameters[parameter] = request_data[parameter]
+            except KeyError:
+                return None
+    if request_type == "GET":
+        for parameter in parameters:
+            try:
+                optional_parameters[parameter] = request.GET.get(parameter)
+            except KeyError:
+                return None
+    return optional_parameters
+
 
 def find(what, type, value):
     object = None

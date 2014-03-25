@@ -20,30 +20,30 @@ def get_forum_details(short_name, related):
     return info
 
 
-def get_listThreads(what, value, related, optional_parameters):
+def get_listThreads(what, value, related, optional_params):
     from forumDB.functions.thread.thread_functions import get_thread_details
     if (what == 'forum' and find('forum', None, value) is None) or \
             (what == 'user' and find('user', None, value) is None):
         return None
     list = []
-    user = None
-    forum = None
-    for el in related:
-        if el == 'user':
-            user = 'ok'
-        if el == 'forum':
-            forum = 'ok'
-    if optional_parameters['limit'] is None:
-        for element in execSelectQuery(
-                                        'select slug from Threads where ' + what + ' = %s and date >= %s order by date ' +
-                        optional_parameters['order'], [value, optional_parameters['since']]):
-            list.append(get_thread_details(find('thread', 'slug', element[0]), user, forum))
+
+    query = 'select slug from Threads where ' + what + ' = %s '
+    query_params = [value]
+
+    if optional_params['since'] is not None:
+        query += ' and date >= %s '
+        query_params.append(optional_params['since'])
+
+    if optional_params['order'] is not None:
+        query += ' order by date ' + optional_params['order']
     else:
-        for element in execSelectQuery(
-                                'select slug from Threads where ' + what + '  = %s and date >=%s order by date ' +
-                                optional_parameters['order'] + ' limit %s',
-                                                [value, optional_parameters['since'], optional_parameters['limit']]):
-            list.append(get_thread_details(find('thread', 'slug', element[0]), user, forum))
+        query += ' order by date desc '
+
+    if optional_params['limit'] is not None:
+        query += ' limit ' + str(optional_params['limit'])
+
+    for element in execSelectQuery(query , query_params):
+            list.append(get_thread_details(find('thread', 'slug', element[0]), related))
     return list
 
 

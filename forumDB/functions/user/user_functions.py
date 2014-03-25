@@ -5,12 +5,18 @@ from forumDB.functions.user.getters import get_main_info, get_user_details
 __author__ = 'maxim'
 
 
-def save_user(required_params, anonymous):
+def save_user(required_params, optional_params):
     existed_user = find('user', None, required_params['email'])
     if existed_user is None:
-        execInsertUpdateQuery(
-            'insert into Users (email , name , username , about , isAnonymous ) values (%s , %s , %s , %s , %s)',
-            [required_params['email'], required_params['name'], required_params['username'], required_params['about'], anonymous])
+        query = 'insert into Users (email , name , username , about'
+        values = '(%s , %s , %s , %s'
+        query_parameters = [required_params['email'], required_params['name'], required_params['username'], required_params['about']]
+        if optional_params['isAnonymous'] is not None:
+            query += ' , isAnonymous'
+            values += ' , %s'
+            query_parameters.append(int(optional_params['isAnonymous']))
+        query += ') values ' + values + ')'
+        execInsertUpdateQuery( query , query_parameters )
         return get_main_info(find('user', None, required_params['email']))
     else:
         return get_main_info(existed_user)

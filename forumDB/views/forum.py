@@ -1,16 +1,14 @@
-import json
 from django.http import HttpResponse
-from forumDB.functions.common import response, get_optional_parameters, make_required
+from forumDB.functions.common import response, make_required, make_optional
 from forumDB.functions.forum.forum_functions import save_forum, get_forum_details
 from forumDB.functions.forum.getters import get_listThreads
 
 __author__ = 'maxim'
 
 
-def create(request): #+++++++++
+def create(request):
     if request.method == 'POST':
-        request_data = json.loads(request.body)
-        required_params = make_required(request_data , ['name' , 'short_name' , 'user'])
+        required_params = make_required("POST", request, ['name', 'short_name', 'user'])
         if required_params is None:
             return HttpResponse(status=400)
         response_data = save_forum(required_params)
@@ -18,32 +16,26 @@ def create(request): #+++++++++
     return HttpResponse(status=400)
 
 
-def details(request): #+++++++++++
-     if request.method == 'POST':  # -------------------------to GET ---------------------------
-        request_data = json.loads(request.body)
-        required_params = make_required(request_data , ['forum'])
+def details(request):
+    if request.method == 'GET':
+        required_params = make_required("GET", request, ['forum'])
         if required_params is None:
             return HttpResponse(status=400)
         try:
-            related = request_data['related']
+            related = request.GET.get('related')
         except KeyError:
             related = []
         response_data = get_forum_details(required_params['forum'], related)
         return response(response_data)
-     return HttpResponse(status=400)
+    return HttpResponse(status=400)
 
 
-def listThreads(request): #+++++++++++
-     if request.method == 'POST':  # -------------------------to GET ---------------------------
-        request_data = json.loads(request.body)
-        required_params = make_required(request_data , ['forum'])
+def listThreads(request):
+    if request.method == 'GET':
+        required_params = make_required("GET", request, ['forum'])
         if required_params is None:
             return HttpResponse(status=400)
-        try:
-            related = request_data['related']
-        except KeyError:
-            related = None
-        optional_parameters = get_optional_parameters(request_data , 'since')
-        response_data = get_listThreads( 'forum' ,required_params['forum'] , related , optional_parameters)
+        optional_parameters = make_optional("GET", request, ['since', 'limit', 'order', 'related'])
+        response_data = get_listThreads('forum', required_params['forum'],optional_parameters['related'], optional_parameters)
         return response(response_data)
-     return HttpResponse(status=400)
+    return HttpResponse(status=400)

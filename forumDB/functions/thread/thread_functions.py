@@ -5,16 +5,22 @@ from forumDB.functions.thread.getters import get_main_info, get_thread_details
 __author__ = 'maxim'
 
 
-def save_thread(required_params, isDeleted):
+def save_thread(required_params, optional_params):
     user = find('user', None, required_params['user'])
     forum = find('forum', None, required_params['forum'])
     if user is not None and forum is not None:
         thread = find('thread', 'slug', required_params['slug'])
+        query = 'insert into Threads (forum , title , isClosed , user , date , message , slug '
+        values = '(%s, %s, %s, %s, %s, %s, %s '
+        query_params = [required_params['forum'], required_params['title'], required_params['isClosed'], required_params['user'],
+                 required_params['date'], required_params['message'], required_params['slug']]
+        if optional_params['isDeleted'] is not None:
+            query += ' , isDeleted '
+            values += ' , %s '
+            query_params.append(optional_params['isDeleted'])
+        query += ') values ' + values + ' )'
         if thread is None:
-            execInsertUpdateQuery(
-                'insert into Threads (forum , title , isClosed , user , date , message , slug , isDeleted) values (%s, %s, %s, %s, %s, %s, %s, %s)',
-                [required_params['forum'], required_params['title'], required_params['isClosed'], required_params['user'],
-                 required_params['date'], required_params['message'], required_params['slug'], isDeleted])
+            execInsertUpdateQuery(query , query_params)
             thread = find('thread', 'slug', required_params['slug'])
         return get_main_info(thread)
     return None

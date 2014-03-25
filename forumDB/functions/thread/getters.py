@@ -22,7 +22,7 @@ def get_main_info(thread):
         return None
 
 
-def get_thread_details(thread, rel_user, rel_forum):
+def get_thread_details(thread, related):
     if not thread is None:
         info = {
             'date': get_date(thread),
@@ -39,10 +39,12 @@ def get_thread_details(thread, rel_user, rel_forum):
             'title': get_title(thread),
             'user': get_user(thread)
         }
-        if rel_user is not None:
-            info['user'] = get_user_details(thread[12])
-        if rel_forum is not None:
-            info['forum'] = get_forum_details(thread[2], [])
+        if related is not None:
+            for element in related:
+                if element == 'user':
+                    info['user'] = get_user_details(get_user(thread))
+                if element == 'forum':
+                    info['forum'] = get_forum_details(get_forum(thread), [])
         return info
     else:
         return None
