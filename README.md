@@ -1,4 +1,5 @@
-technopark-db-api
+Технопарк. Курс СУБД.
+Мялкин Максим 
 =================
 
 #API Documentation
