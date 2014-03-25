@@ -45,10 +45,10 @@ def remove_follow(required_params):
     return None
 
 
-def update_user(required_params):
-    if find('user', None, required_params['email']) is not None:
-        execInsertUpdateQuery('update Users set name = %s , about = %s where email = %s', [required_params['name'], required_params['about'], required_params['email']])
-        return get_user_details(required_params['email'])
+def update_user(required_params): #+++++++++++++
+    if find('user', None, required_params['user']) is not None:
+        execInsertUpdateQuery('update Users set name = %s , about = %s where email = %s', [required_params['name'], required_params['about'], required_params['user']])
+        return get_user_details(required_params['user'])
     else:
         return None
 

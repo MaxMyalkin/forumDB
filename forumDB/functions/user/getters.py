@@ -17,22 +17,22 @@ def get_user_details(email):
 
 
 def get_list_followers(required_params, optional_parameters):
-    user = find('user', None, required_params['email'])
+    user = find('user', None, required_params['user'])
     if user is None:
         return None
     info = []
-    for follower in get_follows_parametrized('follower', required_params['email'], optional_parameters['since'],
+    for follower in get_follows_parametrized('follower', required_params['user'], optional_parameters['since'],
                                              optional_parameters['limit'], optional_parameters['order']):
         info.append(get_user_details(follower))
     return info
 
 
 def get_list_following(required_params, optional_parameters):
-    user = find('user', None, required_params['email'])
+    user = find('user', None, required_params['user'])
     if user is None:
         return None
     info = []
-    for follower in get_follows_parametrized('followee', required_params['email'], optional_parameters['since'],
+    for follower in get_follows_parametrized('followee', required_params['user'], optional_parameters['since'],
                                              optional_parameters['limit'], optional_parameters['order']):
         info.append(get_user_details(follower))
     return info

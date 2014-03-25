@@ -7,7 +7,7 @@ from forumDB.functions.forum.getters import get_listThreads
 __author__ = 'maxim'
 
 
-def create(request):
+def create(request): #+++++++++
     if request.method == 'POST':
         request_data = json.loads(request.body)
         required_params = make_required(request_data , ['name' , 'short_name' , 'user'])
@@ -18,22 +18,22 @@ def create(request):
     return HttpResponse(status=400)
 
 
-def details(request):
+def details(request): #+++++++++++
      if request.method == 'POST':  # -------------------------to GET ---------------------------
         request_data = json.loads(request.body)
-        required_params = make_required(request_data , ['short_name'])
+        required_params = make_required(request_data , ['forum'])
         if required_params is None:
             return HttpResponse(status=400)
         try:
             related = request_data['related']
         except KeyError:
             related = []
-        response_data = get_forum_details(required_params['short_name'], related)
+        response_data = get_forum_details(required_params['forum'], related)
         return response(response_data)
      return HttpResponse(status=400)
 
 
-def listThreads(request):
+def listThreads(request): #+++++++++++
      if request.method == 'POST':  # -------------------------to GET ---------------------------
         request_data = json.loads(request.body)
         required_params = make_required(request_data , ['forum'])

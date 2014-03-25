@@ -7,7 +7,7 @@ from forumDB.functions.thread.thread_functions import close_or_open, thread_vote
 __author__ = 'maxim'
 
 
-def create(request):
+def create(request):  #++++++++++++
     if request.method == 'POST':
         request_data = json.loads(request.body)
         required_params = make_required(request_data , ['forum' , 'title' , 'isClosed' , 'user' , 'date' , 'message' , 'slug'])
@@ -22,7 +22,7 @@ def create(request):
     return HttpResponse(status=400)
 
 
-def subscribe(request):
+def subscribe(request): #++++++++++++++
     if request.method == 'POST':
         request_data = json.loads(request.body)
         required_params = make_required(request_data , ['user' , 'thread'])
@@ -33,7 +33,7 @@ def subscribe(request):
     return HttpResponse(status=400)
 
 
-def unsubscribe(request):
+def unsubscribe(request): #++++++++++++++
     if request.method == 'POST':
         request_data = json.loads(request.body)
         required_params = make_required(request_data , ['user' , 'thread'])
@@ -44,7 +44,7 @@ def unsubscribe(request):
     return HttpResponse(status=400)
 
 
-def details(request):
+def details(request): #++++++++++++++
     if request.method == 'POST':  # -------------------------- to GET-------------------------------------
         request_data = json.loads(request.body)
         user = None
@@ -65,7 +65,7 @@ def details(request):
     return HttpResponse(status=400)
 
 
-def vote(request):
+def vote(request):  #+++++++++++++++
     if request.method == 'POST':
         request_data = json.loads(request.body)
         required_params = make_required(request_data , ['vote' , 'thread'])
@@ -76,7 +76,7 @@ def vote(request):
     return HttpResponse(status=400)
 
 
-def open(request):
+def open(request): #+++++++++++++
     if request.method == 'POST':
         request_data = json.loads(request.body)
         required_params = make_required(request_data , ['thread'])
@@ -87,7 +87,7 @@ def open(request):
     return HttpResponse(status=400)
 
 
-def close(request):
+def close(request):  #+++++++++++++
     if request.method == 'POST':
         request_data = json.loads(request.body)
         required_params = make_required(request_data , ['thread'])
@@ -98,7 +98,7 @@ def close(request):
     return HttpResponse(status=400)
 
 
-def list(request):
+def list(request): #+++++++++++++++++
     if request.method == 'POST':  #--------------------------------to Get------------------------------
         request_data = json.loads(request.body)
         user = None
@@ -126,7 +126,7 @@ def list(request):
     return HttpResponse(status=400)
 
 
-def update(request):
+def update(request):  #+++++++++++++
     if request.method == 'POST':
         request_data = json.loads(request.body)
         required_params = make_required(request_data , ['message' , 'thread' , 'slug'])

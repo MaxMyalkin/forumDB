@@ -9,7 +9,7 @@ def save_thread(required_params, isDeleted):
     user = find('user', None, required_params['user'])
     forum = find('forum', None, required_params['forum'])
     if user is not None and forum is not None:
-        thread = find('thread', 'slug', required_params['thread'])
+        thread = find('thread', 'slug', required_params['slug'])
         if thread is None:
             execInsertUpdateQuery(
                 'insert into Threads (forum , title , isClosed , user , date , message , slug , isDeleted) values (%s, %s, %s, %s, %s, %s, %s, %s)',

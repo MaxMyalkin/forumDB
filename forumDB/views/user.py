@@ -6,7 +6,7 @@ from forumDB.functions.user.user_functions import *
 __author__ = 'maxim'
 
 
-def create(request):
+def create(request):        # +++++++
     if request.method == 'POST':
         request_data = json.loads(request.body)
         required_params =  make_required(request_data,['email','name','username','about'])
@@ -22,7 +22,7 @@ def create(request):
         return HttpResponse(status=400)
 
 
-def follow(request):
+def follow(request): # +++++++
     if request.method == 'POST':
         request_data = json.loads(request.body)
         required_params =  make_required(request_data,['follower','followee'])
@@ -33,7 +33,7 @@ def follow(request):
     return HttpResponse(status=400)
 
 
-def unfollow(request):
+def unfollow(request): # +++++++
     if request.method == 'POST':
         request_data = json.loads(request.body)
         required_params =  make_required(request_data,['follower','followee'])
@@ -44,19 +44,19 @@ def unfollow(request):
     return HttpResponse(status=400)
 
 
-def details(request):
+def details(request):   # +++++++
     if request.method == 'POST':  # ----------------------------fix to GET-------------------------------
         #email = request.GET.get('email')
         request_data = json.loads(request.body)
-        required_params = make_required(request_data, ['email'])
+        required_params = make_required(request_data, ['user'])
         if required_params is None:
             return HttpResponse(status=400)
-        response_data = get_user_details(request_data['email'])
+        response_data = get_user_details(request_data['user'])
         return response(response_data)
     return HttpResponse(status=400)
 
 
-def list_followers(request):
+def list_followers(request): # +++++++
     if request.method == 'POST':  # ----------------------------fix to GET-------------------------------
         request_data = json.loads(request.body)
         required_params = make_required(request_data , ['user'])
@@ -67,7 +67,7 @@ def list_followers(request):
     return HttpResponse(status=400)
 
 
-def list_following(request):
+def list_following(request):  # +++++++
     if request.method == 'POST':  # ----------------------------fix to GET-------------------------------
         request_data = json.loads(request.body)
         required_params = make_required(request_data , ['user'])

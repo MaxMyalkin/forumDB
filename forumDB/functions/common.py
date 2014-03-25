@@ -43,7 +43,7 @@ def make_required(request_data, parameters):
             required_data[parameter] = request_data[parameter]
         except KeyError:
             return None
-
+    return required_data
 
 def find(what, type, value):
     object = None
