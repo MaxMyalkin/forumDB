@@ -98,6 +98,39 @@ def get_list_subscriptions(email):
     return list
 
 
+
+def get_forum_user_list(required_params , optional_params):
+    query1 = 'select Posts.user , Posts.date as date from Posts inner join Forums on Posts.forum = Forums.short_name inner join Users ' \
+             'on Posts.user = Users.email where Forums.short_name = %s '
+    query2 = 'select Threads.user, Threads.date as date from Threads inner join Forums on Threads.forum = Forums.short_name inner join Users ' \
+             'on Users.email = Threads.user where Forums.short_name = %s'
+    query_params1 = [required_params['forum']]
+    query_params2 = [required_params['forum']]
+
+    if optional_params['since_id'] is not None:
+        query1 += ' and Users.id >= %s '
+        query2 += ' and Users.id >= %s '
+        query_params1.append(optional_params['since_id'])
+        query_params2.append(optional_params['since_id'])
+
+
+    query = query1 + ' union ' + query2
+    query_params = query_params1 + query_params2
+    if optional_params['order'] is not None:
+        query += ' order by date ' + optional_params['order']
+    else:
+        query += ' order by desc '
+
+    if optional_params['limit'] is not None:
+        query += ' limit ' + optional_params['limit']
+
+    list = []
+    for element in execSelectQuery(query,query_params):
+        list.append(get_user_details(element[0][0]))
+
+    return list
+
+
 def get_id(user):
     if user is not None:
         return user[2]

@@ -1,6 +1,5 @@
 from forumDB.functions.common import find
 from forumDB.functions.database import execInsertUpdateQuery, execSelectQuery
-from forumDB.functions.forum.getters import get_forum_details
 from forumDB.functions.post.getters import get_post_main, get_post_details
 
 __author__ = 'maxim'

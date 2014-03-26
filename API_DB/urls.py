@@ -8,10 +8,13 @@ urlpatterns = patterns('',
     url(r"^user/updateProfile/$", 'forumDB.views.user.update', name='user_update'),
     url(r"^user/listFollowers/$", 'forumDB.views.user.list_followers', name='list_followers'),
     url(r"^user/listFollowing/$", 'forumDB.views.user.list_following', name='list_following'),
+    url(r"^user/listPosts/$", 'forumDB.views.user.list_posts', name='list_posts'),
 
     url(r"^forum/create/$", 'forumDB.views.forum.create', name='forum_create'),
     url(r"^forum/details/$", 'forumDB.views.forum.details', name='forum_details'),
     url(r"^forum/listThreads/$", 'forumDB.views.forum.listThreads', name='forum_list_threads'),
+    url(r"^forum/listPosts/$", 'forumDB.views.forum.list_posts', name='forum_list_posts'),
+    url(r"^forum/listUsers/$", 'forumDB.views.forum.list_users', name='forum_list_users'),
 
     url(r"^thread/create/$", 'forumDB.views.thread.create', name='thread_create'),
     url(r"^thread/subscribe/$", 'forumDB.views.thread.subscribe', name='subscribe'),

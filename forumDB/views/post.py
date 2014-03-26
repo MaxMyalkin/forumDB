@@ -1,7 +1,7 @@
 from django.http import HttpResponse
 from forumDB.functions.common import make_required, response, make_optional, find
-from forumDB.functions.post.getters import get_post_details
-from forumDB.functions.post.post_functions import create_post, post_vote, post_update, post_remove_restore, get_post_list
+from forumDB.functions.post.getters import get_post_details, get_post_list
+from forumDB.functions.post.post_functions import create_post, post_vote, post_update, post_remove_restore
 
 __author__ = 'maxim'
 

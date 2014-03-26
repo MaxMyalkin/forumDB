@@ -34,21 +34,20 @@ def make_optional( request_type , request, parameters):
 
 
 def make_required( request_type , request, parameters):
-    optional_parameters = {}
+    required_parameters = {}
     if request_type == "POST":
         request_data = json.loads(request.body)
         for parameter in parameters:
             try:
-                optional_parameters[parameter] = request_data[parameter]
+                required_parameters[parameter] = request_data[parameter]
             except KeyError:
                 return None
     if request_type == "GET":
         for parameter in parameters:
-            try:
-                optional_parameters[parameter] = request.GET.get(parameter)
-            except KeyError:
+            required_parameters[parameter] = request.GET.get(parameter)
+            if required_parameters[parameter] is None:
                 return None
-    return optional_parameters
+    return required_parameters
 
 
 def find(what, type, value):

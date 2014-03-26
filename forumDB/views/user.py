@@ -1,6 +1,7 @@
 import json
 from django.http import HttpResponse
 from forumDB.functions.common import response, make_required, make_optional
+from forumDB.functions.post.getters import get_user_post_list
 from forumDB.functions.user.user_functions import *
 
 __author__ = 'maxim'
@@ -78,3 +79,15 @@ def update(request):
         response_data = update_user(required_params)
         return response(response_data)
     return HttpResponse(status=400)
+
+
+def list_posts(request):
+    if request.method == 'GET':
+        required_params = make_required("GET", request, ['user'])
+        if required_params is None:
+            return HttpResponse(status=400)
+        optional_params = make_optional("GET", request, ['since', 'limit', 'order'])
+        response_data = get_user_post_list(required_params,optional_params)
+        return response(response_data)
+    else:
+        return HttpResponse(status=400)

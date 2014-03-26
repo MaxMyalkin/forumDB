@@ -95,6 +95,53 @@ def get_post_list(required_params , optional_params):
     return list
 
 
+def get_user_post_list(required_params , optional_params):
+    query = 'select id from Posts where user = %s '
+    query_params = [required_params['user']]
+
+    if optional_params['since'] is not None:
+        query += ' and date >= %s '
+        query_params.append(optional_params['since'])
+
+    if optional_params['order'] is not None:
+        query += ' order by date ' + optional_params['order']
+    else:
+        query += ' order by desc '
+
+    if optional_params['limit'] is not None:
+        query += ' limit ' + optional_params['limit']
+
+    list = []
+    for element in execSelectQuery(query,query_params):
+        list.append(get_post_details(find('post', None, element[0]), []))
+
+    return list
+
+
+
+def get_forum_post_list(required_params , optional_params):
+    query = 'select id from Posts where forum = %s '
+    query_params = [required_params['forum']]
+
+    if optional_params['since'] is not None:
+        query += ' and date >= %s '
+        query_params.append(optional_params['since'])
+
+    if optional_params['order'] is not None:
+        query += ' order by date ' + optional_params['order']
+    else:
+        query += ' order by desc '
+
+    if optional_params['limit'] is not None:
+        query += ' limit ' + optional_params['limit']
+
+    list = []
+    for element in execSelectQuery(query,query_params):
+        list.append(get_post_details(find('post', None, element[0]), optional_params['related']))
+
+    return list
+
+
 def get_date(post):
     if post is not None:
         return str(post[0])
