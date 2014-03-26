@@ -5,7 +5,7 @@ from forumDB.functions.user.getters import get_main_info, get_user_details
 __author__ = 'maxim'
 
 
-def save_user(required_params, optional_params):
+def create_user(required_params, optional_params):
     existed_user = find('user', None, required_params['email'])
     if existed_user is None:
         query = 'insert into Users (email , name , username , about'

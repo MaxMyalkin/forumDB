@@ -15,7 +15,7 @@ def get_forum_details(short_name, related):
         'short_name': get_short_name(forum),
         'user': get_user(forum)
     }
-    if related == ['user']:
+    if related == 'user':
         info['user'] = get_user_details(get_user(forum))
     return info
 

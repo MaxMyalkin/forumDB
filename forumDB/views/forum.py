@@ -1,6 +1,6 @@
 from django.http import HttpResponse
 from forumDB.functions.common import response, make_required, make_optional
-from forumDB.functions.forum.forum_functions import save_forum, get_forum_details
+from forumDB.functions.forum.forum_functions import create_forum, get_forum_details
 from forumDB.functions.forum.getters import get_listThreads
 
 __author__ = 'maxim'
@@ -11,7 +11,7 @@ def create(request):
         required_params = make_required("POST", request, ['name', 'short_name', 'user'])
         if required_params is None:
             return HttpResponse(status=400)
-        response_data = save_forum(required_params)
+        response_data = create_forum(required_params)
         return response(response_data)
     return HttpResponse(status=400)
 

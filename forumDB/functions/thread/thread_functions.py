@@ -5,7 +5,7 @@ from forumDB.functions.thread.getters import get_main_info, get_thread_details
 __author__ = 'maxim'
 
 
-def save_thread(required_params, optional_params):
+def create_thread(required_params, optional_params):
     user = find('user', None, required_params['user'])
     forum = find('forum', None, required_params['forum'])
     if user is not None and forum is not None:
@@ -73,7 +73,7 @@ def thread_vote(required_params):
     if required_params['vote'] == -1:
         execInsertUpdateQuery(
             'update Threads set dislikes = dislikes + 1, points = likes - dislikes where id = %s', [required_params['thread']])
-    return get_thread_details(find('thread', 'id', required_params['thread']), None, None)
+    return get_thread_details(find('thread', 'id', required_params['thread']), None)
 
 
 def close_or_open(type, thread):
@@ -81,13 +81,13 @@ def close_or_open(type, thread):
         execInsertUpdateQuery('update Threads set isClosed = 0 where id = %s', [thread])
     if type == 'close':
         execInsertUpdateQuery('update Threads set isClosed = 1 where id = %s', [thread])
-    return get_thread_details(find('thread', 'id', thread), None, None)
+    return get_thread_details(find('thread', 'id', thread), None)
 
 
 def thread_update(required_params):
     threads = execSelectQuery('select slug from Threads where slug = %s' , [required_params['slug']])
     if len(threads) == 0:
         execInsertUpdateQuery("update Threads set message = %s , slug = %s where id = %s" , [required_params['message'], required_params['slug'] , required_params['thread']])
-        return get_thread_details(find('thread', 'id', required_params['thread']), None, None)
+        return get_thread_details(find('thread', 'id', required_params['thread']), None)
     else:
         return None

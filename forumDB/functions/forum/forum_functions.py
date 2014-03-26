@@ -7,7 +7,7 @@ from forumDB.functions.user.getters import get_user_details
 __author__ = 'maxim'
 
 
-def save_forum(required_params):
+def create_forum(required_params):
     creator = get_user_details(required_params['user'])
     if creator is None:
         return None

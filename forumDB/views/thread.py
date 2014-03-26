@@ -1,7 +1,7 @@
 from django.http import HttpResponse
 from forumDB.functions.common import response, find, make_required, make_optional
 from forumDB.functions.forum.getters import get_listThreads
-from forumDB.functions.thread.thread_functions import close_or_open, thread_vote, get_thread_details, unsubscribe_thread, subscribe_thread, save_thread, thread_update
+from forumDB.functions.thread.thread_functions import close_or_open, thread_vote, get_thread_details, unsubscribe_thread, subscribe_thread, create_thread, thread_update
 
 __author__ = 'maxim'
 
@@ -13,7 +13,7 @@ def create(request):
         if required_params is None:
             return HttpResponse(status=400)
         optional_params = make_optional("POST", request, ['isDeleted'])
-        response_data = save_thread(required_params, optional_params)
+        response_data = create_thread(required_params, optional_params)
         return response(response_data)
     return HttpResponse(status=400)
 

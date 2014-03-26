@@ -24,7 +24,10 @@ def make_optional( request_type , request, parameters):
     if request_type == "GET":
         for parameter in parameters:
             try:
-                optional_parameters[parameter] = request.GET.get(parameter)
+                if parameter == 'related':
+                    optional_parameters[parameter] = request.GET.getlist(parameter)
+                else:
+                    optional_parameters[parameter] = request.GET.get(parameter)
             except KeyError:
                 optional_parameters[parameter] = None
     return optional_parameters
@@ -62,6 +65,10 @@ def find(what, type, value):
             'select date, dislikes , forum , id , isClosed , isDeleted , likes , message ,points , posts, slug , title , '
             'user  from Threads where ' + type + ' = %s', [value])
 
+    if what == 'post':
+        object = execSelectQuery('select date , dislikes , forum , id , isApproved , isDeleted , isEdited , '
+                                 'isHighlighted , isSpam , likes , message , parent , points , thread , user from Posts'
+                                 ' where id = %s ', value)
 
     if len(object) == 0 or object is None:
         return None

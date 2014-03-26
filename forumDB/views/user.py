@@ -12,7 +12,7 @@ def create(request):
         if required_params is None:
             return HttpResponse(status=400)
         optional_parameters = make_optional("POST", request, ['isAnonymous'])
-        response_data = save_user(required_params, optional_parameters)
+        response_data = create_user(required_params, optional_parameters)
         return response(response_data)
     else:
         return HttpResponse(status=400)
