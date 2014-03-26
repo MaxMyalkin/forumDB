@@ -25,6 +25,7 @@ urlpatterns = patterns('',
     url(r"^thread/close/$", 'forumDB.views.thread.close', name='thread_close'),
     url(r"^thread/list/$", 'forumDB.views.thread.list', name='thread_list'),
     url(r"^thread/update/$", 'forumDB.views.thread.update', name='thread_update'),
+    url(r"^thread/listPosts/$", 'forumDB.views.thread.list_posts', name='thread_list_post'),
 
     url(r"^post/create/$", 'forumDB.views.post.create', name='post_create'),
     url(r"^post/details/$", 'forumDB.views.post.details', name='post_details'),

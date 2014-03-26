@@ -1,6 +1,7 @@
 from django.http import HttpResponse
 from forumDB.functions.common import response, find, make_required, make_optional
 from forumDB.functions.forum.getters import get_listThreads
+from forumDB.functions.post.getters import get_thread_post_list
 from forumDB.functions.thread.thread_functions import close_or_open, thread_vote, get_thread_details, unsubscribe_thread, subscribe_thread, create_thread, thread_update
 
 __author__ = 'maxim'
@@ -113,3 +114,15 @@ def update(request):
         response_data = thread_update(required_params)
         return response(response_data)
     return HttpResponse(status=400)
+
+
+def list_posts(request):
+    if request.method == 'GET':
+        required_params = make_required("GET", request, ['thread'])
+        if required_params is None:
+            return HttpResponse(status=400)
+        optional_params = make_optional("GET", request, ['since', 'limit', 'order'])
+        response_data = get_thread_post_list(required_params,optional_params)
+        return response(response_data)
+    else:
+        return HttpResponse(status=400)
