@@ -1,6 +1,6 @@
 from forumDB.functions.common import find
 from forumDB.functions.database import execInsertUpdateQuery, execSelectQuery
-from forumDB.functions.post.getters import get_post_main, get_post_details
+from forumDB.functions.post.getters import get_post_main, get_post_details, get_id
 
 __author__ = 'maxim'
 
@@ -60,9 +60,4 @@ def post_remove_restore(required_params , type):
         execInsertUpdateQuery("update Posts set isDeleted = 1 where id = %s" , [required_params['post']])
     if type == 'restore':
         execInsertUpdateQuery("update Posts set isDeleted = 0 where id = %s" , [required_params['post']])
-    post = get_post_details(find('post', None, required_params['post']), [])
-    if post is not None:
-        return {'post': post['id']}
-    else:
-        return None
-
+    return {'post': get_id(find('post', None, required_params['post']))}
