@@ -91,3 +91,14 @@ def thread_update(required_params):
         return get_thread_details(find('thread', 'id', required_params['thread']), None)
     else:
         return None
+
+def thread_remove_restore(required_params , type):
+    if type == 'remove':
+        execInsertUpdateQuery("update Threads set isDeleted = 1 where id = %s" , [required_params['thread']])
+    if type == 'restore':
+        execInsertUpdateQuery("update Threads set isDeleted = 0 where id = %s" , [required_params['thread']])
+    thread = get_thread_details(find('thread', 'id', required_params['thread']), [])
+    if thread is not None:
+        return {'post': thread['id']}
+    else:
+        return None

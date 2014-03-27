@@ -2,7 +2,7 @@ from django.http import HttpResponse
 from forumDB.functions.common import response, find, make_required, make_optional
 from forumDB.functions.forum.getters import get_listThreads
 from forumDB.functions.post.getters import get_thread_post_list
-from forumDB.functions.thread.thread_functions import close_or_open, thread_vote, get_thread_details, unsubscribe_thread, subscribe_thread, create_thread, thread_update
+from forumDB.functions.thread.thread_functions import close_or_open, thread_vote, get_thread_details, unsubscribe_thread, subscribe_thread, create_thread, thread_update, thread_remove_restore
 
 __author__ = 'maxim'
 
@@ -126,3 +126,23 @@ def list_posts(request):
         return response(response_data)
     else:
         return HttpResponse(status=400)
+
+
+def remove(request):
+    if request.method == 'POST':
+        required_params = make_required("POST", request, ['thread'])
+        if required_params is None:
+            return HttpResponse(status=400)
+        response_data = thread_remove_restore(required_params, 'remove')
+        return response(response_data)
+    return HttpResponse(status=400)
+
+
+def restore(request):
+    if request.method == 'POST':
+        required_params = make_required("POST", request, ['thread'])
+        if required_params is None:
+            return HttpResponse(status=400)
+        response_data = thread_remove_restore(required_params, 'restore')
+        return response(response_data)
+    return HttpResponse(status=400)
