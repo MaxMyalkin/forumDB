@@ -1,6 +1,6 @@
 import json
 from django.http import HttpResponse
-from forumDB.functions.common import response, make_required, make_optional
+from forumDB.functions.common import make_required, make_optional, response_error, response_ok
 from forumDB.functions.post.getters import get_user_post_list
 from forumDB.functions.user.user_functions import *
 
@@ -9,85 +9,93 @@ __author__ = 'maxim'
 
 def create(request):
     if request.method == 'POST':
-        required_params = make_required("POST", request, ['email', 'name', 'username', 'about'])
-        if required_params is None:
-            return HttpResponse(status=400)
-        optional_parameters = make_optional("POST", request, ['isAnonymous'])
-        response_data = create_user(required_params, optional_parameters)
-        return response(response_data)
+        try:
+            required_params = make_required("POST", request, ['email', 'name', 'username', 'about'])
+            optional_parameters = make_optional("POST", request, ['isAnonymous'])
+            response_data = create_user(required_params, optional_parameters)
+            return response_ok(response_data)
+        except Exception as exception:
+            return response_error(exception.message)
     else:
-        return HttpResponse(status=400)
+        return response_error('incorrect type of request')
 
 
 def follow(request):
     if request.method == 'POST':
-        required_params = make_required("POST", request, ['follower', 'followee'])
-        if required_params is None:
-            return HttpResponse(status=400)
-        response_data = save_follow(required_params)
-        return response(response_data)
-    return HttpResponse(status=400)
+        try:
+            required_params = make_required("POST", request, ['follower', 'followee'])
+            response_data = save_follow(required_params)
+            return response_ok(response_data)
+        except Exception as exception:
+            return response_error(exception.message)
+    return response_error('incorrect type of request')
 
 
 def unfollow(request):
     if request.method == 'POST':
-        required_params = make_required("POST", request, ['follower', 'followee'])
-        if required_params is None:
-            return HttpResponse(status=400)
-        response_data = remove_follow(required_params)
-        return response(response_data)
-    return HttpResponse(status=400)
+        try:
+            required_params = make_required("POST", request, ['follower', 'followee'])
+            response_data = remove_follow(required_params)
+            return response_ok(response_data)
+        except Exception as exception:
+            return response_error(exception.message)
+    return response_error('incorrect type of request')
 
 
 def details(request):
     if request.method == 'GET':
-        required_params = make_required("GET", request, ['user'])
-        if required_params is None:
-            return HttpResponse(status=400)
-        response_data = get_user_details(required_params['user'])
-        return response(response_data)
-    return HttpResponse(status=400)
+        try:
+            required_params = make_required("GET", request, ['user'])
+            response_data = get_user_details(required_params['user'])
+            return response_ok(response_data)
+        except Exception as exception:
+            return response_error(exception.message)
+    return response_error('incorrect type of request')
 
 
 def list_followers(request):
     if request.method == 'GET':
-        required_params = make_required("GET", request, ['user'])
-        if required_params is None:
-            return HttpResponse(status=400)
-        optional_parameters = make_optional("GET", request, ['limit', 'since_id', 'order'])
-        response_data = get_list_followers(required_params, optional_parameters)
-        return response(response_data)
-    return HttpResponse(status=400)
+        try:
+            required_params = make_required("GET", request, ['user'])
+            optional_parameters = make_optional("GET", request, ['limit', 'since_id', 'order'])
+            response_data = get_list_followers(required_params, optional_parameters)
+            return response_ok(response_data)
+        except Exception as exception:
+            return response_error(exception.message)
+    return response_error('incorrect type of request')
 
 
 def list_following(request):
     if request.method == 'GET':
-        required_params = make_required("GET" , request, ['user'])
-        if required_params is None:
-            return HttpResponse(status=400)
-        optional_parameters = make_optional("GET", request, ['limit', 'since_id', 'order'])
-        response_data = get_list_following(required_params, optional_parameters)
-        return response(response_data)
-    return HttpResponse(status=400)
+        try:
+            required_params = make_required("GET" , request, ['user'])
+            optional_parameters = make_optional("GET", request, ['limit', 'since_id', 'order'])
+            response_data = get_list_following(required_params, optional_parameters)
+            return response_ok(response_data)
+        except Exception as exception:
+            return response_error(exception.message)
+    return response_error('incorrect type of request')
 
 
 def update(request):
     if request.method == 'POST':
-        required_params = make_required("POST", request, ['user', 'name', 'about'])
-        if required_params is None:
-            return HttpResponse(status=400)
-        response_data = update_user(required_params)
-        return response(response_data)
-    return HttpResponse(status=400)
+        try:
+            required_params = make_required("POST", request, ['user', 'name', 'about'])
+            response_data = update_user(required_params)
+            return response_ok(response_data)
+        except Exception as exception:
+            return response_error(exception.message)
+    return response_error('incorrect type of request')
 
 
 def list_posts(request):
     if request.method == 'GET':
-        required_params = make_required("GET", request, ['user'])
-        if required_params is None:
-            return HttpResponse(status=400)
-        optional_params = make_optional("GET", request, ['since', 'limit', 'order'])
-        response_data = get_user_post_list(required_params,optional_params)
-        return response(response_data)
+        try:
+            required_params = make_required("GET", request, ['user'])
+            optional_params = make_optional("GET", request, ['since', 'limit', 'order'])
+            response_data = get_user_post_list(required_params,optional_params)
+            return response_ok(response_data)
+        except Exception as exception:
+            return response_error(exception.message)
     else:
-        return HttpResponse(status=400)
+        return response_error('incorrect type of request')

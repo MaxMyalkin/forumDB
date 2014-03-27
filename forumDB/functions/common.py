@@ -5,11 +5,12 @@ from forumDB.functions.database import execSelectQuery
 __author__ = 'maxim'
 
 
-def response(response_data):
-    if response_data is not None:
+def response_ok(response_data):
         return HttpResponse(json.dumps({'code': 0, 'response': response_data}), content_type='application/json')
-    else:
-        return HttpResponse(status=400)
+
+
+def response_error(response_data):
+        return HttpResponse(json.dumps({'code': 1, 'message': response_data}), content_type='application/json')
 
 
 def make_optional( request_type , request, parameters):
@@ -41,12 +42,12 @@ def make_required( request_type , request, parameters):
             try:
                 required_parameters[parameter] = request_data[parameter]
             except KeyError:
-                return None
+                raise Exception('you should set parameter "' + parameter+'"')
     if request_type == "GET":
         for parameter in parameters:
             required_parameters[parameter] = request.GET.get(parameter)
             if required_parameters[parameter] is None:
-                return None
+                raise Exception('you should set parameter "' + parameter + '"')
     return required_parameters
 
 
@@ -67,9 +68,9 @@ def find(what, type, value):
     if what == 'post':
         object = execSelectQuery('select date , dislikes , forum , id , isApproved , isDeleted , isEdited , '
                                  'isHighlighted , isSpam , likes , message , parent , points , thread , user from Posts'
-                                 ' where id = %s ', value)
+                                 ' where id = %s ', [value])
 
     if len(object) == 0 or object is None:
-        return None
+        raise Exception(what + ' with ' + value + ' parameter doesnt exist')
     else:
         return object[0]

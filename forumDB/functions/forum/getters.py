@@ -7,8 +7,6 @@ __author__ = 'maxim'
 
 def get_forum_details(short_name, related):
     forum = find('forum', None, short_name)
-    if forum is None:
-        return None
     info = {
         'id': get_id(forum),
         'name': get_name(forum),
@@ -22,9 +20,10 @@ def get_forum_details(short_name, related):
 
 def get_listThreads(what, value, related, optional_params):
     from forumDB.functions.thread.thread_functions import get_thread_details
-    if (what == 'forum' and find('forum', None, value) is None) or \
-            (what == 'user' and find('user', None, value) is None):
-        return None
+    if what == 'forum':
+        find('forum', None, value)
+    if what == 'user':
+        find('user', None, value)
     list = []
 
     query = 'select slug from Threads where ' + what + ' = %s '
@@ -50,22 +49,22 @@ def get_listThreads(what, value, related, optional_params):
 def get_id(forum):
     if forum is not None:
         return int(forum[0])
-    return None
+    raise Exception('you cant get info of None')
 
 
 def get_name(forum):
     if forum is not None:
         return forum[1]
-    return None
+    raise Exception('you cant get info of None')
 
 
 def get_short_name(forum):
     if forum is not None:
         return forum[2]
-    return None
+    raise Exception('you cant get info of None')
 
 
 def get_user(forum):
     if forum is not None:
         return forum[3]
-    return None
+    raise Exception('you cant get info of None')

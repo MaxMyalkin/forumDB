@@ -6,10 +6,7 @@ __author__ = 'maxim'
 
 
 def get_user_details(email):
-    user = find('user', None, email)
-    if user is None:
-        return None
-    info = get_main_info(user)
+    info = get_main_info(find('user', None, email))
     info['followers'] = get_follows('follower', email)
     info['following'] = get_follows('followee', email)
     info['subscriptions'] = get_list_subscriptions(email)
@@ -17,9 +14,7 @@ def get_user_details(email):
 
 
 def get_list_followers(required_params, optional_parameters):
-    user = find('user', None, required_params['user'])
-    if user is None:
-        return None
+    find('user', None, required_params['user'])
     info = []
     for follower in get_follows_parametrized('follower', required_params , optional_parameters):
         info.append(get_user_details(follower))
@@ -27,16 +22,14 @@ def get_list_followers(required_params, optional_parameters):
 
 
 def get_list_following(required_params, optional_parameters):
-    user = find('user', None, required_params['user'])
-    if user is None:
-        return None
+    find('user', None, required_params['user'])
     info = []
     for follower in get_follows_parametrized('followee', required_params , optional_parameters):
         info.append(get_user_details(follower))
     return info
 
 
-def get_follows(what, email):   # get following or followers
+def get_follows(what, email):
     list = []
     if what == 'followee':
         select = 'followee'
@@ -49,9 +42,8 @@ def get_follows(what, email):   # get following or followers
     return list
 
 
-def get_follows_parametrized(what, required_params, optional_params ):   # get following or followers
+def get_follows_parametrized(what, required_params, optional_params):
     list = []
-
     if what == 'followee':
         where = 'follower'
         select = 'followee'
@@ -59,7 +51,8 @@ def get_follows_parametrized(what, required_params, optional_params ):   # get f
         where = 'followee'
         select = 'follower'
 
-    query = 'select ' + select + ' from Followers as f inner join Users as u on f.' + select + ' = u.email where ' + where + ' = %s'
+    query = 'select ' + select + ' from Followers as f inner join Users as u on f.' \
+            + select + ' = u.email where ' + where + ' = %s'
 
     if optional_params['since_id'] is not None:
         query += ' and u.id >= ' + str(optional_params['since_id'])
@@ -78,17 +71,14 @@ def get_follows_parametrized(what, required_params, optional_params ):   # get f
 
 
 def get_main_info(user):
-    if not user is None:
-        return {
-            'about': get_about(user),
-            'email': get_email(user),
-            'id': get_id(user),
-            'isAnonymous': get_isAnonymous(user),
-            'name': get_name(user),
-            'username': get_username(user)
-        }
-    else:
-        return None
+    return {
+        'about': get_about(user),
+        'email': get_email(user),
+        'id': get_id(user),
+        'isAnonymous': get_isAnonymous(user),
+        'name': get_name(user),
+        'username': get_username(user)
+    }
 
 
 def get_list_subscriptions(email):
@@ -98,8 +88,8 @@ def get_list_subscriptions(email):
     return list
 
 
-
 def get_forum_user_list(required_params , optional_params):
+    find('forum' ,None , required_params['forum'])
     query1 = 'select Posts.user , Posts.date as date from Posts inner join Forums on Posts.forum = Forums.short_name inner join Users ' \
              'on Posts.user = Users.email where Forums.short_name = %s '
     query2 = 'select Threads.user, Threads.date as date from Threads inner join Forums on Threads.forum = Forums.short_name inner join Users ' \
@@ -112,7 +102,6 @@ def get_forum_user_list(required_params , optional_params):
         query2 += ' and Users.id >= %s '
         query_params1.append(optional_params['since_id'])
         query_params2.append(optional_params['since_id'])
-
 
     query = query1 + ' union ' + query2
     query_params = query_params1 + query_params2
@@ -127,41 +116,40 @@ def get_forum_user_list(required_params , optional_params):
     list = []
     for element in execSelectQuery(query,query_params):
         list.append(get_user_details(element[0][0]))
-
     return list
 
 
 def get_id(user):
     if user is not None:
         return user[2]
-    return None
+    raise Exception('you cant get info of None')
 
 
 def get_email(user):
     if user is not None:
         return user[1]
-    return None
+    raise Exception('you cant get info of None')
 
 
 def get_about(user):
     if user is not None:
         return user[0]
-    return None
+    raise Exception('you cant get info of None')
 
 
 def get_isAnonymous(user):
     if user is not None:
         return bool(user[3])
-    return None
+    raise Exception('you cant get info of None')
 
 
 def get_name(user):
     if user is not None:
         return user[4]
-    return None
+    raise Exception('you cant get info of None')
 
 
 def get_username(user):
     if user is not None:
         return user[5]
-    return None
+    raise Exception('you cant get info of None')
