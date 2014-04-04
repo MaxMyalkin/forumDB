@@ -11,9 +11,25 @@ def create_user(required_params, optional_params):
     except Exception:
         existed_user = None
     if existed_user is None:
-        query = 'insert into Users (email , name , username , about'
-        values = '(%s , %s , %s , %s'
-        query_parameters = [required_params['email'], required_params['name'], required_params['username'], required_params['about']]
+        query = 'insert into Users (email'
+        values = '(%s '
+        query_parameters = [required_params['email']]
+
+        if optional_params['about'] is not None:
+            query += ' , about'
+            values += ' , %s'
+            query_parameters.append(optional_params['about'])
+
+        if optional_params['username'] is not None:
+            query += ' , username'
+            values += ' , %s'
+            query_parameters.append(optional_params['username'])
+
+        if optional_params['name'] is not None:
+            query += ' , name'
+            values += ' , %s'
+            query_parameters.append(optional_params['name'])
+
         if optional_params['isAnonymous'] is not None:
             query += ' , isAnonymous'
             values += ' , %s'
@@ -47,12 +63,10 @@ def remove_follow(required_params):
         execInsertUpdateQuery('delete from Followers where follower = %s and followee = %s',
                               [required_params['follower'], required_params['followee']])
         return get_user_details(get_email(follower_user))
-    return None
+    raise Exception("follow doesnt exist")
 
 
 def update_user(required_params):
     find('user', None, required_params['user'])
     execInsertUpdateQuery('update Users set name = %s , about = %s where email = %s', [required_params['name'], required_params['about'], required_params['user']])
     return get_user_details(required_params['user'])
-
-

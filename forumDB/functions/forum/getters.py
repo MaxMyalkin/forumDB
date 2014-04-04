@@ -27,7 +27,7 @@ def get_listThreads(what, value, related, optional_params):
     list = []
 
     query = 'select slug from Threads where ' + what + ' = %s '
-    query_params = [value]
+    query_params = (value)
 
     if optional_params['since'] is not None:
         query += ' and date >= %s '

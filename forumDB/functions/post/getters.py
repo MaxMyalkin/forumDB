@@ -32,13 +32,17 @@ def get_post_details(post, related):
         info = get_post_main(post)
         info['dislikes'] = get_dislikes(post)
         info['likes'] = get_likes(post)
-        info['parent'] = get_parent(post)
+        parent = get_parent(post)
+        if parent == 'null':
+            info['parent'] = None
+        else:
+            info['parent'] = parent
         info['points'] = get_points(post)
         for parameter in related:
             if parameter == 'user':
                 info['user'] = get_user_details(get_user(post))
             if parameter == 'thread':
-                info['thread'] = get_thread_details(find('thread','id', get_thread(post)), [])
+                info['thread'] = get_thread_details(find('thread', 'id', get_thread(post)), [])
             if parameter == 'forum':
                 info['forum'] = get_forum_details(get_forum(post), [])
         return info
@@ -46,17 +50,17 @@ def get_post_details(post, related):
         raise Exception('you cant get info of None')
 
 
-def get_post_list(required_params , optional_params):
+def get_post_list(required_params, optional_params):
     query_params = []
     query = ''
     type = required_params['type']
     if type == 'thread':
         query = 'select id from Posts where thread = %s '
-        query_params = [required_params['thread']]
+        query_params.append(required_params['thread'])
 
     if type == 'forum':
         query = 'select id from Posts where forum = %s '
-        query_params = [required_params['forum']]
+        query_params.append(required_params['forum'])
 
     if optional_params['since'] is not None:
         query += ' and date >= %s '
@@ -71,15 +75,15 @@ def get_post_list(required_params , optional_params):
         query += ' limit ' + optional_params['limit']
 
     list = []
-    for element in execSelectQuery(query,query_params):
+    for element in execSelectQuery(query, query_params):
         list.append(get_post_details(find('post', None, element[0]), []))
     return list
 
 
-def get_user_post_list(required_params , optional_params):
+def get_user_post_list(required_params, optional_params):
     find('user', None, required_params['user'])
     query = 'select id from Posts where user = %s '
-    query_params = [required_params['user']]
+    query_params = (required_params['user'])
 
     if optional_params['since'] is not None:
         query += ' and date >= %s '
@@ -94,15 +98,15 @@ def get_user_post_list(required_params , optional_params):
         query += ' limit ' + optional_params['limit']
 
     list = []
-    for element in execSelectQuery(query,query_params):
+    for element in execSelectQuery(query, query_params):
         list.append(get_post_details(find('post', None, element[0]), []))
     return list
 
 
-def get_forum_post_list(required_params , optional_params):
+def get_forum_post_list(required_params, optional_params):
     find('forum', None, required_params['forum'])
     query = 'select id from Posts where forum = %s '
-    query_params = [required_params['forum']]
+    query_params = (required_params['forum'])
 
     if optional_params['since'] is not None:
         query += ' and date >= %s '
@@ -117,15 +121,15 @@ def get_forum_post_list(required_params , optional_params):
         query += ' limit ' + optional_params['limit']
 
     list = []
-    for element in execSelectQuery(query,query_params):
+    for element in execSelectQuery(query, query_params):
         list.append(get_post_details(find('post', None, element[0]), optional_params['related']))
     return list
 
 
-def get_thread_post_list(required_params , optional_params):
+def get_thread_post_list(required_params, optional_params):
     find('thread', 'id', required_params['thread'])
     query = 'select id from Posts where thread = %s '
-    query_params = [required_params['thread']]
+    query_params = (required_params['thread'])
 
     if optional_params['since'] is not None:
         query += ' and date >= %s '
@@ -140,7 +144,7 @@ def get_thread_post_list(required_params , optional_params):
         query += ' limit ' + optional_params['limit']
 
     list = []
-    for element in execSelectQuery(query,query_params):
+    for element in execSelectQuery(query, query_params):
         list.append(get_post_details(find('post', None, element[0]), []))
     return list
 

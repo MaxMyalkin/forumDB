@@ -16,7 +16,7 @@ def get_user_details(email):
 def get_list_followers(required_params, optional_parameters):
     find('user', None, required_params['user'])
     info = []
-    for follower in get_follows_parametrized('follower', required_params , optional_parameters):
+    for follower in get_follows_parametrized('follower', required_params, optional_parameters):
         info.append(get_user_details(follower))
     return info
 
@@ -24,7 +24,7 @@ def get_list_followers(required_params, optional_parameters):
 def get_list_following(required_params, optional_parameters):
     find('user', None, required_params['user'])
     info = []
-    for follower in get_follows_parametrized('followee', required_params , optional_parameters):
+    for follower in get_follows_parametrized('followee', required_params, optional_parameters):
         info.append(get_user_details(follower))
     return info
 
@@ -37,7 +37,7 @@ def get_follows(what, email):
     else:
         select = 'follower'
         where = 'followee'
-    for element in execSelectQuery('select ' + select + ' from Followers where ' + where + ' = %s', [email]):
+    for element in execSelectQuery('select ' + select + ' from Followers where ' + where + ' = %s', (email)):
         list.append(element[0])
     return list
 
@@ -65,8 +65,8 @@ def get_follows_parametrized(what, required_params, optional_params):
     if optional_params['limit'] is not None:
         query += ' limit ' + str(optional_params['limit'])
 
-    for element in execSelectQuery(query, [required_params['user']]):
-            list.append(element[0])
+    for element in execSelectQuery(query, (required_params['user'])):
+        list.append(element[0])
     return list
 
 
@@ -83,16 +83,16 @@ def get_main_info(user):
 
 def get_list_subscriptions(email):
     list = []
-    for element in execSelectQuery('select thread from Subscriptions where  user = %s', [email]):
+    for element in execSelectQuery('select thread from Subscriptions where  user = %s', (email)):
         list.append(element[0])
     return list
 
 
-def get_forum_user_list(required_params , optional_params):
-    find('forum' ,None , required_params['forum'])
-    query1 = 'select Posts.user , Posts.date as date from Posts inner join Forums on Posts.forum = Forums.short_name inner join Users ' \
+def get_forum_user_list(required_params, optional_params):
+    find('forum', None, required_params['forum'])
+    query1 = 'select Posts.user , Users.id as id from Posts inner join Forums on Posts.forum = Forums.short_name inner join Users ' \
              'on Posts.user = Users.email where Forums.short_name = %s '
-    query2 = 'select Threads.user, Threads.date as date from Threads inner join Forums on Threads.forum = Forums.short_name inner join Users ' \
+    query2 = 'select Threads.user, Users.id as id from Threads inner join Forums on Threads.forum = Forums.short_name inner join Users ' \
              'on Users.email = Threads.user where Forums.short_name = %s'
     query_params1 = [required_params['forum']]
     query_params2 = [required_params['forum']]
@@ -106,16 +106,16 @@ def get_forum_user_list(required_params , optional_params):
     query = query1 + ' union ' + query2
     query_params = query_params1 + query_params2
     if optional_params['order'] is not None:
-        query += ' order by date ' + optional_params['order']
+        query += ' order by id ' + optional_params['order']
     else:
-        query += ' order by desc '
+        query += ' order by id desc '
 
     if optional_params['limit'] is not None:
         query += ' limit ' + optional_params['limit']
 
     list = []
-    for element in execSelectQuery(query,query_params):
-        list.append(get_user_details(element[0][0]))
+    for element in execSelectQuery(query, query_params):
+        list.append(get_user_details(element[0]))
     return list
 
 

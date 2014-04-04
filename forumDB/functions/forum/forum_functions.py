@@ -12,7 +12,7 @@ def create_forum(required_params):
         existed_forum = None
     if existed_forum is None:
         execInsertUpdateQuery('insert into Forums (name , short_name , user ) values (%s , %s , %s)',
-                              [required_params['name'], required_params['short_name'], required_params['user']])
+                              (required_params['name'], required_params['short_name'], required_params['user'],))
     return get_forum_details(required_params['short_name'], [])
 
 

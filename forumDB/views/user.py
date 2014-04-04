@@ -1,5 +1,3 @@
-import json
-from django.http import HttpResponse
 from forumDB.functions.common import make_required, make_optional, response_error, response_ok
 from forumDB.functions.post.getters import get_user_post_list
 from forumDB.functions.user.user_functions import *
@@ -10,8 +8,11 @@ __author__ = 'maxim'
 def create(request):
     if request.method == 'POST':
         try:
-            required_params = make_required("POST", request, ['email', 'name', 'username', 'about'])
-            optional_parameters = make_optional("POST", request, ['isAnonymous'])
+            optional_parameters = make_optional("POST", request, ['isAnonymous', 'name', 'username', 'about'])
+            if optional_parameters['isAnonymous'] == True:
+                required_params = make_required("POST", request, ['email', ])
+            else:
+                required_params = make_required("POST", request, ['email','name', 'username', 'about' ])
             response_data = create_user(required_params, optional_parameters)
             return response_ok(response_data)
         except Exception as exception:
