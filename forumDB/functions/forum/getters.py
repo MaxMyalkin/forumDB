@@ -13,8 +13,9 @@ def get_forum_details(short_name, related):
         'short_name': get_short_name(forum),
         'user': get_user(forum)
     }
-    if related == 'user':
-        info['user'] = get_user_details(get_user(forum))
+    if related is not None:
+        if 'user' in related:
+            info['user'] = get_user_details(get_user(forum))
     return info
 
 
@@ -27,7 +28,7 @@ def get_listThreads(what, value, related, optional_params):
     list = []
 
     query = 'select slug from Threads where ' + what + ' = %s '
-    query_params = (value)
+    query_params = [value]
 
     if optional_params['since'] is not None:
         query += ' and date >= %s '

@@ -34,12 +34,12 @@ def get_thread_details(thread, related):
         'title': get_title(thread),
         'user': get_user(thread)
     }
+
     if related is not None:
-        for element in related:
-            if element == 'user':
-                info['user'] = get_user_details(get_user(thread))
-            if element == 'forum':
-                info['forum'] = get_forum_details(get_forum(thread), [])
+        if 'user' in related:
+            info['user'] = get_user_details(get_user(thread))
+        if 'forum' in related:
+            info['forum'] = get_forum_details(get_forum(thread), [])
     return info
 
 

@@ -59,7 +59,7 @@ def list_users(request):
         try:
             required_params = make_required("GET", request, ['forum'])
             optional_params = make_optional("GET", request, ['since_id', 'limit', 'order'])
-            response_data = get_forum_user_list(required_params,optional_params)
+            response_data = get_forum_user_list(required_params, optional_params)
             return response_ok(response_data)
         except Exception as exception:
             return response_error(exception.message)

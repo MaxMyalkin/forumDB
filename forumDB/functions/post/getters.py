@@ -38,12 +38,12 @@ def get_post_details(post, related):
         else:
             info['parent'] = parent
         info['points'] = get_points(post)
-        for parameter in related:
-            if parameter == 'user':
+        if related is not None:
+            if 'user' in related:
                 info['user'] = get_user_details(get_user(post))
-            if parameter == 'thread':
+            if 'thread' in related:
                 info['thread'] = get_thread_details(find('thread', 'id', get_thread(post)), [])
-            if parameter == 'forum':
+            if 'forum' in related:
                 info['forum'] = get_forum_details(get_forum(post), [])
         return info
     else:
@@ -69,7 +69,7 @@ def get_post_list(required_params, optional_params):
     if optional_params['order'] is not None:
         query += ' order by date ' + optional_params['order']
     else:
-        query += ' order by desc '
+        query += ' order by date desc '
 
     if optional_params['limit'] is not None:
         query += ' limit ' + optional_params['limit']
@@ -83,7 +83,7 @@ def get_post_list(required_params, optional_params):
 def get_user_post_list(required_params, optional_params):
     find('user', None, required_params['user'])
     query = 'select id from Posts where user = %s '
-    query_params = (required_params['user'])
+    query_params = [required_params['user']]
 
     if optional_params['since'] is not None:
         query += ' and date >= %s '
@@ -92,7 +92,7 @@ def get_user_post_list(required_params, optional_params):
     if optional_params['order'] is not None:
         query += ' order by date ' + optional_params['order']
     else:
-        query += ' order by desc '
+        query += ' order by date desc '
 
     if optional_params['limit'] is not None:
         query += ' limit ' + optional_params['limit']
@@ -106,7 +106,7 @@ def get_user_post_list(required_params, optional_params):
 def get_forum_post_list(required_params, optional_params):
     find('forum', None, required_params['forum'])
     query = 'select id from Posts where forum = %s '
-    query_params = (required_params['forum'])
+    query_params = [required_params['forum']]
 
     if optional_params['since'] is not None:
         query += ' and date >= %s '
@@ -129,7 +129,7 @@ def get_forum_post_list(required_params, optional_params):
 def get_thread_post_list(required_params, optional_params):
     find('thread', 'id', required_params['thread'])
     query = 'select id from Posts where thread = %s '
-    query_params = (required_params['thread'])
+    query_params = [required_params['thread']]
 
     if optional_params['since'] is not None:
         query += ' and date >= %s '

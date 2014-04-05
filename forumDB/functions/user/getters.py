@@ -37,7 +37,7 @@ def get_follows(what, email):
     else:
         select = 'follower'
         where = 'followee'
-    for element in execSelectQuery('select ' + select + ' from Followers where ' + where + ' = %s', (email)):
+    for element in execSelectQuery('select ' + select + ' from Followers where ' + where + ' = %s', email):
         list.append(element[0])
     return list
 
@@ -83,28 +83,21 @@ def get_main_info(user):
 
 def get_list_subscriptions(email):
     list = []
-    for element in execSelectQuery('select thread from Subscriptions where  user = %s', (email)):
+    for element in execSelectQuery('select thread from Subscriptions where  user = %s', email):
         list.append(element[0])
     return list
 
 
 def get_forum_user_list(required_params, optional_params):
     find('forum', None, required_params['forum'])
-    query1 = 'select Posts.user , Users.id as id from Posts inner join Forums on Posts.forum = Forums.short_name inner join Users ' \
-             'on Posts.user = Users.email where Forums.short_name = %s '
-    query2 = 'select Threads.user, Users.id as id from Threads inner join Forums on Threads.forum = Forums.short_name inner join Users ' \
-             'on Users.email = Threads.user where Forums.short_name = %s'
-    query_params1 = [required_params['forum']]
-    query_params2 = [required_params['forum']]
+    query = 'select distinct Posts.user , Users.id as id from Posts inner join Forums on Posts.forum = Forums.short_name inner join Users ' \
+            ' on Posts.user = Users.email where Forums.short_name = %s '
+    query_params = [required_params['forum']]
 
     if optional_params['since_id'] is not None:
-        query1 += ' and Users.id >= %s '
-        query2 += ' and Users.id >= %s '
-        query_params1.append(optional_params['since_id'])
-        query_params2.append(optional_params['since_id'])
+        query += ' and Users.id >= %s '
+        query_params.append(optional_params['since_id'])
 
-    query = query1 + ' union ' + query2
-    query_params = query_params1 + query_params2
     if optional_params['order'] is not None:
         query += ' order by id ' + optional_params['order']
     else:

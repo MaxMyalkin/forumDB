@@ -9,10 +9,10 @@ def create(request):
     if request.method == 'POST':
         try:
             optional_parameters = make_optional("POST", request, ['isAnonymous', 'name', 'username', 'about'])
-            if optional_parameters['isAnonymous'] == True:
+            if optional_parameters['isAnonymous']:
                 required_params = make_required("POST", request, ['email', ])
             else:
-                required_params = make_required("POST", request, ['email','name', 'username', 'about' ])
+                required_params = make_required("POST", request, ['email', 'name', 'username', 'about'])
             response_data = create_user(required_params, optional_parameters)
             return response_ok(response_data)
         except Exception as exception:
@@ -69,7 +69,7 @@ def list_followers(request):
 def list_following(request):
     if request.method == 'GET':
         try:
-            required_params = make_required("GET" , request, ['user'])
+            required_params = make_required("GET", request, ['user'])
             optional_parameters = make_optional("GET", request, ['limit', 'since_id', 'order'])
             response_data = get_list_following(required_params, optional_parameters)
             return response_ok(response_data)
@@ -94,7 +94,7 @@ def list_posts(request):
         try:
             required_params = make_required("GET", request, ['user'])
             optional_params = make_optional("GET", request, ['since', 'limit', 'order'])
-            response_data = get_user_post_list(required_params,optional_params)
+            response_data = get_user_post_list(required_params, optional_params)
             return response_ok(response_data)
         except Exception as exception:
             return response_error(exception.message)

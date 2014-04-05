@@ -19,18 +19,20 @@ def make_optional( request_type , request, parameters):
         request_data = json.loads(request.body)
         for parameter in parameters:
             try:
-                optional_parameters[parameter] = request_data[parameter]
+                optional_parameters[parameter] = request_data[parameter].encode('utf-8')
             except KeyError:
                 optional_parameters[parameter] = None
+            except Exception:
+                optional_parameters[parameter] = request_data[parameter]
     if request_type == "GET":
         for parameter in parameters:
             try:
-                if parameter == 'related':
-                    optional_parameters[parameter] = request.GET.getlist(parameter)
-                else:
-                    optional_parameters[parameter] = request.GET.get(parameter)
+                optional_parameters[parameter] = request.GET.get(parameter).encode('utf-8')
             except KeyError:
                 optional_parameters[parameter] = None
+            except Exception:
+                optional_parameters[parameter] = request.GET.get('utf-8')
+
     return optional_parameters
 
 
@@ -40,12 +42,18 @@ def make_required( request_type , request, parameters):
         request_data = json.loads(request.body)
         for parameter in parameters:
             try:
-                required_parameters[parameter] = request_data[parameter]
+                required_parameters[parameter] = request_data[parameter].encode('utf-8')
             except KeyError:
                 raise Exception('you should set parameter "' + parameter+'"')
+            except Exception:
+                required_parameters[parameter] = request_data[parameter]
+
     if request_type == "GET":
         for parameter in parameters:
-            required_parameters[parameter] = request.GET.get(parameter)
+            try:
+                required_parameters[parameter] = request.GET.get(parameter).encode('utf-8')
+            except Exception:
+                required_parameters[parameter] = request.GET.get(parameter)
             if required_parameters[parameter] is None:
                 raise Exception('you should set parameter "' + parameter + '"')
     return required_parameters

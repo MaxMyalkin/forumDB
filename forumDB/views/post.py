@@ -1,9 +1,9 @@
-from django.http import HttpResponse
 from forumDB.functions.common import make_required, make_optional, find, response_error, response_ok
 from forumDB.functions.post.getters import get_post_details, get_post_list
 from forumDB.functions.post.post_functions import create_post, post_vote, post_update, post_remove_restore
 
 __author__ = 'maxim'
+
 
 def create(request):
     if request.method == 'POST':
@@ -25,7 +25,8 @@ def details(request):
             required_params = make_required("GET", request, ['post'])
             optional_parameters = make_optional("GET", request,
                                                 ['related'])
-            response_data = get_post_details(find('post', None , required_params['post']), optional_parameters['related'])
+            response_data = get_post_details(find('post', None, required_params['post']),
+                                             optional_parameters['related'])
             return response_ok(response_data)
         except Exception as exception:
             return response_error(exception.message)
@@ -83,11 +84,11 @@ def list(request):
                 required_params = make_required("GET", request, ['forum'])
                 required_params['type'] = 'forum'
             except Exception:
-                    required_params = make_required("GET", request, ['thread'])
-                    required_params['type'] = 'thread'
+                required_params = make_required("GET", request, ['thread'])
+                required_params['type'] = 'thread'
 
-            optional_params = make_optional("GET", request,['since','limit', 'order'])
-            response_data = get_post_list(required_params,optional_params)
+            optional_params = make_optional("GET", request, ['since', 'limit', 'order'])
+            response_data = get_post_list(required_params, optional_params)
             return response_ok(response_data)
         except Exception as exception:
             return response_error(exception.message)
