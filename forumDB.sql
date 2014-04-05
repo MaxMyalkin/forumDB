@@ -2,12 +2,15 @@ SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='TRADITIONAL,ALLOW_INVALID_DATES';
 
+DROP SCHEMA IF EXISTS `forumDB` ;
 CREATE SCHEMA IF NOT EXISTS `forumDB` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci ;
 USE `forumDB` ;
 
 -- -----------------------------------------------------
 -- Table `forumDB`.`Users`
 -- -----------------------------------------------------
+DROP TABLE IF EXISTS `forumDB`.`Users` ;
+
 CREATE TABLE IF NOT EXISTS `forumDB`.`Users` (
   `id` BIGINT NOT NULL AUTO_INCREMENT,
   `email` VARCHAR(50) NOT NULL,
@@ -24,6 +27,8 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 -- Table `forumDB`.`Forums`
 -- -----------------------------------------------------
+DROP TABLE IF EXISTS `forumDB`.`Forums` ;
+
 CREATE TABLE IF NOT EXISTS `forumDB`.`Forums` (
   `id` BIGINT NOT NULL AUTO_INCREMENT,
   `name` VARCHAR(50) NOT NULL,
@@ -44,9 +49,11 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 -- Table `forumDB`.`Threads`
 -- -----------------------------------------------------
+DROP TABLE IF EXISTS `forumDB`.`Threads` ;
+
 CREATE TABLE IF NOT EXISTS `forumDB`.`Threads` (
   `id` BIGINT NOT NULL AUTO_INCREMENT,
-  `date` TIMESTAMP NOT NULL,
+  `date` DATETIME NOT NULL,
   `dislikes` INT NOT NULL DEFAULT 0,
   `isClosed` TINYINT NOT NULL DEFAULT 0,
   `isDeleted` TINYINT NOT NULL DEFAULT 0,
@@ -80,9 +87,11 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 -- Table `forumDB`.`Posts`
 -- -----------------------------------------------------
+DROP TABLE IF EXISTS `forumDB`.`Posts` ;
+
 CREATE TABLE IF NOT EXISTS `forumDB`.`Posts` (
   `id` BIGINT NOT NULL AUTO_INCREMENT,
-  `date` TIMESTAMP NOT NULL,
+  `date` DATETIME NOT NULL,
   `dislikes` INT NOT NULL DEFAULT 0,
   `isApproved` TINYINT NOT NULL DEFAULT 0,
   `isDeleted` TINYINT NOT NULL DEFAULT 0,
@@ -129,6 +138,8 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 -- Table `forumDB`.`Followers`
 -- -----------------------------------------------------
+DROP TABLE IF EXISTS `forumDB`.`Followers` ;
+
 CREATE TABLE IF NOT EXISTS `forumDB`.`Followers` (
   `id` BIGINT NOT NULL AUTO_INCREMENT,
   `follower` VARCHAR(50) NOT NULL,
@@ -152,6 +163,8 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 -- Table `forumDB`.`Subscriptions`
 -- -----------------------------------------------------
+DROP TABLE IF EXISTS `forumDB`.`Subscriptions` ;
+
 CREATE TABLE IF NOT EXISTS `forumDB`.`Subscriptions` (
   `id` BIGINT NOT NULL AUTO_INCREMENT,
   `thread` BIGINT NOT NULL,

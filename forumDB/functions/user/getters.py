@@ -37,7 +37,7 @@ def get_follows(what, email):
     else:
         select = 'follower'
         where = 'followee'
-    for element in execSelectQuery('select ' + select + ' from Followers where ' + where + ' = %s', email):
+    for element in execSelectQuery('select ' + select + ' from Followers where ' + where + ' = %s', (email,)):
         list.append(element[0])
     return list
 
@@ -83,7 +83,7 @@ def get_main_info(user):
 
 def get_list_subscriptions(email):
     list = []
-    for element in execSelectQuery('select thread from Subscriptions where  user = %s', email):
+    for element in execSelectQuery('select thread from Subscriptions where  user = %s', (email,)):
         list.append(element[0])
     return list
 

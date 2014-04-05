@@ -47,10 +47,10 @@ def save_follow(required_params):
     if follower_user == followee_user:
         raise Exception('you cant follow to self')
     existed_follow = execSelectQuery('select follower , followee from Followers where follower = %s and followee =%s',
-                                     [required_params['follower'], required_params['followee']])
+                                     (required_params['follower'], required_params['followee'],))
     if len(existed_follow) == 0:
         execInsertUpdateQuery('insert into Followers (follower , followee) values (%s , %s)',
-                              [required_params['follower'], required_params['followee']])
+                              (required_params['follower'], required_params['followee'],))
     return get_user_details(get_email(follower_user))
 
 
@@ -58,15 +58,15 @@ def remove_follow(required_params):
     follower_user = find('user', None, required_params['follower'])
     find('user', None, required_params['followee'])
     existed_follow = execSelectQuery(
-        'select follower , followee from Followers where follower = %s and followee =%s', [required_params['follower'], required_params['followee']])
+        'select follower , followee from Followers where follower = %s and followee =%s', (required_params['follower'], required_params['followee'],))
     if len(existed_follow) != 0:
         execInsertUpdateQuery('delete from Followers where follower = %s and followee = %s',
-                              [required_params['follower'], required_params['followee']])
+                              (required_params['follower'], required_params['followee'],))
         return get_user_details(get_email(follower_user))
     raise Exception("follow doesnt exist")
 
 
 def update_user(required_params):
     find('user', None, required_params['user'])
-    execInsertUpdateQuery('update Users set name = %s , about = %s where email = %s', [required_params['name'], required_params['about'], required_params['user']])
+    execInsertUpdateQuery('update Users set name = %s , about = %s where email = %s', (required_params['name'], required_params['about'], required_params['user'],))
     return get_user_details(required_params['user'])
