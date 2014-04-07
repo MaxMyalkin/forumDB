@@ -65,7 +65,7 @@ def get_follows_parametrized(what, required_params, optional_params):
     if optional_params['limit'] is not None:
         query += ' limit ' + str(optional_params['limit'])
 
-    for element in execSelectQuery(query, (required_params['user'])):
+    for element in execSelectQuery(query, (required_params['user'],)):
         list.append(element[0])
     return list
 
