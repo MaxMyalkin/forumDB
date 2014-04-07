@@ -1,0 +1,997 @@
+*** Starting uWSGI 2.0.3 (64bit) on [Sat Apr  5 18:58:14 2014] ***
+compiled with version: 4.7.2 on 04 April 2014 16:41:02
+os: Linux-3.2.0-4-amd64 #1 SMP Debian 3.2.54-2
+nodename: tp
+machine: x86_64
+clock source: unix
+detected number of CPU cores: 1
+current working directory: /home/tpadmin/forumDB
+writing pidfile to /tmp/forumDB.pid
+detected binary path: /usr/local/bin/uwsgi
+!!! no internal routing support, rebuild with pcre support !!!
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+your processes number limit is 7724
+your memory page size is 4096 bytes
+detected max file descriptor number: 1024
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uwsgi socket 0 bound to UNIX address /tmp/forumDB.sock fd 5
+Python version: 2.7.3 (default, Mar 13 2014, 11:26:58)  [GCC 4.7.2]
+Python main interpreter initialized at 0x1c41440
+python threads support enabled
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 249168 bytes (243 KB) for 4 cores
+*** Operational MODE: preforking+threaded ***
+added ../ to pythonpath.
+ImportError: No module named wsgi
+unable to load app 0 (mountpoint='') (callable not found or import error)
+*** no app loaded. going in full dynamic mode ***
+*** uWSGI is running in multiple interpreter mode ***
+spawned uWSGI master process (pid: 17561)
+spawned uWSGI worker 1 (pid: 17562, cores: 2)
+spawned uWSGI worker 2 (pid: 17563, cores: 2)
+*** Starting uWSGI 2.0.3 (64bit) on [Sat Apr  5 19:00:46 2014] ***
+compiled with version: 4.7.2 on 04 April 2014 16:41:02
+os: Linux-3.2.0-4-amd64 #1 SMP Debian 3.2.54-2
+nodename: tp
+machine: x86_64
+clock source: unix
+detected number of CPU cores: 1
+current working directory: /home/tpadmin/forumDB
+writing pidfile to /tmp/forumDB.pid
+detected binary path: /usr/local/bin/uwsgi
+!!! no internal routing support, rebuild with pcre support !!!
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+your processes number limit is 7724
+your memory page size is 4096 bytes
+detected max file descriptor number: 1024
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uwsgi socket 0 bound to UNIX address /tmp/forumDB.sock fd 5
+Python version: 2.7.3 (default, Mar 13 2014, 11:26:58)  [GCC 4.7.2]
+Python main interpreter initialized at 0x24b6450
+python threads support enabled
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 249168 bytes (243 KB) for 4 cores
+*** Operational MODE: preforking+threaded ***
+added ../ to pythonpath.
+ImportError: No module named wsgi
+unable to load app 0 (mountpoint='') (callable not found or import error)
+*** no app loaded. going in full dynamic mode ***
+*** uWSGI is running in multiple interpreter mode ***
+spawned uWSGI master process (pid: 17607)
+spawned uWSGI worker 1 (pid: 17608, cores: 2)
+spawned uWSGI worker 2 (pid: 17609, cores: 2)
+--- no python application found, check your startup logs for errors ---
+[pid: 17609|app: -1|req: -1/1] 193.167.13.125 () {38 vars in 706 bytes} [Sat Apr  5 19:01:22 2014] GET /user/details/?user=ex => generated 21 bytes in 0 msecs (HTTP/1.1 500) 2 headers in 83 bytes (0 switches on core 0)
+--- no python application found, check your startup logs for errors ---
+[pid: 17609|app: -1|req: -1/2] 193.167.13.125 () {38 vars in 722 bytes} [Sat Apr  5 19:01:31 2014] GET /myalkin/user/details/?user=ex => generated 21 bytes in 0 msecs (HTTP/1.1 500) 2 headers in 83 bytes (0 switches on core 0)
+*** Starting uWSGI 2.0.3 (64bit) on [Sat Apr  5 19:08:07 2014] ***
+compiled with version: 4.7.2 on 04 April 2014 16:41:02
+os: Linux-3.2.0-4-amd64 #1 SMP Debian 3.2.54-2
+nodename: tp
+machine: x86_64
+clock source: unix
+detected number of CPU cores: 1
+current working directory: /home/tpadmin/forumDB
+writing pidfile to /tmp/forumDB.pid
+detected binary path: /usr/local/bin/uwsgi
+!!! no internal routing support, rebuild with pcre support !!!
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+your processes number limit is 7724
+your memory page size is 4096 bytes
+detected max file descriptor number: 1024
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uwsgi socket 0 bound to UNIX address /tmp/forumDB.sock fd 5
+Python version: 2.7.3 (default, Mar 13 2014, 11:26:58)  [GCC 4.7.2]
+Python main interpreter initialized at 0x1cc0370
+python threads support enabled
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 249168 bytes (243 KB) for 4 cores
+*** Operational MODE: preforking+threaded ***
+ImportError: No module named wsgi
+unable to load app 0 (mountpoint='') (callable not found or import error)
+*** no app loaded. going in full dynamic mode ***
+*** uWSGI is running in multiple interpreter mode ***
+spawned uWSGI master process (pid: 17636)
+spawned uWSGI worker 1 (pid: 17637, cores: 2)
+spawned uWSGI worker 2 (pid: 17638, cores: 2)
+*** Starting uWSGI 2.0.3 (64bit) on [Sat Apr  5 19:08:19 2014] ***
+compiled with version: 4.7.2 on 04 April 2014 16:41:02
+os: Linux-3.2.0-4-amd64 #1 SMP Debian 3.2.54-2
+nodename: tp
+machine: x86_64
+clock source: unix
+detected number of CPU cores: 1
+current working directory: /home/tpadmin/forumDB
+writing pidfile to /tmp/forumDB.pid
+detected binary path: /usr/local/bin/uwsgi
+!!! no internal routing support, rebuild with pcre support !!!
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+your processes number limit is 7724
+your memory page size is 4096 bytes
+detected max file descriptor number: 1024
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uwsgi socket 0 bound to UNIX address /tmp/forumDB.sock fd 5
+Python version: 2.7.3 (default, Mar 13 2014, 11:26:58)  [GCC 4.7.2]
+Python main interpreter initialized at 0x1a45370
+python threads support enabled
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 249168 bytes (243 KB) for 4 cores
+*** Operational MODE: preforking+threaded ***
+ImportError: No module named wsgi
+unable to load app 0 (mountpoint='') (callable not found or import error)
+*** no app loaded. going in full dynamic mode ***
+*** uWSGI is running in multiple interpreter mode ***
+spawned uWSGI master process (pid: 17648)
+spawned uWSGI worker 1 (pid: 17649, cores: 2)
+spawned uWSGI worker 2 (pid: 17650, cores: 2)
+--- no python application found, check your startup logs for errors ---
+[pid: 17650|app: -1|req: -1/1] 193.167.13.125 () {40 vars in 753 bytes} [Sat Apr  5 19:08:24 2014] GET /myalkin/user/details/?user=ex => generated 21 bytes in 0 msecs (HTTP/1.1 500) 2 headers in 83 bytes (0 switches on core 0)
+--- no python application found, check your startup logs for errors ---
+[pid: 17650|app: -1|req: -1/2] 193.167.13.125 () {40 vars in 753 bytes} [Sat Apr  5 19:08:53 2014] GET /myalkin/user/details/?user=ex => generated 21 bytes in 0 msecs (HTTP/1.1 500) 2 headers in 83 bytes (0 switches on core 0)
+--- no python application found, check your startup logs for errors ---
+[pid: 17650|app: -1|req: -1/3] 193.167.13.125 () {40 vars in 722 bytes} [Sat Apr  5 19:09:38 2014] GET /myalkin/user/details/?user=ex => generated 21 bytes in 0 msecs (HTTP/1.1 500) 2 headers in 83 bytes (0 switches on core 0)
+--- no python application found, check your startup logs for errors ---
+[pid: 17650|app: -1|req: -1/4] 193.167.13.125 () {42 vars in 751 bytes} [Sat Apr  5 19:14:42 2014] GET / => generated 21 bytes in 0 msecs (HTTP/1.1 500) 2 headers in 83 bytes (0 switches on core 0)
+--- no python application found, check your startup logs for errors ---
+[pid: 17650|app: -1|req: -1/5] 193.167.13.125 () {40 vars in 696 bytes} [Sat Apr  5 19:14:44 2014] GET / => generated 21 bytes in 0 msecs (HTTP/1.1 500) 2 headers in 83 bytes (1 switches on core 0)
+--- no python application found, check your startup logs for errors ---
+[pid: 17650|app: -1|req: -1/6] 193.167.13.125 () {40 vars in 696 bytes} [Sat Apr  5 19:14:47 2014] GET / => generated 21 bytes in 0 msecs (HTTP/1.1 500) 2 headers in 83 bytes (1 switches on core 1)
+--- no python application found, check your startup logs for errors ---
+[pid: 17650|app: -1|req: -1/7] 193.167.13.125 () {40 vars in 696 bytes} [Sat Apr  5 19:14:49 2014] GET / => generated 21 bytes in 0 msecs (HTTP/1.1 500) 2 headers in 83 bytes (1 switches on core 0)
+--- no python application found, check your startup logs for errors ---
+[pid: 17650|app: -1|req: -1/8] 193.167.13.125 () {40 vars in 696 bytes} [Sat Apr  5 19:14:51 2014] GET / => generated 21 bytes in 0 msecs (HTTP/1.1 500) 2 headers in 83 bytes (1 switches on core 1)
+--- no python application found, check your startup logs for errors ---
+[pid: 17650|app: -1|req: -1/9] 193.167.13.125 () {40 vars in 696 bytes} [Sat Apr  5 19:14:52 2014] GET / => generated 21 bytes in 0 msecs (HTTP/1.1 500) 2 headers in 83 bytes (1 switches on core 0)
+--- no python application found, check your startup logs for errors ---
+[pid: 17650|app: -1|req: -1/10] 193.167.13.125 () {40 vars in 696 bytes} [Sat Apr  5 19:14:53 2014] GET / => generated 21 bytes in 0 msecs (HTTP/1.1 500) 2 headers in 83 bytes (1 switches on core 1)
+--- no python application found, check your startup logs for errors ---
+[pid: 17650|app: -1|req: -1/11] 193.167.13.125 () {40 vars in 696 bytes} [Sat Apr  5 19:14:55 2014] GET / => generated 21 bytes in 0 msecs (HTTP/1.1 500) 2 headers in 83 bytes (1 switches on core 0)
+--- no python application found, check your startup logs for errors ---
+[pid: 17650|app: -1|req: -1/12] 193.167.13.125 () {40 vars in 696 bytes} [Sat Apr  5 19:14:57 2014] GET / => generated 21 bytes in 0 msecs (HTTP/1.1 500) 2 headers in 83 bytes (1 switches on core 1)
+--- no python application found, check your startup logs for errors ---
+[pid: 17650|app: -1|req: -1/13] 193.167.13.125 () {40 vars in 696 bytes} [Sat Apr  5 19:14:58 2014] GET / => generated 21 bytes in 0 msecs (HTTP/1.1 500) 2 headers in 83 bytes (1 switches on core 0)
+--- no python application found, check your startup logs for errors ---
+[pid: 17650|app: -1|req: -1/14] 193.167.13.125 () {40 vars in 696 bytes} [Sat Apr  5 19:14:58 2014] GET / => generated 21 bytes in 0 msecs (HTTP/1.1 500) 2 headers in 83 bytes (1 switches on core 1)
+--- no python application found, check your startup logs for errors ---
+[pid: 17650|app: -1|req: -1/15] 193.167.13.125 () {40 vars in 696 bytes} [Sat Apr  5 19:14:59 2014] GET / => generated 21 bytes in 0 msecs (HTTP/1.1 500) 2 headers in 83 bytes (1 switches on core 0)
+--- no python application found, check your startup logs for errors ---
+[pid: 17650|app: -1|req: -1/16] 193.167.13.125 () {40 vars in 696 bytes} [Sat Apr  5 19:15:00 2014] GET / => generated 21 bytes in 0 msecs (HTTP/1.1 500) 2 headers in 83 bytes (1 switches on core 1)
+--- no python application found, check your startup logs for errors ---
+[pid: 17650|app: -1|req: -1/17] 193.167.13.125 () {40 vars in 696 bytes} [Sat Apr  5 19:15:01 2014] GET / => generated 21 bytes in 0 msecs (HTTP/1.1 500) 2 headers in 83 bytes (1 switches on core 0)
+--- no python application found, check your startup logs for errors ---
+[pid: 17650|app: -1|req: -1/18] 193.167.13.125 () {40 vars in 696 bytes} [Sat Apr  5 19:15:01 2014] GET / => generated 21 bytes in 0 msecs (HTTP/1.1 500) 2 headers in 83 bytes (1 switches on core 1)
+--- no python application found, check your startup logs for errors ---
+[pid: 17650|app: -1|req: -1/19] 193.167.13.125 () {40 vars in 696 bytes} [Sat Apr  5 19:15:02 2014] GET / => generated 21 bytes in 0 msecs (HTTP/1.1 500) 2 headers in 83 bytes (1 switches on core 0)
+--- no python application found, check your startup logs for errors ---
+[pid: 17650|app: -1|req: -1/20] 193.167.13.125 () {40 vars in 696 bytes} [Sat Apr  5 19:15:02 2014] GET / => generated 21 bytes in 0 msecs (HTTP/1.1 500) 2 headers in 83 bytes (1 switches on core 1)
+--- no python application found, check your startup logs for errors ---
+[pid: 17650|app: -1|req: -1/21] 193.167.13.125 () {40 vars in 696 bytes} [Sat Apr  5 19:15:02 2014] GET / => generated 21 bytes in 0 msecs (HTTP/1.1 500) 2 headers in 83 bytes (1 switches on core 0)
+--- no python application found, check your startup logs for errors ---
+[pid: 17650|app: -1|req: -1/22] 193.167.13.125 () {40 vars in 696 bytes} [Sat Apr  5 19:15:03 2014] GET / => generated 21 bytes in 0 msecs (HTTP/1.1 500) 2 headers in 83 bytes (1 switches on core 1)
+--- no python application found, check your startup logs for errors ---
+[pid: 17650|app: -1|req: -1/23] 193.167.13.125 () {40 vars in 722 bytes} [Sat Apr  5 19:15:31 2014] GET /myalkin/user/details/?user=ex => generated 21 bytes in 0 msecs (HTTP/1.1 500) 2 headers in 83 bytes (0 switches on core 0)
+--- no python application found, check your startup logs for errors ---
+[pid: 17650|app: -1|req: -1/24] 193.167.13.125 () {40 vars in 722 bytes} [Sat Apr  5 19:16:33 2014] GET /myalkin/user/details/?user=ex => generated 21 bytes in 0 msecs (HTTP/1.1 500) 2 headers in 83 bytes (0 switches on core 0)
+*** Starting uWSGI 2.0.3 (64bit) on [Sat Apr  5 19:17:58 2014] ***
+compiled with version: 4.7.2 on 04 April 2014 16:41:02
+os: Linux-3.2.0-4-amd64 #1 SMP Debian 3.2.54-2
+nodename: tp
+machine: x86_64
+clock source: unix
+detected number of CPU cores: 1
+current working directory: /home/tpadmin/forumDB
+writing pidfile to /tmp/forumDB.pid
+detected binary path: /usr/local/bin/uwsgi
+!!! no internal routing support, rebuild with pcre support !!!
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+your processes number limit is 7724
+your memory page size is 4096 bytes
+detected max file descriptor number: 1024
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uwsgi socket 0 bound to UNIX address /tmp/forumDB.sock fd 5
+Python version: 2.7.3 (default, Mar 13 2014, 11:26:58)  [GCC 4.7.2]
+Python main interpreter initialized at 0xe6a370
+python threads support enabled
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 249168 bytes (243 KB) for 4 cores
+*** Operational MODE: preforking+threaded ***
+ImportError: No module named wsgi
+unable to load app 0 (mountpoint='') (callable not found or import error)
+*** no app loaded. going in full dynamic mode ***
+*** uWSGI is running in multiple interpreter mode ***
+spawned uWSGI master process (pid: 17702)
+spawned uWSGI worker 1 (pid: 17703, cores: 2)
+spawned uWSGI worker 2 (pid: 17704, cores: 2)
+--- no python application found, check your startup logs for errors ---
+[pid: 17704|app: -1|req: -1/1] 193.167.13.125 () {40 vars in 696 bytes} [Sat Apr  5 19:18:07 2014] GET / => generated 21 bytes in 0 msecs (HTTP/1.1 500) 2 headers in 83 bytes (0 switches on core 0)
+*** Starting uWSGI 2.0.3 (64bit) on [Sat Apr  5 19:20:20 2014] ***
+compiled with version: 4.7.2 on 04 April 2014 16:41:02
+os: Linux-3.2.0-4-amd64 #1 SMP Debian 3.2.54-2
+nodename: tp
+machine: x86_64
+clock source: unix
+detected number of CPU cores: 1
+current working directory: /home/tpadmin/forumDB
+writing pidfile to /tmp/forumDB.pid
+detected binary path: /usr/local/bin/uwsgi
+!!! no internal routing support, rebuild with pcre support !!!
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+your processes number limit is 7724
+your memory page size is 4096 bytes
+detected max file descriptor number: 1024
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uwsgi socket 0 bound to UNIX address /tmp/forumDB.sock fd 5
+Python version: 2.7.3 (default, Mar 13 2014, 11:26:58)  [GCC 4.7.2]
+Python main interpreter initialized at 0x1142370
+python threads support enabled
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 249168 bytes (243 KB) for 4 cores
+*** Operational MODE: preforking+threaded ***
+ImportError: No module named wsgi
+unable to load app 0 (mountpoint='') (callable not found or import error)
+*** no app loaded. going in full dynamic mode ***
+*** uWSGI is running in multiple interpreter mode ***
+spawned uWSGI master process (pid: 17724)
+spawned uWSGI worker 1 (pid: 17725, cores: 2)
+spawned uWSGI worker 2 (pid: 17726, cores: 2)
+*** Starting uWSGI 2.0.3 (64bit) on [Sat Apr  5 19:25:33 2014] ***
+compiled with version: 4.7.2 on 04 April 2014 16:41:02
+os: Linux-3.2.0-4-amd64 #1 SMP Debian 3.2.54-2
+nodename: tp
+machine: x86_64
+clock source: unix
+detected number of CPU cores: 1
+current working directory: /home/tpadmin/forumDB/API_DB
+writing pidfile to /tmp/forumDB.pid
+detected binary path: /usr/local/bin/uwsgi
+!!! no internal routing support, rebuild with pcre support !!!
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+chdir(): No such file or directory [core/uwsgi.c line 2489]
+--- no python application found, check your startup logs for errors ---
+[pid: 17726|app: -1|req: -1/1] 193.167.13.125 () {40 vars in 696 bytes} [Sat Apr  5 19:25:38 2014] GET / => generated 21 bytes in 0 msecs (HTTP/1.1 500) 2 headers in 83 bytes (0 switches on core 0)
+*** Starting uWSGI 2.0.3 (64bit) on [Sat Apr  5 19:30:09 2014] ***
+compiled with version: 4.7.2 on 04 April 2014 16:41:02
+os: Linux-3.2.0-4-amd64 #1 SMP Debian 3.2.54-2
+nodename: tp
+machine: x86_64
+clock source: unix
+detected number of CPU cores: 1
+current working directory: /home/tpadmin/forumDB
+writing pidfile to /tmp/forumDB.pid
+detected binary path: /usr/local/bin/uwsgi
+!!! no internal routing support, rebuild with pcre support !!!
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+your processes number limit is 7724
+your memory page size is 4096 bytes
+detected max file descriptor number: 1024
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uwsgi socket 0 bound to UNIX address /tmp/forumDB.sock fd 5
+Python version: 2.7.3 (default, Mar 13 2014, 11:26:58)  [GCC 4.7.2]
+Python main interpreter initialized at 0x7be370
+python threads support enabled
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 249168 bytes (243 KB) for 4 cores
+*** Operational MODE: preforking+threaded ***
+ImportError: No module named wsgi
+unable to load app 0 (mountpoint='') (callable not found or import error)
+*** no app loaded. going in full dynamic mode ***
+*** uWSGI is running in multiple interpreter mode ***
+spawned uWSGI master process (pid: 17803)
+spawned uWSGI worker 1 (pid: 17804, cores: 2)
+spawned uWSGI worker 2 (pid: 17805, cores: 2)
+--- no python application found, check your startup logs for errors ---
+[pid: 17805|app: -1|req: -1/1] 193.167.13.125 () {40 vars in 696 bytes} [Sat Apr  5 19:30:12 2014] GET / => generated 21 bytes in 0 msecs (HTTP/1.1 500) 2 headers in 83 bytes (0 switches on core 0)
+--- no python application found, check your startup logs for errors ---
+[pid: 17804|app: -1|req: -1/2] 193.167.13.125 () {40 vars in 696 bytes} [Sat Apr  5 19:30:14 2014] GET / => generated 21 bytes in 0 msecs (HTTP/1.1 500) 2 headers in 83 bytes (0 switches on core 0)
+*** Starting uWSGI 2.0.3 (64bit) on [Sat Apr  5 19:30:43 2014] ***
+compiled with version: 4.7.2 on 04 April 2014 16:41:02
+os: Linux-3.2.0-4-amd64 #1 SMP Debian 3.2.54-2
+nodename: tp
+machine: x86_64
+clock source: unix
+detected number of CPU cores: 1
+current working directory: /home/tpadmin/forumDB
+writing pidfile to /tmp/forumDB.pid
+detected binary path: /usr/local/bin/uwsgi
+!!! no internal routing support, rebuild with pcre support !!!
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+your processes number limit is 7724
+your memory page size is 4096 bytes
+detected max file descriptor number: 1024
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uwsgi socket 0 bound to UNIX address /tmp/forumDB.sock fd 5
+Python version: 2.7.3 (default, Mar 13 2014, 11:26:58)  [GCC 4.7.2]
+Python main interpreter initialized at 0xdba370
+python threads support enabled
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 249168 bytes (243 KB) for 4 cores
+*** Operational MODE: preforking+threaded ***
+ImportError: No module named wsgi
+unable to load app 0 (mountpoint='') (callable not found or import error)
+*** no app loaded. going in full dynamic mode ***
+*** uWSGI is running in multiple interpreter mode ***
+spawned uWSGI master process (pid: 17819)
+spawned uWSGI worker 1 (pid: 17820, cores: 2)
+spawned uWSGI worker 2 (pid: 17821, cores: 2)
+--- no python application found, check your startup logs for errors ---
+[pid: 17820|app: -1|req: -1/1] 193.167.13.125 () {40 vars in 696 bytes} [Sat Apr  5 19:30:45 2014] GET / => generated 21 bytes in 0 msecs (HTTP/1.1 500) 2 headers in 83 bytes (0 switches on core 0)
+*** Starting uWSGI 2.0.3 (64bit) on [Sat Apr  5 19:40:10 2014] ***
+compiled with version: 4.7.2 on 04 April 2014 16:41:02
+os: Linux-3.2.0-4-amd64 #1 SMP Debian 3.2.54-2
+nodename: tp
+machine: x86_64
+clock source: unix
+detected number of CPU cores: 1
+current working directory: /home/tpadmin/forumDB
+writing pidfile to /tmp/forumDB.pid
+detected binary path: /usr/local/bin/uwsgi
+!!! no internal routing support, rebuild with pcre support !!!
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+your processes number limit is 7724
+your memory page size is 4096 bytes
+detected max file descriptor number: 1024
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uwsgi socket 0 bound to UNIX address /tmp/forumDB.sock fd 5
+Python version: 2.7.3 (default, Mar 13 2014, 11:26:58)  [GCC 4.7.2]
+Python main interpreter initialized at 0x1e62360
+python threads support enabled
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 249168 bytes (243 KB) for 4 cores
+*** Operational MODE: preforking+threaded ***
+WSGI app 0 (mountpoint='') ready in 0 seconds on interpreter 0x1e62360 pid: 17889 (default app)
+*** uWSGI is running in multiple interpreter mode ***
+spawned uWSGI master process (pid: 17889)
+spawned uWSGI worker 1 (pid: 17890, cores: 2)
+spawned uWSGI worker 2 (pid: 17892, cores: 2)
+[pid: 17892|app: 0|req: 1/1] 193.167.13.125 () {40 vars in 696 bytes} [Sat Apr  5 19:40:16 2014] GET / => generated 6433 bytes in 157 msecs (HTTP/1.1 404) 1 headers in 51 bytes (1 switches on core 0)
+[pid: 17892|app: 0|req: 2/2] 193.167.13.125 () {38 vars in 665 bytes} [Sat Apr  5 19:42:46 2014] GET / => generated 6433 bytes in 17 msecs (HTTP/1.1 404) 1 headers in 51 bytes (1 switches on core 1)
+[pid: 17892|app: 0|req: 3/3] 193.167.13.125 () {38 vars in 665 bytes} [Sat Apr  5 19:42:46 2014] GET / => generated 6433 bytes in 16 msecs (HTTP/1.1 404) 1 headers in 51 bytes (1 switches on core 0)
+[pid: 17892|app: 0|req: 4/4] 193.167.13.125 () {44 vars in 781 bytes} [Sat Apr  5 19:43:01 2014] POST /myalkin/user/create/ => generated 120 bytes in 65 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 1)
+[pid: 17892|app: 0|req: 5/5] 193.167.13.125 () {38 vars in 508 bytes} [Sat Apr  5 19:55:57 2014] POST /myalkin/user/create/ => generated 148 bytes in 9 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 0)
+./forumDB/views/user.py:53: DeprecationWarning: BaseException.message has been deprecated as of Python 2.6
+  return response_error(exception.message)
+
+[pid: 17892|app: 0|req: 6/6] 193.167.13.125 () {34 vars in 472 bytes} [Sat Apr  5 19:55:57 2014] GET /myalkin/user/details/?user=example%40mail.ru => generated 44 bytes in 4 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 1)
+[pid: 17892|app: 0|req: 7/7] 193.167.13.125 () {38 vars in 508 bytes} [Sat Apr  5 20:00:17 2014] POST /myalkin/user/create/ => generated 148 bytes in 3 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 0)
+./forumDB/views/user.py:53: DeprecationWarning: BaseException.message has been deprecated as of Python 2.6
+  return response_error(exception.message)
+
+[pid: 17890|app: 0|req: 1/8] 193.167.13.125 () {34 vars in 472 bytes} [Sat Apr  5 20:00:17 2014] GET /myalkin/user/details/?user=example%40mail.ru => generated 44 bytes in 203 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 0)
+[pid: 17892|app: 0|req: 8/9] 193.167.13.125 () {40 vars in 745 bytes} [Sat Apr  5 20:01:30 2014] GET /myalkin/user/create/user=example@mail.ru => generated 6553 bytes in 19 msecs (HTTP/1.1 404) 1 headers in 51 bytes (1 switches on core 1)
+[pid: 17892|app: 0|req: 9/10] 193.167.13.125 () {40 vars in 747 bytes} [Sat Apr  5 20:01:42 2014] GET /myalkin/user/details/user=example@mail.ru => generated 6556 bytes in 16 msecs (HTTP/1.1 404) 1 headers in 51 bytes (1 switches on core 0)
+[pid: 17892|app: 0|req: 10/11] 193.167.13.125 () {40 vars in 748 bytes} [Sat Apr  5 20:01:55 2014] GET /myalkin/user/details/?user=example@mail.ru => generated 44 bytes in 4 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 1)
+[pid: 17892|app: 0|req: 11/12] 193.167.13.125 () {38 vars in 508 bytes} [Sat Apr  5 20:15:29 2014] POST /myalkin/user/create/ => generated 148 bytes in 9 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 0)
+[pid: 17892|app: 0|req: 12/13] 193.167.13.125 () {34 vars in 472 bytes} [Sat Apr  5 20:15:29 2014] GET /myalkin/user/details/?user=example%40mail.ru => generated 44 bytes in 4 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 1)
+[pid: 17892|app: 0|req: 13/14] 193.167.13.125 () {44 vars in 781 bytes} [Sat Apr  5 20:16:49 2014] POST /myalkin/user/create/ => generated 120 bytes in 9 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 1)
+[pid: 17892|app: 0|req: 14/15] 193.167.13.125 () {40 vars in 720 bytes} [Sat Apr  5 20:17:20 2014] GET /myalkin/user/details/?user=6 => generated 175 bytes in 8 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 0)
+[pid: 17892|app: 0|req: 15/16] 193.167.13.125 () {40 vars in 720 bytes} [Sat Apr  5 20:17:32 2014] GET /myalkin/user/details/?user=6 => generated 175 bytes in 7 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 1)
+[pid: 17892|app: 0|req: 16/17] 193.167.13.125 () {38 vars in 508 bytes} [Sat Apr  5 20:18:20 2014] POST /myalkin/user/create/ => generated 148 bytes in 9 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 0)
+[pid: 17892|app: 0|req: 17/18] 193.167.13.125 () {34 vars in 472 bytes} [Sat Apr  5 20:18:20 2014] GET /myalkin/user/details/?user=example%40mail.ru => generated 44 bytes in 3 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 1)
+[pid: 17892|app: 0|req: 18/19] 193.167.13.125 () {40 vars in 720 bytes} [Sat Apr  5 20:18:46 2014] GET /myalkin/user/details/?user=6 => generated 60 bytes in 3 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 0)
+[pid: 17892|app: 0|req: 19/20] 193.167.13.125 () {40 vars in 748 bytes} [Sat Apr  5 20:18:57 2014] GET /myalkin/user/details/?user=example@mail.ru => generated 44 bytes in 4 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 1)
+[pid: 17892|app: 0|req: 20/21] 193.167.13.125 () {40 vars in 748 bytes} [Sat Apr  5 20:22:40 2014] GET /myalkin/user/details/?user=example@mail.ru => generated 44 bytes in 4 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 0)
+[pid: 17892|app: 0|req: 21/22] 193.167.13.125 () {40 vars in 748 bytes} [Sat Apr  5 20:22:42 2014] GET /myalkin/user/details/?user=example@mail.ru => generated 44 bytes in 4 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 1)
+[pid: 17890|app: 0|req: 2/23] 193.167.13.125 () {40 vars in 748 bytes} [Sat Apr  5 20:22:42 2014] GET /myalkin/user/details/?user=example@mail.ru => generated 44 bytes in 5 msecs (HTTP/1.1 200) 1 headers in 51 bytes (2 switches on core 1)
+[pid: 17890|app: 0|req: 3/24] 193.167.13.125 () {40 vars in 748 bytes} [Sat Apr  5 20:22:43 2014] GET /myalkin/user/details/?user=example@mail.ru => generated 44 bytes in 4 msecs (HTTP/1.1 200) 1 headers in 51 bytes (2 switches on core 0)
+[pid: 17892|app: 0|req: 22/25] 193.167.13.125 () {40 vars in 748 bytes} [Sat Apr  5 20:22:43 2014] GET /myalkin/user/details/?user=example@mail.ru => generated 44 bytes in 4 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 0)
+[pid: 17892|app: 0|req: 23/26] 193.167.13.125 () {40 vars in 748 bytes} [Sat Apr  5 20:22:44 2014] GET /myalkin/user/details/?user=example@mail.ru => generated 44 bytes in 4 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 1)
+[pid: 17890|app: 0|req: 4/27] 193.167.13.125 () {40 vars in 748 bytes} [Sat Apr  5 20:22:45 2014] GET /myalkin/user/details/?user=example@mail.ru => generated 44 bytes in 4 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 1)
+[pid: 17890|app: 0|req: 5/28] 193.167.13.125 () {40 vars in 748 bytes} [Sat Apr  5 20:22:46 2014] GET /myalkin/user/details/?user=example@mail.ru => generated 44 bytes in 4 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 0)
+[pid: 17892|app: 0|req: 24/29] 193.167.13.125 () {40 vars in 748 bytes} [Sat Apr  5 20:22:46 2014] GET /myalkin/user/details/?user=example@mail.ru => generated 44 bytes in 4 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 0)
+[pid: 17892|app: 0|req: 25/30] 193.167.13.125 () {40 vars in 748 bytes} [Sat Apr  5 20:22:47 2014] GET /myalkin/user/details/?user=example@mail.ru => generated 44 bytes in 5 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 1)
+[pid: 17890|app: 0|req: 6/31] 193.167.13.125 () {40 vars in 748 bytes} [Sat Apr  5 20:22:48 2014] GET /myalkin/user/details/?user=example@mail.ru => generated 44 bytes in 4 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 1)
+[pid: 17890|app: 0|req: 7/32] 193.167.13.125 () {40 vars in 748 bytes} [Sat Apr  5 20:22:49 2014] GET /myalkin/user/details/?user=example@mail.ru => generated 44 bytes in 4 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 0)
+[pid: 17892|app: 0|req: 26/33] 193.167.13.125 () {40 vars in 748 bytes} [Sat Apr  5 20:22:49 2014] GET /myalkin/user/details/?user=example@mail.ru => generated 44 bytes in 4 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 0)
+[pid: 17892|app: 0|req: 27/34] 193.167.13.125 () {40 vars in 748 bytes} [Sat Apr  5 20:22:50 2014] GET /myalkin/user/details/?user=example@mail.ru => generated 44 bytes in 4 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 1)
+[pid: 17890|app: 0|req: 8/35] 193.167.13.125 () {40 vars in 748 bytes} [Sat Apr  5 20:22:51 2014] GET /myalkin/user/details/?user=example@mail.ru => generated 44 bytes in 4 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 1)
+[pid: 17890|app: 0|req: 9/36] 193.167.13.125 () {40 vars in 748 bytes} [Sat Apr  5 20:22:52 2014] GET /myalkin/user/details/?user=example@mail.ru => generated 44 bytes in 4 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 0)
+[pid: 17892|app: 0|req: 28/37] 193.167.13.125 () {40 vars in 748 bytes} [Sat Apr  5 20:22:52 2014] GET /myalkin/user/details/?user=example@mail.ru => generated 44 bytes in 4 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 0)
+[pid: 17892|app: 0|req: 29/38] 193.167.13.125 () {40 vars in 748 bytes} [Sat Apr  5 20:22:53 2014] GET /myalkin/user/details/?user=example@mail.ru => generated 44 bytes in 4 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 1)
+[pid: 17892|app: 0|req: 30/39] 193.167.13.125 () {38 vars in 748 bytes} [Sat Apr  5 20:29:40 2014] GET /myalkin/user/details/?user=example@mail.ru => generated 44 bytes in 4 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 0)
+[pid: 17892|app: 0|req: 31/40] 193.167.13.125 () {40 vars in 779 bytes} [Sat Apr  5 20:31:48 2014] GET /myalkin/user/details/?user=example@mail.ru => generated 44 bytes in 4 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 1)
+[pid: 17892|app: 0|req: 32/41] 193.167.13.125 () {40 vars in 779 bytes} [Sat Apr  5 20:31:50 2014] GET /myalkin/user/details/?user=example@mail.ru => generated 44 bytes in 4 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 0)
+[pid: 17890|app: 0|req: 10/42] 193.167.13.125 () {40 vars in 779 bytes} [Sat Apr  5 20:31:51 2014] GET /myalkin/user/details/?user=example@mail.ru => generated 44 bytes in 4 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 1)
+[pid: 17890|app: 0|req: 11/43] 193.167.13.125 () {40 vars in 779 bytes} [Sat Apr  5 20:31:52 2014] GET /myalkin/user/details/?user=example@mail.ru => generated 44 bytes in 4 msecs (HTTP/1.1 200) 1 headers in 51 bytes (2 switches on core 0)
+[pid: 17892|app: 0|req: 33/44] 193.167.13.125 () {40 vars in 779 bytes} [Sat Apr  5 20:31:53 2014] GET /myalkin/user/details/?user=example@mail.ru => generated 44 bytes in 4 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 1)
+[pid: 17892|app: 0|req: 34/45] 193.167.13.125 () {40 vars in 779 bytes} [Sat Apr  5 20:31:53 2014] GET /myalkin/user/details/?user=example@mail.ru => generated 44 bytes in 4 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 0)
+[pid: 17890|app: 0|req: 12/46] 193.167.13.125 () {40 vars in 779 bytes} [Sat Apr  5 20:31:54 2014] GET /myalkin/user/details/?user=example@mail.ru => generated 44 bytes in 4 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 1)
+[pid: 17890|app: 0|req: 13/47] 193.167.13.125 () {40 vars in 779 bytes} [Sat Apr  5 20:31:54 2014] GET /myalkin/user/details/?user=example@mail.ru => generated 44 bytes in 4 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 0)
+[pid: 17892|app: 0|req: 35/48] 193.167.13.125 () {40 vars in 779 bytes} [Sat Apr  5 20:31:54 2014] GET /myalkin/user/details/?user=example@mail.ru => generated 44 bytes in 4 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 1)
+[pid: 17892|app: 0|req: 36/49] 193.167.13.125 () {40 vars in 779 bytes} [Sat Apr  5 20:31:55 2014] GET /myalkin/user/details/?user=example@mail.ru => generated 44 bytes in 4 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 0)
+[pid: 17890|app: 0|req: 14/50] 193.167.13.125 () {40 vars in 779 bytes} [Sat Apr  5 20:31:55 2014] GET /myalkin/user/details/?user=example@mail.ru => generated 44 bytes in 4 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 1)
+[pid: 17890|app: 0|req: 15/51] 193.167.13.125 () {40 vars in 779 bytes} [Sat Apr  5 20:31:55 2014] GET /myalkin/user/details/?user=example@mail.ru => generated 44 bytes in 4 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 0)
+[pid: 17892|app: 0|req: 37/52] 193.167.13.125 () {40 vars in 779 bytes} [Sat Apr  5 20:31:56 2014] GET /myalkin/user/details/?user=example@mail.ru => generated 44 bytes in 4 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 1)
+[pid: 17892|app: 0|req: 38/53] 193.167.13.125 () {40 vars in 779 bytes} [Sat Apr  5 20:31:56 2014] GET /myalkin/user/details/?user=example@mail.ru => generated 44 bytes in 4 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 0)
+[pid: 17890|app: 0|req: 16/54] 193.167.13.125 () {40 vars in 779 bytes} [Sat Apr  5 20:31:57 2014] GET /myalkin/user/details/?user=example@mail.ru => generated 44 bytes in 4 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 1)
+[pid: 17890|app: 0|req: 17/55] 193.167.13.125 () {40 vars in 779 bytes} [Sat Apr  5 20:31:58 2014] GET /myalkin/user/details/?user=example@mail.ru => generated 44 bytes in 4 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 0)
+[pid: 17892|app: 0|req: 39/56] 193.167.13.125 () {40 vars in 779 bytes} [Sat Apr  5 20:31:59 2014] GET /myalkin/user/details/?user=example@mail.ru => generated 44 bytes in 4 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 1)
+[pid: 17892|app: 0|req: 40/57] 193.167.13.125 () {40 vars in 779 bytes} [Sat Apr  5 20:31:59 2014] GET /myalkin/user/details/?user=example@mail.ru => generated 44 bytes in 4 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 0)
+[pid: 17890|app: 0|req: 18/58] 193.167.13.125 () {40 vars in 779 bytes} [Sat Apr  5 20:32:01 2014] GET /myalkin/user/details/?user=example@mail.ru => generated 44 bytes in 7 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 1)
+[pid: 17892|app: 0|req: 41/59] 193.167.13.125 () {40 vars in 779 bytes} [Sat Apr  5 20:32:19 2014] GET /myalkin/user/details/?user=example@mail.ru => generated 44 bytes in 5 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 1)
+[pid: 17892|app: 0|req: 42/60] 193.167.13.125 () {40 vars in 779 bytes} [Sat Apr  5 20:32:20 2014] GET /myalkin/user/details/?user=example@mail.ru => generated 44 bytes in 4 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 0)
+[pid: 17890|app: 0|req: 19/61] 193.167.13.125 () {40 vars in 779 bytes} [Sat Apr  5 20:32:21 2014] GET /myalkin/user/details/?user=example@mail.ru => generated 44 bytes in 5 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 0)
+[pid: 17892|app: 0|req: 43/62] 193.167.13.125 () {44 vars in 765 bytes} [Sat Apr  5 20:33:08 2014] POST /user/create/ => generated 6470 bytes in 17 msecs (HTTP/1.1 404) 1 headers in 51 bytes (1 switches on core 1)
+[pid: 17892|app: 0|req: 44/63] 193.167.13.125 () {44 vars in 781 bytes} [Sat Apr  5 20:33:17 2014] POST /myalkin/user/create/ => generated 120 bytes in 10 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 0)
+[pid: 17892|app: 0|req: 45/64] 193.167.13.125 () {44 vars in 781 bytes} [Sat Apr  5 20:33:20 2014] POST /myalkin/user/create/ => generated 120 bytes in 3 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 1)
+[pid: 17892|app: 0|req: 46/65] 193.167.13.125 () {44 vars in 781 bytes} [Sat Apr  5 20:33:22 2014] POST /myalkin/user/create/ => generated 120 bytes in 3 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 0)
+[pid: 17892|app: 0|req: 47/66] 193.167.13.125 () {44 vars in 783 bytes} [Sat Apr  5 20:33:50 2014] POST /myalkin/user/details/ => generated 51 bytes in 1 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 1)
+[pid: 17892|app: 0|req: 48/67] 193.167.13.125 () {40 vars in 748 bytes} [Sat Apr  5 20:34:07 2014] GET /myalkin/user/details/?user=example@mail.ru => generated 44 bytes in 4 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 1)
+[pid: 17892|app: 0|req: 49/68] 193.167.13.125 () {40 vars in 748 bytes} [Sat Apr  5 20:34:09 2014] GET /myalkin/user/details/?user=example@mail.ru => generated 44 bytes in 4 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 0)
+[pid: 17890|app: 0|req: 20/69] 193.167.13.125 () {40 vars in 720 bytes} [Sat Apr  5 20:34:13 2014] GET /myalkin/user/details/?user=6 => generated 175 bytes in 8 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 1)
+[pid: 17892|app: 0|req: 50/70] 193.167.13.125 () {40 vars in 720 bytes} [Sat Apr  5 20:34:24 2014] GET /myalkin/user/details/?user=6 => generated 175 bytes in 7 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 1)
+[pid: 17892|app: 0|req: 51/71] 193.167.13.125 () {40 vars in 748 bytes} [Sat Apr  5 20:34:26 2014] GET /myalkin/user/details/?user=example@mail.ru => generated 44 bytes in 2 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 0)
+[pid: 17890|app: 0|req: 21/72] 193.167.13.125 () {40 vars in 760 bytes} [Sat Apr  5 20:34:37 2014] GET /myalkin/user/details/?user=%27example@mail.ru%27 => generated 76 bytes in 3 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 0)
+[pid: 17892|app: 0|req: 52/73] 193.167.13.125 () {40 vars in 748 bytes} [Sat Apr  5 20:34:45 2014] GET /myalkin/user/details/?user=example@mail.ru => generated 44 bytes in 4 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 0)
+[pid: 17892|app: 0|req: 53/74] 193.167.13.125 () {40 vars in 748 bytes} [Sat Apr  5 20:35:22 2014] GET /myalkin/user/details/?user=example@mail.ru => generated 44 bytes in 4 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 1)
+[pid: 17892|app: 0|req: 54/75] 193.167.13.125 () {40 vars in 748 bytes} [Sat Apr  5 20:35:23 2014] GET /myalkin/user/details/?user=example@mail.ru => generated 44 bytes in 4 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 0)
+[pid: 17890|app: 0|req: 22/76] 193.167.13.125 () {40 vars in 748 bytes} [Sat Apr  5 20:35:24 2014] GET /myalkin/user/details/?user=example@mail.ru => generated 44 bytes in 4 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 1)
+[pid: 17890|app: 0|req: 23/77] 193.167.13.125 () {40 vars in 748 bytes} [Sat Apr  5 20:35:24 2014] GET /myalkin/user/details/?user=example@mail.ru => generated 44 bytes in 4 msecs (HTTP/1.1 200) 1 headers in 51 bytes (2 switches on core 0)
+[pid: 17892|app: 0|req: 55/78] 193.167.13.125 () {40 vars in 748 bytes} [Sat Apr  5 20:35:37 2014] GET /myalkin/user/details/?user=example@mail.ru => generated 44 bytes in 4 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 1)
+[pid: 17892|app: 0|req: 56/79] 193.167.13.125 () {40 vars in 748 bytes} [Sat Apr  5 20:35:38 2014] GET /myalkin/user/details/?user=example@mail.ru => generated 44 bytes in 4 msecs (HTTP/1.1 200) 1 headers in 51 bytes (2 switches on core 0)
+[pid: 17890|app: 0|req: 24/80] 193.167.13.125 () {40 vars in 748 bytes} [Sat Apr  5 20:35:39 2014] GET /myalkin/user/details/?user=example@mail.ru => generated 44 bytes in 4 msecs (HTTP/1.1 200) 1 headers in 51 bytes (2 switches on core 1)
+[pid: 17890|app: 0|req: 25/81] 193.167.13.125 () {40 vars in 748 bytes} [Sat Apr  5 20:35:40 2014] GET /myalkin/user/details/?user=example@mail.ru => generated 44 bytes in 4 msecs (HTTP/1.1 200) 1 headers in 51 bytes (2 switches on core 0)
+*** Starting uWSGI 2.0.3 (64bit) on [Sat Apr  5 20:36:05 2014] ***
+compiled with version: 4.7.2 on 04 April 2014 16:41:02
+os: Linux-3.2.0-4-amd64 #1 SMP Debian 3.2.54-2
+nodename: tp
+machine: x86_64
+clock source: unix
+detected number of CPU cores: 1
+current working directory: /home/tpadmin/forumDB
+writing pidfile to /tmp/forumDB.pid
+detected binary path: /usr/local/bin/uwsgi
+!!! no internal routing support, rebuild with pcre support !!!
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+your processes number limit is 7724
+your memory page size is 4096 bytes
+detected max file descriptor number: 1024
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uwsgi socket 0 bound to UNIX address /tmp/forumDB.sock fd 5
+Python version: 2.7.3 (default, Mar 13 2014, 11:26:58)  [GCC 4.7.2]
+Python main interpreter initialized at 0x1413360
+python threads support enabled
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 249168 bytes (243 KB) for 4 cores
+*** Operational MODE: preforking+threaded ***
+WSGI app 0 (mountpoint='') ready in 0 seconds on interpreter 0x1413360 pid: 17995 (default app)
+*** uWSGI is running in multiple interpreter mode ***
+spawned uWSGI master process (pid: 17995)
+spawned uWSGI worker 1 (pid: 17996, cores: 2)
+spawned uWSGI worker 2 (pid: 17998, cores: 2)
+./forumDB/views/user.py:53: DeprecationWarning: BaseException.message has been deprecated as of Python 2.6
+  return response_error(exception.message)
+
+[pid: 17998|app: 0|req: 1/1] 193.167.13.125 () {40 vars in 748 bytes} [Sat Apr  5 20:36:13 2014] GET /myalkin/user/details/?user=example@mail.ru => generated 78 bytes in 174 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 0)
+[pid: 17998|app: 0|req: 2/2] 193.167.13.125 () {40 vars in 748 bytes} [Sat Apr  5 20:36:22 2014] GET /myalkin/user/details/?user=example@mail.ru => generated 78 bytes in 5 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 1)
+./forumDB/views/user.py:53: DeprecationWarning: BaseException.message has been deprecated as of Python 2.6
+  return response_error(exception.message)
+
+[pid: 17996|app: 0|req: 1/3] 193.167.13.125 () {40 vars in 748 bytes} [Sat Apr  5 20:36:23 2014] GET /myalkin/user/details/?user=example@mail.ru => generated 78 bytes in 164 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 0)
+[pid: 17998|app: 0|req: 3/4] 193.167.13.125 () {40 vars in 748 bytes} [Sat Apr  5 20:36:23 2014] GET /myalkin/user/details/?user=example@mail.ru => generated 78 bytes in 4 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 0)
+[pid: 17998|app: 0|req: 4/5] 193.167.13.125 () {40 vars in 748 bytes} [Sat Apr  5 20:36:24 2014] GET /myalkin/user/details/?user=example@mail.ru => generated 78 bytes in 4 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 1)
+[pid: 17996|app: 0|req: 2/6] 193.167.13.125 () {40 vars in 748 bytes} [Sat Apr  5 20:36:25 2014] GET /myalkin/user/details/?user=example@mail.ru => generated 78 bytes in 5 msecs (HTTP/1.1 200) 1 headers in 51 bytes (2 switches on core 1)
+[pid: 17996|app: 0|req: 3/7] 193.167.13.125 () {40 vars in 748 bytes} [Sat Apr  5 20:36:26 2014] GET /myalkin/user/details/?user=example@mail.ru => generated 78 bytes in 2 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 0)
+[pid: 17998|app: 0|req: 5/8] 193.167.13.125 () {40 vars in 748 bytes} [Sat Apr  5 20:36:26 2014] GET /myalkin/user/details/?user=example@mail.ru => generated 78 bytes in 4 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 0)
+[pid: 17998|app: 0|req: 6/9] 193.167.13.125 () {40 vars in 748 bytes} [Sat Apr  5 20:36:27 2014] GET /myalkin/user/details/?user=example@mail.ru => generated 78 bytes in 4 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 1)
+[pid: 17998|app: 0|req: 7/10] 193.167.13.125 () {38 vars in 748 bytes} [Sat Apr  5 20:43:26 2014] GET /myalkin/user/details/?user=example@mail.ru => generated 78 bytes in 4 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 0)
+[pid: 17998|app: 0|req: 8/11] 193.167.13.125 () {40 vars in 779 bytes} [Sat Apr  5 20:49:40 2014] GET /myalkin/user/details/?user=example@mail.ru => generated 78 bytes in 4 msecs (HTTP/1.1 200) 1 headers in 51 bytes (2 switches on core 1)
+[pid: 17998|app: 0|req: 9/12] 193.167.13.125 () {40 vars in 779 bytes} [Sat Apr  5 20:49:41 2014] GET /myalkin/user/details/?user=example@mail.ru => generated 78 bytes in 4 msecs (HTTP/1.1 200) 1 headers in 51 bytes (2 switches on core 0)
+[pid: 17996|app: 0|req: 4/13] 193.167.13.125 () {40 vars in 779 bytes} [Sat Apr  5 20:49:42 2014] GET /myalkin/user/details/?user=example@mail.ru => generated 78 bytes in 4 msecs (HTTP/1.1 200) 1 headers in 51 bytes (2 switches on core 1)
+[pid: 17996|app: 0|req: 5/14] 193.167.13.125 () {40 vars in 779 bytes} [Sat Apr  5 20:49:43 2014] GET /myalkin/user/details/?user=example@mail.ru => generated 78 bytes in 4 msecs (HTTP/1.1 200) 1 headers in 51 bytes (2 switches on core 0)
+[pid: 17998|app: 0|req: 10/15] 193.167.13.125 () {40 vars in 779 bytes} [Sat Apr  5 20:49:44 2014] GET /myalkin/user/details/?user=example@mail.ru => generated 78 bytes in 4 msecs (HTTP/1.1 200) 1 headers in 51 bytes (2 switches on core 0)
+[pid: 17998|app: 0|req: 11/16] 193.167.13.125 () {40 vars in 779 bytes} [Sat Apr  5 20:49:44 2014] GET /myalkin/user/details/?user=example@mail.ru => generated 78 bytes in 4 msecs (HTTP/1.1 200) 1 headers in 51 bytes (2 switches on core 1)
+[pid: 17996|app: 0|req: 6/17] 193.167.13.125 () {40 vars in 779 bytes} [Sat Apr  5 20:49:44 2014] GET /myalkin/user/details/?user=example@mail.ru => generated 78 bytes in 4 msecs (HTTP/1.1 200) 1 headers in 51 bytes (2 switches on core 1)
+[pid: 17996|app: 0|req: 7/18] 193.167.13.125 () {40 vars in 779 bytes} [Sat Apr  5 20:49:45 2014] GET /myalkin/user/details/?user=example@mail.ru => generated 78 bytes in 4 msecs (HTTP/1.1 200) 1 headers in 51 bytes (2 switches on core 0)
+[pid: 17998|app: 0|req: 12/19] 193.167.13.125 () {40 vars in 779 bytes} [Sat Apr  5 20:49:45 2014] GET /myalkin/user/details/?user=example@mail.ru => generated 78 bytes in 4 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 0)
+[pid: 17998|app: 0|req: 13/20] 193.167.13.125 () {40 vars in 779 bytes} [Sat Apr  5 20:49:46 2014] GET /myalkin/user/details/?user=example@mail.ru => generated 78 bytes in 4 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 1)
+[pid: 17996|app: 0|req: 8/21] 193.167.13.125 () {40 vars in 779 bytes} [Sat Apr  5 20:49:47 2014] GET /myalkin/user/details/?user=example@mail.ru => generated 78 bytes in 4 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 1)
+[pid: 17998|app: 0|req: 14/22] 193.167.13.125 () {40 vars in 779 bytes} [Sat Apr  5 20:52:39 2014] GET /myalkin/user/details/?user=example@mail.ru => generated 78 bytes in 4 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 1)
+[pid: 17998|app: 0|req: 15/23] 193.167.13.125 () {40 vars in 779 bytes} [Sat Apr  5 20:52:40 2014] GET /myalkin/user/details/?user=example@mail.ru => generated 78 bytes in 4 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 0)
+*** Starting uWSGI 2.0.3 (64bit) on [Sat Apr  5 20:52:53 2014] ***
+compiled with version: 4.7.2 on 04 April 2014 16:41:02
+os: Linux-3.2.0-4-amd64 #1 SMP Debian 3.2.54-2
+nodename: tp
+machine: x86_64
+clock source: unix
+detected number of CPU cores: 1
+current working directory: /home/tpadmin/forumDB
+writing pidfile to /tmp/forumDB.pid
+detected binary path: /usr/local/bin/uwsgi
+!!! no internal routing support, rebuild with pcre support !!!
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+your processes number limit is 7724
+your memory page size is 4096 bytes
+detected max file descriptor number: 1024
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uwsgi socket 0 bound to UNIX address /tmp/forumDB.sock fd 5
+Python version: 2.7.3 (default, Mar 13 2014, 11:26:58)  [GCC 4.7.2]
+Python main interpreter initialized at 0x2330360
+python threads support enabled
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 249168 bytes (243 KB) for 4 cores
+*** Operational MODE: preforking+threaded ***
+WSGI app 0 (mountpoint='') ready in 0 seconds on interpreter 0x2330360 pid: 18104 (default app)
+*** uWSGI is running in multiple interpreter mode ***
+spawned uWSGI master process (pid: 18104)
+spawned uWSGI worker 1 (pid: 18105, cores: 2)
+spawned uWSGI worker 2 (pid: 18107, cores: 2)
+[pid: 18107|app: 0|req: 1/1] 193.167.13.125 () {40 vars in 779 bytes} [Sat Apr  5 20:52:58 2014] GET /myalkin/user/details/?user=example@mail.ru => generated 203 bytes in 127 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 0)
+[pid: 18107|app: 0|req: 2/2] 193.167.13.125 () {40 vars in 748 bytes} [Sat Apr  5 21:11:28 2014] GET /myalkin/user/details/?user=example@mail.ru => generated 203 bytes in 8 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 1)
+*** Starting uWSGI 2.0.3 (64bit) on [Sat Apr  5 21:12:52 2014] ***
+compiled with version: 4.7.2 on 04 April 2014 16:41:02
+os: Linux-3.2.0-4-amd64 #1 SMP Debian 3.2.54-2
+nodename: tp
+machine: x86_64
+clock source: unix
+detected number of CPU cores: 1
+current working directory: /home/tpadmin/forumDB
+writing pidfile to /tmp/forumDB.pid
+detected binary path: /usr/local/bin/uwsgi
+!!! no internal routing support, rebuild with pcre support !!!
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+your processes number limit is 7724
+your memory page size is 4096 bytes
+detected max file descriptor number: 1024
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uwsgi socket 0 bound to UNIX address /tmp/forumDB.sock fd 5
+Python version: 2.7.3 (default, Mar 13 2014, 11:26:58)  [GCC 4.7.2]
+Python main interpreter initialized at 0xa0c360
+python threads support enabled
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 249168 bytes (243 KB) for 4 cores
+*** Operational MODE: preforking+threaded ***
+WSGI app 0 (mountpoint='') ready in 0 seconds on interpreter 0xa0c360 pid: 18229 (default app)
+*** uWSGI is running in multiple interpreter mode ***
+spawned uWSGI master process (pid: 18229)
+spawned uWSGI worker 1 (pid: 18230, cores: 2)
+spawned uWSGI worker 2 (pid: 18232, cores: 2)
+[pid: 18232|app: 0|req: 1/1] 193.167.13.125 () {40 vars in 748 bytes} [Sat Apr  5 21:13:00 2014] GET /myalkin/user/details/?user=example@mail.ru => generated 203 bytes in 162 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 0)
+[pid: 18232|app: 0|req: 2/2] 193.167.13.125 () {40 vars in 748 bytes} [Sat Apr  5 21:13:01 2014] GET /myalkin/user/details/?user=example@mail.ru => generated 203 bytes in 9 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 1)
+[pid: 18232|app: 0|req: 3/3] 193.167.13.125 () {40 vars in 748 bytes} [Sat Apr  5 21:13:52 2014] GET /myalkin/user/details/?user=example@mail.ru => generated 203 bytes in 7 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 0)
+[pid: 18232|app: 0|req: 4/4] 193.167.13.125 () {38 vars in 508 bytes} [Sat Apr  5 21:14:37 2014] POST /myalkin/user/create/ => generated 148 bytes in 4 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 1)
+[pid: 18232|app: 0|req: 5/5] 193.167.13.125 () {34 vars in 472 bytes} [Sat Apr  5 21:14:37 2014] GET /myalkin/user/details/?user=example%40mail.ru => generated 203 bytes in 6 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 0)
+[pid: 18230|app: 0|req: 1/6] 193.167.13.125 () {38 vars in 508 bytes} [Sat Apr  5 21:14:37 2014] POST /myalkin/user/create/ => generated 140 bytes in 184 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 0)
+[pid: 18232|app: 0|req: 6/7] 193.167.13.125 () {34 vars in 492 bytes} [Sat Apr  5 21:14:38 2014] GET /myalkin/user/details/?user=richard.nixon%40example.com => generated 195 bytes in 7 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 1)
+[pid: 18232|app: 0|req: 7/8] 193.167.13.125 () {38 vars in 508 bytes} [Sat Apr  5 21:14:38 2014] POST /myalkin/user/create/ => generated 148 bytes in 8 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 0)
+[pid: 18230|app: 0|req: 2/9] 193.167.13.125 () {34 vars in 474 bytes} [Sat Apr  5 21:14:38 2014] GET /myalkin/user/details/?user=example2%40mail.ru => generated 203 bytes in 8 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 1)
+[pid: 18230|app: 0|req: 3/10] 193.167.13.125 () {38 vars in 508 bytes} [Sat Apr  5 21:14:38 2014] POST /myalkin/user/create/ => generated 149 bytes in 8 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 0)
+[pid: 18232|app: 0|req: 8/11] 193.167.13.125 () {34 vars in 474 bytes} [Sat Apr  5 21:14:38 2014] GET /myalkin/user/details/?user=example3%40mail.ru => generated 204 bytes in 7 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 1)
+[pid: 18232|app: 0|req: 9/12] 193.167.13.125 () {38 vars in 508 bytes} [Sat Apr  5 21:14:38 2014] POST /myalkin/user/create/ => generated 148 bytes in 7 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 0)
+[pid: 18230|app: 0|req: 4/13] 193.167.13.125 () {34 vars in 474 bytes} [Sat Apr  5 21:14:38 2014] GET /myalkin/user/details/?user=example4%40mail.ru => generated 203 bytes in 7 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 1)
+[pid: 18230|app: 0|req: 5/14] 193.167.13.125 () {38 vars in 510 bytes} [Sat Apr  5 21:14:38 2014] POST /myalkin/forum/create/ => generated 155 bytes in 19 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 0)
+[pid: 18232|app: 0|req: 10/15] 193.167.13.125 () {34 vars in 552 bytes} [Sat Apr  5 21:14:38 2014] GET /myalkin/forum/details/?related=%5B%27user%27%5D&forum=forumwithsufficientlylargename => generated 316 bytes in 10 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 1)
+[pid: 18232|app: 0|req: 11/16] 193.167.13.125 () {38 vars in 508 bytes} [Sat Apr  5 21:14:38 2014] POST /myalkin/forum/create/ => generated 104 bytes in 9 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 0)
+[pid: 18230|app: 0|req: 6/17] 193.167.13.125 () {34 vars in 504 bytes} [Sat Apr  5 21:14:38 2014] GET /myalkin/forum/details/?related=%5B%27user%27%5D&forum=forum1 => generated 265 bytes in 8 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 1)
+[pid: 18232|app: 0|req: 12/18] 193.167.13.125 () {38 vars in 508 bytes} [Sat Apr  5 21:14:38 2014] POST /myalkin/forum/create/ => generated 106 bytes in 9 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 1)
+[pid: 18232|app: 0|req: 13/19] 193.167.13.125 () {34 vars in 504 bytes} [Sat Apr  5 21:14:38 2014] GET /myalkin/forum/details/?related=%5B%27user%27%5D&forum=forum2 => generated 266 bytes in 8 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 0)
+[pid: 18230|app: 0|req: 7/20] 193.167.13.125 () {38 vars in 510 bytes} [Sat Apr  5 21:14:38 2014] POST /myalkin/forum/create/ => generated 147 bytes in 10 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 0)
+[pid: 18232|app: 0|req: 14/21] 193.167.13.125 () {34 vars in 504 bytes} [Sat Apr  5 21:14:38 2014] GET /myalkin/forum/details/?related=%5B%27user%27%5D&forum=forum3 => generated 307 bytes in 8 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 1)
+[pid: 18232|app: 0|req: 15/22] 193.167.13.125 () {38 vars in 512 bytes} [Sat Apr  5 21:14:38 2014] POST /myalkin/thread/create/ => generated 272 bytes in 18 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 0)
+[pid: 18232|app: 0|req: 16/23] 193.167.13.125 () {34 vars in 528 bytes} [Sat Apr  5 21:14:38 2014] GET /myalkin/thread/details/?related=%5B%27forum%27%2C+%27user%27%5D&thread=1 => generated 558 bytes in 13 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 1)
+[pid: 18230|app: 0|req: 8/24] 193.167.13.125 () {38 vars in 512 bytes} [Sat Apr  5 21:14:38 2014] POST /myalkin/thread/create/ => generated 210 bytes in 13 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 1)
+[pid: 18232|app: 0|req: 17/25] 193.167.13.125 () {34 vars in 528 bytes} [Sat Apr  5 21:14:38 2014] GET /myalkin/thread/details/?related=%5B%27forum%27%2C+%27user%27%5D&thread=2 => generated 536 bytes in 10 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 0)
+[pid: 18232|app: 0|req: 18/26] 193.167.13.125 () {38 vars in 512 bytes} [Sat Apr  5 21:14:38 2014] POST /myalkin/thread/create/ => generated 215 bytes in 11 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 1)
+[pid: 18230|app: 0|req: 9/27] 193.167.13.125 () {34 vars in 528 bytes} [Sat Apr  5 21:14:38 2014] GET /myalkin/thread/details/?related=%5B%27forum%27%2C+%27user%27%5D&thread=3 => generated 501 bytes in 11 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 0)
+[pid: 18232|app: 0|req: 19/28] 193.167.13.125 () {38 vars in 512 bytes} [Sat Apr  5 21:14:38 2014] POST /myalkin/thread/create/ => generated 277 bytes in 11 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 0)
+[pid: 18232|app: 0|req: 20/29] 193.167.13.125 () {34 vars in 528 bytes} [Sat Apr  5 21:14:38 2014] GET /myalkin/thread/details/?related=%5B%27forum%27%2C+%27user%27%5D&thread=4 => generated 588 bytes in 10 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 1)
+[pid: 18230|app: 0|req: 10/30] 193.167.13.125 () {38 vars in 508 bytes} [Sat Apr  5 21:14:38 2014] POST /myalkin/post/create/ => generated 250 bytes in 25 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 1)
+[pid: 18232|app: 0|req: 21/31] 193.167.13.125 () {34 vars in 552 bytes} [Sat Apr  5 21:14:38 2014] GET /myalkin/post/details/?post=1&related=%5B%27thread%27%2C+%27forum%27%2C+%27user%27%5D => generated 816 bytes in 14 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 0)
+[pid: 18232|app: 0|req: 22/32] 193.167.13.125 () {38 vars in 508 bytes} [Sat Apr  5 21:14:38 2014] POST /myalkin/post/create/ => generated 261 bytes in 18 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 1)
+[pid: 18232|app: 0|req: 23/33] 193.167.13.125 () {34 vars in 552 bytes} [Sat Apr  5 21:14:38 2014] GET /myalkin/post/details/?post=2&related=%5B%27thread%27%2C+%27forum%27%2C+%27user%27%5D => generated 807 bytes in 11 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 0)
+[pid: 18232|app: 0|req: 24/34] 193.167.13.125 () {38 vars in 508 bytes} [Sat Apr  5 21:14:38 2014] POST /myalkin/post/create/ => generated 251 bytes in 17 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 1)
+[pid: 18232|app: 0|req: 25/35] 193.167.13.125 () {34 vars in 552 bytes} [Sat Apr  5 21:14:38 2014] GET /myalkin/post/details/?post=3&related=%5B%27thread%27%2C+%27forum%27%2C+%27user%27%5D => generated 815 bytes in 12 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 0)
+[pid: 18232|app: 0|req: 26/36] 193.167.13.125 () {38 vars in 508 bytes} [Sat Apr  5 21:14:38 2014] POST /myalkin/post/create/ => generated 252 bytes in 16 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 1)
+[pid: 18232|app: 0|req: 27/37] 193.167.13.125 () {34 vars in 552 bytes} [Sat Apr  5 21:14:38 2014] GET /myalkin/post/details/?post=4&related=%5B%27thread%27%2C+%27forum%27%2C+%27user%27%5D => generated 782 bytes in 12 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 0)
+[pid: 18232|app: 0|req: 28/38] 193.167.13.125 () {38 vars in 508 bytes} [Sat Apr  5 21:14:38 2014] POST /myalkin/post/create/ => generated 276 bytes in 15 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 1)
+[pid: 18232|app: 0|req: 29/39] 193.167.13.125 () {34 vars in 552 bytes} [Sat Apr  5 21:14:38 2014] GET /myalkin/post/details/?post=5&related=%5B%27thread%27%2C+%27forum%27%2C+%27user%27%5D => generated 894 bytes in 11 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 0)
+[pid: 18232|app: 0|req: 30/40] 193.167.13.125 () {34 vars in 656 bytes} [Sat Apr  5 21:14:38 2014] GET /myalkin/forum/listPosts/?related=%5B%27thread%27%5D&since=2014-01-02+00%3A00%3A00&limit=2&order=asc&forum=forumwithsufficientlylargename => generated 637 bytes in 8 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 1)
+[pid: 18230|app: 0|req: 11/41] 193.167.13.125 () {34 vars in 624 bytes} [Sat Apr  5 21:14:38 2014] GET /myalkin/forum/listPosts/?related=%5B%27thread%27%2C+%27forum%27%5D&since=2014-01-01+00%3A00%3A00&order=desc&forum=forum1 => generated 27 bytes in 4 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 0)
+[pid: 18230|app: 0|req: 12/42] 193.167.13.125 () {34 vars in 540 bytes} [Sat Apr  5 21:14:38 2014] GET /myalkin/forum/listPosts/?since=2014-01-01+00%3A00%3A00&order=desc&forum=forum2 => generated 310 bytes in 6 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 1)
+[pid: 18232|app: 0|req: 31/43] 193.167.13.125 () {34 vars in 556 bytes} [Sat Apr  5 21:14:38 2014] GET /myalkin/forum/listPosts/?since=2014-01-03+00%3A00%3A00&limit=3&order=desc&forum=forum3 => generated 27 bytes in 4 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 0)
+[pid: 18232|app: 0|req: 32/44] 193.167.13.125 () {34 vars in 686 bytes} [Sat Apr  5 21:14:38 2014] GET /myalkin/forum/listThreads/?related=%5B%27forum%27%2C+%27user%27%5D&since=2013-12-30+00%3A00%3A00&limit=2&order=asc&forum=forumwithsufficientlylargename => generated 27 bytes in 5 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 1)
+[pid: 18230|app: 0|req: 13/45] 193.167.13.125 () {34 vars in 596 bytes} [Sat Apr  5 21:14:38 2014] GET /myalkin/forum/listThreads/?related=%5B%27forum%27%5D&since=2013-12-31+00%3A00%3A00&order=desc&forum=forum1 => generated 27 bytes in 4 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 0)
+[pid: 18230|app: 0|req: 14/46] 193.167.13.125 () {34 vars in 594 bytes} [Sat Apr  5 21:14:38 2014] GET /myalkin/forum/listThreads/?related=%5B%27user%27%5D&since=2014-01-01+00%3A00%3A00&order=desc&forum=forum2 => generated 487 bytes in 12 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 1)
+[pid: 18232|app: 0|req: 33/47] 193.167.13.125 () {34 vars in 560 bytes} [Sat Apr  5 21:14:38 2014] GET /myalkin/forum/listThreads/?since=2013-12-29+00%3A00%3A00&limit=3&order=desc&forum=forum3 => generated 264 bytes in 6 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 0)
+[pid: 18232|app: 0|req: 34/48] 193.167.13.125 () {34 vars in 566 bytes} [Sat Apr  5 21:14:38 2014] GET /myalkin/forum/listUsers/?limit=2&since_id=10&forum=forumwithsufficientlylargename&order=asc => generated 27 bytes in 4 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 1)
+[pid: 18230|app: 0|req: 15/49] 193.167.13.125 () {34 vars in 480 bytes} [Sat Apr  5 21:14:39 2014] GET /myalkin/forum/listUsers/?order=desc&forum=forum1 => generated 27 bytes in 4 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 0)
+[pid: 18230|app: 0|req: 16/50] 193.167.13.125 () {34 vars in 590 bytes} [Sat Apr  5 21:14:39 2014] GET /myalkin/post/list/?since=2014-01-02+00%3A00%3A00&limit=2&order=asc&forum=forumwithsufficientlylargename => generated 334 bytes in 6 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 1)
+[pid: 18232|app: 0|req: 35/51] 193.167.13.125 () {34 vars in 528 bytes} [Sat Apr  5 21:14:39 2014] GET /myalkin/post/list/?since=2014-01-01+00%3A00%3A00&order=desc&forum=forum1 => generated 27 bytes in 4 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 1)
+[pid: 18232|app: 0|req: 36/52] 193.167.13.125 () {34 vars in 520 bytes} [Sat Apr  5 21:14:39 2014] GET /myalkin/post/list/?since=2014-01-01+00%3A00%3A00&order=desc&thread=3 => generated 310 bytes in 4 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 0)
+[pid: 18230|app: 0|req: 17/53] 193.167.13.125 () {34 vars in 536 bytes} [Sat Apr  5 21:14:39 2014] GET /myalkin/post/list/?since=2014-01-03+00%3A00%3A00&limit=3&order=desc&thread=4 => generated 334 bytes in 6 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 0)
+[pid: 18230|app: 0|req: 18/54] 193.167.13.125 () {38 vars in 506 bytes} [Sat Apr  5 21:14:39 2014] POST /myalkin/post/remove/ => generated 36 bytes in 7 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 1)
+[pid: 18232|app: 0|req: 37/55] 193.167.13.125 () {34 vars in 440 bytes} [Sat Apr  5 21:14:39 2014] GET /myalkin/post/details/?post=2 => generated 313 bytes in 3 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 1)
+[pid: 18232|app: 0|req: 38/56] 193.167.13.125 () {38 vars in 508 bytes} [Sat Apr  5 21:14:39 2014] POST /myalkin/post/restore/ => generated 36 bytes in 7 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 0)
+[pid: 18230|app: 0|req: 19/57] 193.167.13.125 () {34 vars in 440 bytes} [Sat Apr  5 21:14:39 2014] GET /myalkin/post/details/?post=2 => generated 314 bytes in 3 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 0)
+[pid: 18230|app: 0|req: 20/58] 193.167.13.125 () {38 vars in 506 bytes} [Sat Apr  5 21:14:39 2014] POST /myalkin/post/update/ => generated 314 bytes in 6 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 1)
+[pid: 18232|app: 0|req: 39/59] 193.167.13.125 () {34 vars in 440 bytes} [Sat Apr  5 21:14:39 2014] GET /myalkin/post/details/?post=2 => generated 314 bytes in 4 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 1)
+[pid: 18232|app: 0|req: 40/60] 193.167.13.125 () {38 vars in 502 bytes} [Sat Apr  5 21:14:39 2014] POST /myalkin/post/vote/ => generated 314 bytes in 7 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 0)
+[pid: 18230|app: 0|req: 21/61] 193.167.13.125 () {34 vars in 440 bytes} [Sat Apr  5 21:14:39 2014] GET /myalkin/post/details/?post=2 => generated 314 bytes in 4 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 0)
+[pid: 18230|app: 0|req: 22/62] 193.167.13.125 () {34 vars in 594 bytes} [Sat Apr  5 21:14:39 2014] GET /myalkin/thread/list/?since=2014-01-02+00%3A00%3A00&limit=2&order=asc&forum=forumwithsufficientlylargename => generated 27 bytes in 4 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 1)
+[pid: 18232|app: 0|req: 41/63] 193.167.13.125 () {34 vars in 532 bytes} [Sat Apr  5 21:14:39 2014] GET /myalkin/thread/list/?since=2014-01-01+00%3A00%3A00&order=desc&forum=forum1 => generated 27 bytes in 5 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 1)
+[pid: 18232|app: 0|req: 42/64] 193.167.13.125 () {34 vars in 554 bytes} [Sat Apr  5 21:14:39 2014] GET /myalkin/thread/list/?since=2014-01-01+00%3A00%3A00&user=example2%40mail.ru&order=desc => generated 27 bytes in 4 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 0)
+[pid: 18230|app: 0|req: 23/65] 193.167.13.125 () {34 vars in 570 bytes} [Sat Apr  5 21:14:39 2014] GET /myalkin/thread/list/?since=2014-01-03+00%3A00%3A00&limit=3&user=example3%40mail.ru&order=desc => generated 27 bytes in 4 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 0)
+[pid: 18230|app: 0|req: 24/66] 193.167.13.125 () {34 vars in 548 bytes} [Sat Apr  5 21:14:39 2014] GET /myalkin/thread/listPosts/?since=2014-01-02+00%3A00%3A00&limit=2&order=asc&thread=2 => generated 306 bytes in 7 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 1)
+[pid: 18232|app: 0|req: 43/67] 193.167.13.125 () {34 vars in 534 bytes} [Sat Apr  5 21:14:39 2014] GET /myalkin/thread/listPosts/?since=2014-01-01+00%3A00%3A00&order=desc&thread=4 => generated 334 bytes in 6 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 1)
+[pid: 18232|app: 0|req: 44/68] 193.167.13.125 () {34 vars in 534 bytes} [Sat Apr  5 21:14:39 2014] GET /myalkin/thread/listPosts/?since=2014-01-01+00%3A00%3A00&order=desc&thread=1 => generated 27 bytes in 4 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 0)
+[pid: 18230|app: 0|req: 25/69] 193.167.13.125 () {34 vars in 550 bytes} [Sat Apr  5 21:14:39 2014] GET /myalkin/thread/listPosts/?since=2014-01-03+00%3A00%3A00&limit=3&order=desc&thread=3 => generated 310 bytes in 7 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 0)
+[pid: 18230|app: 0|req: 26/70] 193.167.13.125 () {38 vars in 510 bytes} [Sat Apr  5 21:14:39 2014] POST /myalkin/thread/remove/ => generated 38 bytes in 6 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 1)
+[pid: 18232|app: 0|req: 45/71] 193.167.13.125 () {34 vars in 448 bytes} [Sat Apr  5 21:14:39 2014] GET /myalkin/thread/details/?thread=1 => generated 324 bytes in 3 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 1)
+[pid: 18232|app: 0|req: 46/72] 193.167.13.125 () {38 vars in 512 bytes} [Sat Apr  5 21:14:39 2014] POST /myalkin/thread/restore/ => generated 38 bytes in 7 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 0)
+[pid: 18230|app: 0|req: 27/73] 193.167.13.125 () {34 vars in 448 bytes} [Sat Apr  5 21:14:39 2014] GET /myalkin/thread/details/?thread=1 => generated 325 bytes in 3 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 0)
+[pid: 18230|app: 0|req: 28/74] 193.167.13.125 () {38 vars in 508 bytes} [Sat Apr  5 21:14:40 2014] POST /myalkin/thread/close/ => generated 325 bytes in 7 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 1)
+[pid: 18232|app: 0|req: 47/75] 193.167.13.125 () {34 vars in 448 bytes} [Sat Apr  5 21:14:40 2014] GET /myalkin/thread/details/?thread=1 => generated 325 bytes in 3 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 1)
+[pid: 18232|app: 0|req: 48/76] 193.167.13.125 () {38 vars in 506 bytes} [Sat Apr  5 21:14:40 2014] POST /myalkin/thread/open/ => generated 326 bytes in 7 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 0)
+[pid: 18230|app: 0|req: 29/77] 193.167.13.125 () {34 vars in 448 bytes} [Sat Apr  5 21:14:40 2014] GET /myalkin/thread/details/?thread=1 => generated 326 bytes in 3 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 0)
+[pid: 18232|app: 0|req: 49/78] 193.167.13.125 () {38 vars in 510 bytes} [Sat Apr  5 21:14:40 2014] POST /myalkin/thread/update/ => generated 301 bytes in 16 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 1)
+[pid: 18230|app: 0|req: 30/79] 193.167.13.125 () {34 vars in 448 bytes} [Sat Apr  5 21:14:40 2014] GET /myalkin/thread/details/?thread=1 => generated 301 bytes in 3 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 1)
+[pid: 18232|app: 0|req: 50/80] 193.167.13.125 () {38 vars in 506 bytes} [Sat Apr  5 21:14:40 2014] POST /myalkin/thread/vote/ => generated 263 bytes in 7 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 0)
+[pid: 18230|app: 0|req: 31/81] 193.167.13.125 () {34 vars in 448 bytes} [Sat Apr  5 21:14:40 2014] GET /myalkin/thread/details/?thread=2 => generated 263 bytes in 3 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 0)
+[pid: 18230|app: 0|req: 32/82] 193.167.13.125 () {38 vars in 516 bytes} [Sat Apr  5 21:14:40 2014] POST /myalkin/thread/subscribe/ => generated 66 bytes in 10 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 1)
+[pid: 18232|app: 0|req: 51/83] 193.167.13.125 () {34 vars in 448 bytes} [Sat Apr  5 21:14:40 2014] GET /myalkin/thread/details/?thread=3 => generated 267 bytes in 5 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 1)
+[pid: 18232|app: 0|req: 52/84] 193.167.13.125 () {38 vars in 516 bytes} [Sat Apr  5 21:14:40 2014] POST /myalkin/thread/subscribe/ => generated 65 bytes in 11 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 0)
+[pid: 18230|app: 0|req: 33/85] 193.167.13.125 () {34 vars in 448 bytes} [Sat Apr  5 21:14:40 2014] GET /myalkin/thread/details/?thread=3 => generated 267 bytes in 3 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 0)
+[pid: 18230|app: 0|req: 34/86] 193.167.13.125 () {38 vars in 516 bytes} [Sat Apr  5 21:14:40 2014] POST /myalkin/thread/subscribe/ => generated 66 bytes in 10 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 1)
+[pid: 18232|app: 0|req: 53/87] 193.167.13.125 () {34 vars in 448 bytes} [Sat Apr  5 21:14:40 2014] GET /myalkin/thread/details/?thread=4 => generated 329 bytes in 3 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 1)
+[pid: 18230|app: 0|req: 35/88] 193.167.13.125 () {38 vars in 516 bytes} [Sat Apr  5 21:14:40 2014] POST /myalkin/thread/subscribe/ => generated 66 bytes in 10 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 0)
+[pid: 18232|app: 0|req: 54/89] 193.167.13.125 () {34 vars in 448 bytes} [Sat Apr  5 21:14:40 2014] GET /myalkin/thread/details/?thread=1 => generated 301 bytes in 3 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 0)
+[pid: 18232|app: 0|req: 55/90] 193.167.13.125 () {38 vars in 516 bytes} [Sat Apr  5 21:14:40 2014] POST /myalkin/thread/subscribe/ => generated 65 bytes in 7 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 1)
+[pid: 18230|app: 0|req: 36/91] 193.167.13.125 () {34 vars in 448 bytes} [Sat Apr  5 21:14:40 2014] GET /myalkin/thread/details/?thread=3 => generated 267 bytes in 3 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 1)
+./forumDB/views/thread.py:43: DeprecationWarning: BaseException.message has been deprecated as of Python 2.6
+  return response_error(exception.message)
+
+[pid: 18232|app: 0|req: 56/92] 193.167.13.125 () {38 vars in 520 bytes} [Sat Apr  5 21:14:40 2014] POST /myalkin/thread/unsubscribe/ => generated 51 bytes in 6 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 0)
+[pid: 18230|app: 0|req: 37/93] 193.167.13.125 () {34 vars in 448 bytes} [Sat Apr  5 21:14:40 2014] GET /myalkin/thread/details/?thread=2 => generated 263 bytes in 3 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 0)
+[pid: 18230|app: 0|req: 38/94] 193.167.13.125 () {34 vars in 572 bytes} [Sat Apr  5 21:14:40 2014] GET /myalkin/user/listPosts/?since=2014-01-02+00%3A00%3A00&limit=2&user=example%40mail.ru&order=asc => generated 27 bytes in 4 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 1)
+[pid: 18232|app: 0|req: 57/95] 193.167.13.125 () {34 vars in 578 bytes} [Sat Apr  5 21:14:40 2014] GET /myalkin/user/listPosts/?since=2014-01-01+00%3A00%3A00&user=richard.nixon%40example.com&order=desc => generated 316 bytes in 5 msecs (HTTP/1.1 200) 1 headers in 51 bytes (2 switches on core 1)
+[pid: 18230|app: 0|req: 39/96] 193.167.13.125 () {34 vars in 558 bytes} [Sat Apr  5 21:14:40 2014] GET /myalkin/user/listPosts/?since=2014-01-01+00%3A00%3A00&user=example2%40mail.ru&order=asc => generated 27 bytes in 4 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 0)
+[pid: 18230|app: 0|req: 40/97] 193.167.13.125 () {34 vars in 576 bytes} [Sat Apr  5 21:14:40 2014] GET /myalkin/user/listPosts/?since=2014-01-03+00%3A00%3A00&limit=3&user=example3%40mail.ru&order=desc => generated 334 bytes in 7 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 1)
+[pid: 18232|app: 0|req: 58/98] 193.167.13.125 () {38 vars in 520 bytes} [Sat Apr  5 21:14:40 2014] POST /myalkin/user/updateProfile/ => generated 203 bytes in 12 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 0)
+[pid: 18232|app: 0|req: 59/99] 193.167.13.125 () {34 vars in 474 bytes} [Sat Apr  5 21:14:40 2014] GET /myalkin/user/details/?user=example2%40mail.ru => generated 203 bytes in 6 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 1)
+[pid: 18230|app: 0|req: 41/100] 193.167.13.125 () {38 vars in 520 bytes} [Sat Apr  5 21:14:40 2014] POST /myalkin/user/updateProfile/ => generated 206 bytes in 11 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 0)
+[pid: 18232|app: 0|req: 60/101] 193.167.13.125 () {34 vars in 474 bytes} [Sat Apr  5 21:14:40 2014] GET /myalkin/user/details/?user=example3%40mail.ru => generated 206 bytes in 6 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 0)
+[pid: 18232|app: 0|req: 61/102] 193.167.13.125 () {38 vars in 506 bytes} [Sat Apr  5 21:14:40 2014] POST /myalkin/user/follow/ => generated 223 bytes in 14 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 1)
+[pid: 18232|app: 0|req: 62/103] 193.167.13.125 () {34 vars in 474 bytes} [Sat Apr  5 21:14:40 2014] GET /myalkin/user/details/?user=example3%40mail.ru => generated 223 bytes in 6 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 0)
+[pid: 18230|app: 0|req: 42/104] 193.167.13.125 () {34 vars in 472 bytes} [Sat Apr  5 21:14:40 2014] GET /myalkin/user/details/?user=example%40mail.ru => generated 222 bytes in 7 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 1)
+[pid: 18230|app: 0|req: 43/105] 193.167.13.125 () {38 vars in 506 bytes} [Sat Apr  5 21:14:40 2014] POST /myalkin/user/follow/ => generated 240 bytes in 14 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 0)
+[pid: 18232|app: 0|req: 63/106] 193.167.13.125 () {34 vars in 472 bytes} [Sat Apr  5 21:14:40 2014] GET /myalkin/user/details/?user=example%40mail.ru => generated 240 bytes in 7 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 1)
+[pid: 18232|app: 0|req: 64/107] 193.167.13.125 () {34 vars in 474 bytes} [Sat Apr  5 21:14:40 2014] GET /myalkin/user/details/?user=example3%40mail.ru => generated 240 bytes in 6 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 0)
+./forumDB/views/user.py:65: DeprecationWarning: BaseException.message has been deprecated as of Python 2.6
+  return response_error(exception.message)
+
+[pid: 18230|app: 0|req: 44/108] 193.167.13.125 () {34 vars in 546 bytes} [Sat Apr  5 21:14:40 2014] GET /myalkin/user/listFollowers/?limit=3&user=example3%40mail.ru&since_id=2&order=desc => generated 44 bytes in 4 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 1)
+[pid: 18232|app: 0|req: 65/109] 193.167.13.125 () {38 vars in 508 bytes} [Sat Apr  5 21:15:19 2014] POST /myalkin/user/create/ => generated 148 bytes in 3 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 1)
+[pid: 18230|app: 0|req: 45/110] 193.167.13.125 () {34 vars in 472 bytes} [Sat Apr  5 21:15:19 2014] GET /myalkin/user/details/?user=example%40mail.ru => generated 240 bytes in 7 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 0)
+[pid: 18232|app: 0|req: 66/111] 193.167.13.125 () {38 vars in 508 bytes} [Sat Apr  5 21:15:50 2014] POST /myalkin/user/create/ => generated 148 bytes in 9 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 0)
+[pid: 18232|app: 0|req: 67/112] 193.167.13.125 () {34 vars in 472 bytes} [Sat Apr  5 21:15:50 2014] GET /myalkin/user/details/?user=example%40mail.ru => generated 203 bytes in 6 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 1)
+[pid: 18230|app: 0|req: 46/113] 193.167.13.125 () {38 vars in 508 bytes} [Sat Apr  5 21:15:50 2014] POST /myalkin/user/create/ => generated 140 bytes in 8 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 1)
+[pid: 18230|app: 0|req: 47/114] 193.167.13.125 () {34 vars in 492 bytes} [Sat Apr  5 21:15:50 2014] GET /myalkin/user/details/?user=richard.nixon%40example.com => generated 195 bytes in 7 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 0)
+[pid: 18232|app: 0|req: 68/115] 193.167.13.125 () {38 vars in 508 bytes} [Sat Apr  5 21:15:50 2014] POST /myalkin/user/create/ => generated 148 bytes in 8 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 0)
+[pid: 18232|app: 0|req: 69/116] 193.167.13.125 () {34 vars in 474 bytes} [Sat Apr  5 21:15:50 2014] GET /myalkin/user/details/?user=example2%40mail.ru => generated 203 bytes in 8 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 1)
+[pid: 18230|app: 0|req: 48/117] 193.167.13.125 () {38 vars in 508 bytes} [Sat Apr  5 21:15:50 2014] POST /myalkin/user/create/ => generated 149 bytes in 8 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 1)
+[pid: 18230|app: 0|req: 49/118] 193.167.13.125 () {34 vars in 474 bytes} [Sat Apr  5 21:15:50 2014] GET /myalkin/user/details/?user=example3%40mail.ru => generated 204 bytes in 7 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 0)
+[pid: 18232|app: 0|req: 70/119] 193.167.13.125 () {38 vars in 508 bytes} [Sat Apr  5 21:15:50 2014] POST /myalkin/user/create/ => generated 148 bytes in 8 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 0)
+[pid: 18232|app: 0|req: 71/120] 193.167.13.125 () {34 vars in 474 bytes} [Sat Apr  5 21:15:50 2014] GET /myalkin/user/details/?user=example4%40mail.ru => generated 203 bytes in 6 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 1)
+[pid: 18230|app: 0|req: 50/121] 193.167.13.125 () {38 vars in 510 bytes} [Sat Apr  5 21:15:50 2014] POST /myalkin/forum/create/ => generated 165 bytes in 9 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 1)
+[pid: 18230|app: 0|req: 51/122] 193.167.13.125 () {34 vars in 552 bytes} [Sat Apr  5 21:15:50 2014] GET /myalkin/forum/details/?related=%5B%27user%27%5D&forum=forumwithsufficientlylargename => generated 308 bytes in 8 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 0)
+[pid: 18232|app: 0|req: 72/123] 193.167.13.125 () {38 vars in 508 bytes} [Sat Apr  5 21:15:50 2014] POST /myalkin/forum/create/ => generated 114 bytes in 9 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 0)
+[pid: 18232|app: 0|req: 73/124] 193.167.13.125 () {34 vars in 504 bytes} [Sat Apr  5 21:15:50 2014] GET /myalkin/forum/details/?related=%5B%27user%27%5D&forum=forum1 => generated 257 bytes in 8 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 1)
+[pid: 18230|app: 0|req: 52/125] 193.167.13.125 () {38 vars in 508 bytes} [Sat Apr  5 21:15:51 2014] POST /myalkin/forum/create/ => generated 106 bytes in 8 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 1)
+[pid: 18232|app: 0|req: 74/126] 193.167.13.125 () {34 vars in 504 bytes} [Sat Apr  5 21:15:51 2014] GET /myalkin/forum/details/?related=%5B%27user%27%5D&forum=forum2 => generated 266 bytes in 8 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 0)
+[pid: 18232|app: 0|req: 75/127] 193.167.13.125 () {38 vars in 510 bytes} [Sat Apr  5 21:15:51 2014] POST /myalkin/forum/create/ => generated 147 bytes in 9 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 1)
+[pid: 18230|app: 0|req: 53/128] 193.167.13.125 () {34 vars in 504 bytes} [Sat Apr  5 21:15:51 2014] GET /myalkin/forum/details/?related=%5B%27user%27%5D&forum=forum3 => generated 307 bytes in 8 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 0)
+[pid: 18232|app: 0|req: 76/129] 193.167.13.125 () {38 vars in 512 bytes} [Sat Apr  5 21:15:51 2014] POST /myalkin/thread/create/ => generated 272 bytes in 12 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 0)
+[pid: 18232|app: 0|req: 77/130] 193.167.13.125 () {34 vars in 528 bytes} [Sat Apr  5 21:15:51 2014] GET /myalkin/thread/details/?related=%5B%27forum%27%2C+%27user%27%5D&thread=1 => generated 599 bytes in 10 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 1)
+[pid: 18230|app: 0|req: 54/131] 193.167.13.125 () {38 vars in 512 bytes} [Sat Apr  5 21:15:51 2014] POST /myalkin/thread/create/ => generated 209 bytes in 13 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 1)
+[pid: 18232|app: 0|req: 78/132] 193.167.13.125 () {34 vars in 528 bytes} [Sat Apr  5 21:15:51 2014] GET /myalkin/thread/details/?related=%5B%27forum%27%2C+%27user%27%5D&thread=2 => generated 536 bytes in 9 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 0)
+[pid: 18232|app: 0|req: 79/133] 193.167.13.125 () {38 vars in 512 bytes} [Sat Apr  5 21:15:51 2014] POST /myalkin/thread/create/ => generated 248 bytes in 11 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 1)
+[pid: 18230|app: 0|req: 55/134] 193.167.13.125 () {34 vars in 528 bytes} [Sat Apr  5 21:15:51 2014] GET /myalkin/thread/details/?related=%5B%27forum%27%2C+%27user%27%5D&thread=3 => generated 551 bytes in 10 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 0)
+[pid: 18232|app: 0|req: 80/135] 193.167.13.125 () {38 vars in 512 bytes} [Sat Apr  5 21:15:51 2014] POST /myalkin/thread/create/ => generated 253 bytes in 10 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 0)
+[pid: 18232|app: 0|req: 81/136] 193.167.13.125 () {34 vars in 528 bytes} [Sat Apr  5 21:15:51 2014] GET /myalkin/thread/details/?related=%5B%27forum%27%2C+%27user%27%5D&thread=4 => generated 546 bytes in 11 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 1)
+[pid: 18232|app: 0|req: 82/137] 193.167.13.125 () {38 vars in 508 bytes} [Sat Apr  5 21:15:51 2014] POST /myalkin/post/create/ => generated 250 bytes in 16 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 0)
+[pid: 18232|app: 0|req: 83/138] 193.167.13.125 () {34 vars in 552 bytes} [Sat Apr  5 21:15:51 2014] GET /myalkin/post/details/?post=1&related=%5B%27thread%27%2C+%27forum%27%2C+%27user%27%5D => generated 815 bytes in 12 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 1)
+[pid: 18232|app: 0|req: 84/139] 193.167.13.125 () {38 vars in 508 bytes} [Sat Apr  5 21:15:51 2014] POST /myalkin/post/create/ => generated 251 bytes in 18 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 0)
+[pid: 18232|app: 0|req: 85/140] 193.167.13.125 () {34 vars in 552 bytes} [Sat Apr  5 21:15:51 2014] GET /myalkin/post/details/?post=2&related=%5B%27thread%27%2C+%27forum%27%2C+%27user%27%5D => generated 814 bytes in 11 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 1)
+[pid: 18232|app: 0|req: 86/141] 193.167.13.125 () {38 vars in 508 bytes} [Sat Apr  5 21:15:51 2014] POST /myalkin/post/create/ => generated 250 bytes in 17 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 0)
+[pid: 18232|app: 0|req: 87/142] 193.167.13.125 () {34 vars in 552 bytes} [Sat Apr  5 21:15:51 2014] GET /myalkin/post/details/?post=3&related=%5B%27thread%27%2C+%27forum%27%2C+%27user%27%5D => generated 813 bytes in 12 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 1)
+[pid: 18232|app: 0|req: 88/143] 193.167.13.125 () {38 vars in 508 bytes} [Sat Apr  5 21:15:51 2014] POST /myalkin/post/create/ => generated 252 bytes in 16 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 0)
+[pid: 18232|app: 0|req: 89/144] 193.167.13.125 () {34 vars in 552 bytes} [Sat Apr  5 21:15:51 2014] GET /myalkin/post/details/?post=4&related=%5B%27thread%27%2C+%27forum%27%2C+%27user%27%5D => generated 881 bytes in 12 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 1)
+[pid: 18232|app: 0|req: 90/145] 193.167.13.125 () {38 vars in 508 bytes} [Sat Apr  5 21:15:51 2014] POST /myalkin/post/create/ => generated 251 bytes in 16 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 0)
+[pid: 18232|app: 0|req: 91/146] 193.167.13.125 () {34 vars in 552 bytes} [Sat Apr  5 21:15:51 2014] GET /myalkin/post/details/?post=5&related=%5B%27thread%27%2C+%27forum%27%2C+%27user%27%5D => generated 828 bytes in 12 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 1)
+[pid: 18232|app: 0|req: 92/147] 193.167.13.125 () {34 vars in 656 bytes} [Sat Apr  5 21:15:51 2014] GET /myalkin/forum/listPosts/?related=%5B%27thread%27%5D&since=2014-01-02+00%3A00%3A00&limit=2&order=asc&forum=forumwithsufficientlylargename => generated 27 bytes in 4 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 0)
+[pid: 18230|app: 0|req: 56/148] 193.167.13.125 () {34 vars in 624 bytes} [Sat Apr  5 21:15:51 2014] GET /myalkin/forum/listPosts/?related=%5B%27thread%27%2C+%27forum%27%5D&since=2014-01-01+00%3A00%3A00&order=desc&forum=forum1 => generated 669 bytes in 9 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 1)
+[pid: 18230|app: 0|req: 57/149] 193.167.13.125 () {34 vars in 540 bytes} [Sat Apr  5 21:15:51 2014] GET /myalkin/forum/listPosts/?since=2014-01-01+00%3A00%3A00&order=desc&forum=forum2 => generated 27 bytes in 4 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 0)
+[pid: 18232|app: 0|req: 93/150] 193.167.13.125 () {34 vars in 556 bytes} [Sat Apr  5 21:15:51 2014] GET /myalkin/forum/listPosts/?since=2014-01-03+00%3A00%3A00&limit=3&order=desc&forum=forum3 => generated 310 bytes in 6 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 0)
+[pid: 18232|app: 0|req: 94/151] 193.167.13.125 () {34 vars in 686 bytes} [Sat Apr  5 21:15:51 2014] GET /myalkin/forum/listThreads/?related=%5B%27forum%27%2C+%27user%27%5D&since=2013-12-30+00%3A00%3A00&limit=2&order=asc&forum=forumwithsufficientlylargename => generated 553 bytes in 13 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 1)
+[pid: 18232|app: 0|req: 95/152] 193.167.13.125 () {34 vars in 596 bytes} [Sat Apr  5 21:15:51 2014] GET /myalkin/forum/listThreads/?related=%5B%27forum%27%5D&since=2013-12-31+00%3A00%3A00&order=desc&forum=forum1 => generated 27 bytes in 4 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 0)
+[pid: 18230|app: 0|req: 58/153] 193.167.13.125 () {34 vars in 594 bytes} [Sat Apr  5 21:15:51 2014] GET /myalkin/forum/listThreads/?related=%5B%27user%27%5D&since=2014-01-01+00%3A00%3A00&order=desc&forum=forum2 => generated 27 bytes in 4 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 0)
+[pid: 18230|app: 0|req: 59/154] 193.167.13.125 () {34 vars in 560 bytes} [Sat Apr  5 21:15:51 2014] GET /myalkin/forum/listThreads/?since=2013-12-29+00%3A00%3A00&limit=3&order=desc&forum=forum3 => generated 564 bytes in 8 msecs (HTTP/1.1 200) 1 headers in 51 bytes (2 switches on core 1)
+[pid: 18232|app: 0|req: 96/155] 193.167.13.125 () {34 vars in 566 bytes} [Sat Apr  5 21:15:51 2014] GET /myalkin/forum/listUsers/?limit=2&since_id=10&forum=forumwithsufficientlylargename&order=asc => generated 27 bytes in 5 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 0)
+[pid: 18232|app: 0|req: 97/156] 193.167.13.125 () {34 vars in 480 bytes} [Sat Apr  5 21:15:51 2014] GET /myalkin/forum/listUsers/?order=desc&forum=forum1 => generated 205 bytes in 10 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 1)
+[pid: 18230|app: 0|req: 60/157] 193.167.13.125 () {34 vars in 590 bytes} [Sat Apr  5 21:15:51 2014] GET /myalkin/post/list/?since=2014-01-02+00%3A00%3A00&limit=2&order=asc&forum=forumwithsufficientlylargename => generated 27 bytes in 3 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 0)
+[pid: 18230|app: 0|req: 61/158] 193.167.13.125 () {34 vars in 528 bytes} [Sat Apr  5 21:15:51 2014] GET /myalkin/post/list/?since=2014-01-01+00%3A00%3A00&order=desc&forum=forum1 => generated 309 bytes in 5 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 1)
+[pid: 18232|app: 0|req: 98/159] 193.167.13.125 () {34 vars in 520 bytes} [Sat Apr  5 21:15:51 2014] GET /myalkin/post/list/?since=2014-01-01+00%3A00%3A00&order=desc&thread=1 => generated 310 bytes in 5 msecs (HTTP/1.1 200) 1 headers in 51 bytes (2 switches on core 0)
+[pid: 18230|app: 0|req: 62/160] 193.167.13.125 () {34 vars in 536 bytes} [Sat Apr  5 21:15:51 2014] GET /myalkin/post/list/?since=2014-01-03+00%3A00%3A00&limit=3&order=desc&thread=2 => generated 27 bytes in 3 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 0)
+[pid: 18232|app: 0|req: 99/161] 193.167.13.125 () {38 vars in 506 bytes} [Sat Apr  5 21:15:51 2014] POST /myalkin/post/remove/ => generated 36 bytes in 7 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 1)
+[pid: 18230|app: 0|req: 63/162] 193.167.13.125 () {34 vars in 440 bytes} [Sat Apr  5 21:15:51 2014] GET /myalkin/post/details/?post=5 => generated 307 bytes in 3 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 1)
+[pid: 18232|app: 0|req: 100/163] 193.167.13.125 () {38 vars in 508 bytes} [Sat Apr  5 21:15:51 2014] POST /myalkin/post/restore/ => generated 36 bytes in 6 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 0)
+[pid: 18230|app: 0|req: 64/164] 193.167.13.125 () {34 vars in 440 bytes} [Sat Apr  5 21:15:51 2014] GET /myalkin/post/details/?post=5 => generated 308 bytes in 3 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 0)
+[pid: 18230|app: 0|req: 65/165] 193.167.13.125 () {38 vars in 506 bytes} [Sat Apr  5 21:15:51 2014] POST /myalkin/post/update/ => generated 308 bytes in 6 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 1)
+[pid: 18232|app: 0|req: 101/166] 193.167.13.125 () {34 vars in 440 bytes} [Sat Apr  5 21:15:51 2014] GET /myalkin/post/details/?post=5 => generated 308 bytes in 3 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 1)
+[pid: 18232|app: 0|req: 102/167] 193.167.13.125 () {38 vars in 502 bytes} [Sat Apr  5 21:15:51 2014] POST /myalkin/post/vote/ => generated 303 bytes in 8 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 0)
+[pid: 18230|app: 0|req: 66/168] 193.167.13.125 () {34 vars in 440 bytes} [Sat Apr  5 21:15:51 2014] GET /myalkin/post/details/?post=3 => generated 303 bytes in 3 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 0)
+[pid: 18232|app: 0|req: 103/169] 193.167.13.125 () {34 vars in 594 bytes} [Sat Apr  5 21:15:51 2014] GET /myalkin/thread/list/?since=2014-01-02+00%3A00%3A00&limit=2&order=asc&forum=forumwithsufficientlylargename => generated 27 bytes in 3 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 1)
+[pid: 18230|app: 0|req: 67/170] 193.167.13.125 () {34 vars in 532 bytes} [Sat Apr  5 21:15:51 2014] GET /myalkin/thread/list/?since=2014-01-01+00%3A00%3A00&order=desc&forum=forum1 => generated 27 bytes in 4 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 1)
+[pid: 18230|app: 0|req: 68/171] 193.167.13.125 () {34 vars in 554 bytes} [Sat Apr  5 21:15:51 2014] GET /myalkin/thread/list/?since=2014-01-01+00%3A00%3A00&user=example2%40mail.ru&order=desc => generated 27 bytes in 5 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 0)
+[pid: 18232|app: 0|req: 104/172] 193.167.13.125 () {34 vars in 570 bytes} [Sat Apr  5 21:15:51 2014] GET /myalkin/thread/list/?since=2014-01-03+00%3A00%3A00&limit=3&user=example3%40mail.ru&order=desc => generated 27 bytes in 5 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 0)
+[pid: 18232|app: 0|req: 105/173] 193.167.13.125 () {34 vars in 548 bytes} [Sat Apr  5 21:15:51 2014] GET /myalkin/thread/listPosts/?since=2014-01-02+00%3A00%3A00&limit=2&order=asc&thread=1 => generated 310 bytes in 6 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 1)
+[pid: 18230|app: 0|req: 69/174] 193.167.13.125 () {34 vars in 534 bytes} [Sat Apr  5 21:15:51 2014] GET /myalkin/thread/listPosts/?since=2014-01-01+00%3A00%3A00&order=desc&thread=1 => generated 310 bytes in 6 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 1)
+[pid: 18230|app: 0|req: 70/175] 193.167.13.125 () {34 vars in 534 bytes} [Sat Apr  5 21:15:51 2014] GET /myalkin/thread/listPosts/?since=2014-01-01+00%3A00%3A00&order=desc&thread=3 => generated 27 bytes in 4 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 0)
+[pid: 18232|app: 0|req: 106/176] 193.167.13.125 () {34 vars in 550 bytes} [Sat Apr  5 21:15:51 2014] GET /myalkin/thread/listPosts/?since=2014-01-03+00%3A00%3A00&limit=3&order=desc&thread=2 => generated 27 bytes in 4 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 0)
+[pid: 18232|app: 0|req: 107/177] 193.167.13.125 () {38 vars in 510 bytes} [Sat Apr  5 21:15:51 2014] POST /myalkin/thread/remove/ => generated 38 bytes in 7 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 1)
+[pid: 18230|app: 0|req: 71/178] 193.167.13.125 () {34 vars in 448 bytes} [Sat Apr  5 21:15:51 2014] GET /myalkin/thread/details/?thread=4 => generated 304 bytes in 3 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 1)
+[pid: 18230|app: 0|req: 72/179] 193.167.13.125 () {38 vars in 512 bytes} [Sat Apr  5 21:15:51 2014] POST /myalkin/thread/restore/ => generated 38 bytes in 7 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 0)
+[pid: 18232|app: 0|req: 108/180] 193.167.13.125 () {34 vars in 448 bytes} [Sat Apr  5 21:15:52 2014] GET /myalkin/thread/details/?thread=4 => generated 305 bytes in 3 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 0)
+[pid: 18232|app: 0|req: 109/181] 193.167.13.125 () {38 vars in 508 bytes} [Sat Apr  5 21:15:52 2014] POST /myalkin/thread/close/ => generated 304 bytes in 6 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 1)
+[pid: 18230|app: 0|req: 73/182] 193.167.13.125 () {34 vars in 448 bytes} [Sat Apr  5 21:15:52 2014] GET /myalkin/thread/details/?thread=4 => generated 304 bytes in 3 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 1)
+[pid: 18232|app: 0|req: 110/183] 193.167.13.125 () {38 vars in 506 bytes} [Sat Apr  5 21:15:52 2014] POST /myalkin/thread/open/ => generated 305 bytes in 8 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 0)
+[pid: 18230|app: 0|req: 74/184] 193.167.13.125 () {34 vars in 448 bytes} [Sat Apr  5 21:15:52 2014] GET /myalkin/thread/details/?thread=4 => generated 305 bytes in 3 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 0)
+[pid: 18232|app: 0|req: 111/185] 193.167.13.125 () {38 vars in 510 bytes} [Sat Apr  5 21:15:52 2014] POST /myalkin/thread/update/ => generated 305 bytes in 6 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 1)
+[pid: 18230|app: 0|req: 75/186] 193.167.13.125 () {34 vars in 448 bytes} [Sat Apr  5 21:15:52 2014] GET /myalkin/thread/details/?thread=4 => generated 305 bytes in 2 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 1)
+[pid: 18230|app: 0|req: 76/187] 193.167.13.125 () {38 vars in 506 bytes} [Sat Apr  5 21:15:52 2014] POST /myalkin/thread/vote/ => generated 300 bytes in 6 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 0)
+[pid: 18230|app: 0|req: 77/188] 193.167.13.125 () {34 vars in 448 bytes} [Sat Apr  5 21:15:52 2014] GET /myalkin/thread/details/?thread=3 => generated 300 bytes in 3 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 1)
+[pid: 18232|app: 0|req: 112/189] 193.167.13.125 () {38 vars in 516 bytes} [Sat Apr  5 21:15:52 2014] POST /myalkin/thread/subscribe/ => generated 66 bytes in 12 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 0)
+[pid: 18232|app: 0|req: 113/190] 193.167.13.125 () {34 vars in 448 bytes} [Sat Apr  5 21:15:52 2014] GET /myalkin/thread/details/?thread=2 => generated 261 bytes in 3 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 1)
+[pid: 18230|app: 0|req: 78/191] 193.167.13.125 () {38 vars in 516 bytes} [Sat Apr  5 21:15:52 2014] POST /myalkin/thread/subscribe/ => generated 66 bytes in 10 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 1)
+[pid: 18230|app: 0|req: 79/192] 193.167.13.125 () {34 vars in 448 bytes} [Sat Apr  5 21:15:52 2014] GET /myalkin/thread/details/?thread=4 => generated 305 bytes in 3 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 0)
+[pid: 18232|app: 0|req: 114/193] 193.167.13.125 () {38 vars in 516 bytes} [Sat Apr  5 21:15:52 2014] POST /myalkin/thread/subscribe/ => generated 66 bytes in 7 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 1)
+[pid: 18232|app: 0|req: 115/194] 193.167.13.125 () {34 vars in 448 bytes} [Sat Apr  5 21:15:52 2014] GET /myalkin/thread/details/?thread=4 => generated 305 bytes in 3 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 0)
+[pid: 18230|app: 0|req: 80/195] 193.167.13.125 () {38 vars in 516 bytes} [Sat Apr  5 21:15:52 2014] POST /myalkin/thread/subscribe/ => generated 66 bytes in 11 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 0)
+[pid: 18232|app: 0|req: 116/196] 193.167.13.125 () {34 vars in 448 bytes} [Sat Apr  5 21:15:52 2014] GET /myalkin/thread/details/?thread=1 => generated 324 bytes in 3 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 0)
+[pid: 18230|app: 0|req: 81/197] 193.167.13.125 () {38 vars in 516 bytes} [Sat Apr  5 21:15:52 2014] POST /myalkin/thread/subscribe/ => generated 66 bytes in 11 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 1)
+[pid: 18232|app: 0|req: 117/198] 193.167.13.125 () {34 vars in 448 bytes} [Sat Apr  5 21:15:52 2014] GET /myalkin/thread/details/?thread=2 => generated 261 bytes in 3 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 1)
+[pid: 18232|app: 0|req: 118/199] 193.167.13.125 () {38 vars in 520 bytes} [Sat Apr  5 21:15:52 2014] POST /myalkin/thread/unsubscribe/ => generated 51 bytes in 5 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 0)
+[pid: 18230|app: 0|req: 82/200] 193.167.13.125 () {34 vars in 448 bytes} [Sat Apr  5 21:15:52 2014] GET /myalkin/thread/details/?thread=4 => generated 305 bytes in 3 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 0)
+[pid: 18232|app: 0|req: 119/201] 193.167.13.125 () {34 vars in 572 bytes} [Sat Apr  5 21:15:52 2014] GET /myalkin/user/listPosts/?since=2014-01-02+00%3A00%3A00&limit=2&user=example%40mail.ru&order=asc => generated 590 bytes in 7 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 1)
+[pid: 18232|app: 0|req: 120/202] 193.167.13.125 () {34 vars in 578 bytes} [Sat Apr  5 21:15:52 2014] GET /myalkin/user/listPosts/?since=2014-01-01+00%3A00%3A00&user=richard.nixon%40example.com&order=desc => generated 27 bytes in 4 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 0)
+[pid: 18230|app: 0|req: 83/203] 193.167.13.125 () {34 vars in 558 bytes} [Sat Apr  5 21:15:52 2014] GET /myalkin/user/listPosts/?since=2014-01-01+00%3A00%3A00&user=example2%40mail.ru&order=asc => generated 308 bytes in 3 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 1)
+[pid: 18230|app: 0|req: 84/204] 193.167.13.125 () {34 vars in 576 bytes} [Sat Apr  5 21:15:52 2014] GET /myalkin/user/listPosts/?since=2014-01-03+00%3A00%3A00&limit=3&user=example3%40mail.ru&order=desc => generated 310 bytes in 2 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 0)
+[pid: 18230|app: 0|req: 85/205] 193.167.13.125 () {38 vars in 520 bytes} [Sat Apr  5 21:15:52 2014] POST /myalkin/user/updateProfile/ => generated 202 bytes in 6 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 0)
+[pid: 18230|app: 0|req: 86/206] 193.167.13.125 () {34 vars in 474 bytes} [Sat Apr  5 21:15:52 2014] GET /myalkin/user/details/?user=example2%40mail.ru => generated 202 bytes in 3 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 1)
+[pid: 18232|app: 0|req: 121/207] 193.167.13.125 () {38 vars in 520 bytes} [Sat Apr  5 21:15:52 2014] POST /myalkin/user/updateProfile/ => generated 210 bytes in 9 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 0)
+[pid: 18232|app: 0|req: 122/208] 193.167.13.125 () {34 vars in 474 bytes} [Sat Apr  5 21:15:52 2014] GET /myalkin/user/details/?user=example3%40mail.ru => generated 210 bytes in 6 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 1)
+[pid: 18230|app: 0|req: 87/209] 193.167.13.125 () {38 vars in 506 bytes} [Sat Apr  5 21:15:52 2014] POST /myalkin/user/follow/ => generated 227 bytes in 37 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 1)
+[pid: 18232|app: 0|req: 123/210] 193.167.13.125 () {34 vars in 474 bytes} [Sat Apr  5 21:15:52 2014] GET /myalkin/user/details/?user=example3%40mail.ru => generated 227 bytes in 7 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 0)
+[pid: 18232|app: 0|req: 124/211] 193.167.13.125 () {34 vars in 472 bytes} [Sat Apr  5 21:15:52 2014] GET /myalkin/user/details/?user=example%40mail.ru => generated 221 bytes in 6 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 1)
+[pid: 18230|app: 0|req: 88/212] 193.167.13.125 () {38 vars in 506 bytes} [Sat Apr  5 21:15:52 2014] POST /myalkin/user/follow/ => generated 239 bytes in 16 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 0)
+[pid: 18232|app: 0|req: 125/213] 193.167.13.125 () {34 vars in 472 bytes} [Sat Apr  5 21:15:52 2014] GET /myalkin/user/details/?user=example%40mail.ru => generated 239 bytes in 8 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 0)
+[pid: 18232|app: 0|req: 126/214] 193.167.13.125 () {34 vars in 474 bytes} [Sat Apr  5 21:15:52 2014] GET /myalkin/user/details/?user=example3%40mail.ru => generated 244 bytes in 7 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 1)
+[pid: 18230|app: 0|req: 89/215] 193.167.13.125 () {34 vars in 546 bytes} [Sat Apr  5 21:15:52 2014] GET /myalkin/user/listFollowers/?limit=3&user=example3%40mail.ru&since_id=2&order=desc => generated 44 bytes in 4 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 1)
+./forumDB/views/user.py:65: DeprecationWarning: BaseException.message has been deprecated as of Python 2.6
+  return response_error(exception.message)
+
+[pid: 18232|app: 0|req: 127/216] 193.167.13.125 () {40 vars in 822 bytes} [Sat Apr  5 21:18:09 2014] GET /myalkin/user/listFollowers/?user=example3@mail.ru&limit=3&since_id=2&order=desc => generated 44 bytes in 5 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 0)
+[pid: 18232|app: 0|req: 128/217] 193.167.13.125 () {40 vars in 822 bytes} [Sat Apr  5 21:19:00 2014] GET /myalkin/user/listFollowers/?user=example3@mail.ru&limit=3&since_id=2&order=desc => generated 44 bytes in 4 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 1)
+[pid: 18232|app: 0|req: 129/218] 193.167.13.125 () {40 vars in 822 bytes} [Sat Apr  5 21:19:10 2014] GET /myalkin/user/listFollowers/?user=example3@mail.ru&limit=3&since_id=2&order=desc => generated 44 bytes in 5 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 0)
+[pid: 18232|app: 0|req: 130/219] 193.167.13.125 () {40 vars in 822 bytes} [Sat Apr  5 21:19:11 2014] GET /myalkin/user/listFollowers/?user=example3@mail.ru&limit=3&since_id=2&order=desc => generated 44 bytes in 5 msecs (HTTP/1.1 200) 1 headers in 51 bytes (2 switches on core 1)
+*** Starting uWSGI 2.0.3 (64bit) on [Sat Apr  5 21:19:15 2014] ***
+compiled with version: 4.7.2 on 04 April 2014 16:41:02
+os: Linux-3.2.0-4-amd64 #1 SMP Debian 3.2.54-2
+nodename: tp
+machine: x86_64
+clock source: unix
+detected number of CPU cores: 1
+current working directory: /home/tpadmin/forumDB
+writing pidfile to /tmp/forumDB.pid
+detected binary path: /usr/local/bin/uwsgi
+!!! no internal routing support, rebuild with pcre support !!!
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+your processes number limit is 7724
+your memory page size is 4096 bytes
+detected max file descriptor number: 1024
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uwsgi socket 0 bound to UNIX address /tmp/forumDB.sock fd 5
+Python version: 2.7.3 (default, Mar 13 2014, 11:26:58)  [GCC 4.7.2]
+Python main interpreter initialized at 0x90e360
+python threads support enabled
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 249168 bytes (243 KB) for 4 cores
+*** Operational MODE: preforking+threaded ***
+WSGI app 0 (mountpoint='') ready in 0 seconds on interpreter 0x90e360 pid: 18254 (default app)
+*** uWSGI is running in multiple interpreter mode ***
+spawned uWSGI master process (pid: 18254)
+spawned uWSGI worker 1 (pid: 18255, cores: 2)
+spawned uWSGI worker 2 (pid: 18257, cores: 2)
+./forumDB/views/user.py:65: DeprecationWarning: BaseException.message has been deprecated as of Python 2.6
+  return response_error(exception.message)
+
+[pid: 18257|app: 0|req: 1/1] 193.167.13.125 () {40 vars in 822 bytes} [Sat Apr  5 21:20:25 2014] GET /myalkin/user/listFollowers/?user=example3@mail.ru&limit=3&since_id=2&order=desc => generated 78 bytes in 135 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 0)
+*** Starting uWSGI 2.0.3 (64bit) on [Sat Apr  5 21:22:29 2014] ***
+compiled with version: 4.7.2 on 04 April 2014 16:41:02
+os: Linux-3.2.0-4-amd64 #1 SMP Debian 3.2.54-2
+nodename: tp
+machine: x86_64
+clock source: unix
+detected number of CPU cores: 1
+current working directory: /home/tpadmin/forumDB
+writing pidfile to /tmp/forumDB.pid
+detected binary path: /usr/local/bin/uwsgi
+!!! no internal routing support, rebuild with pcre support !!!
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+your processes number limit is 7724
+your memory page size is 4096 bytes
+detected max file descriptor number: 1024
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uwsgi socket 0 bound to UNIX address /tmp/forumDB.sock fd 5
+Python version: 2.7.3 (default, Mar 13 2014, 11:26:58)  [GCC 4.7.2]
+Python main interpreter initialized at 0x154c360
+python threads support enabled
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 249168 bytes (243 KB) for 4 cores
+*** Operational MODE: preforking+threaded ***
+WSGI app 0 (mountpoint='') ready in 0 seconds on interpreter 0x154c360 pid: 18287 (default app)
+*** uWSGI is running in multiple interpreter mode ***
+spawned uWSGI master process (pid: 18287)
+spawned uWSGI worker 1 (pid: 18288, cores: 2)
+spawned uWSGI worker 2 (pid: 18290, cores: 2)
+[pid: 18290|app: 0|req: 1/1] 193.167.13.125 () {40 vars in 822 bytes} [Sat Apr  5 21:22:32 2014] GET /myalkin/user/listFollowers/?user=example3@mail.ru&limit=3&since_id=2&order=desc => generated 27 bytes in 178 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 0)
+[pid: 18290|app: 0|req: 2/2] 193.167.13.125 () {38 vars in 508 bytes} [Sat Apr  5 21:22:52 2014] POST /myalkin/user/create/ => generated 148 bytes in 9 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 1)
+[pid: 18290|app: 0|req: 3/3] 193.167.13.125 () {34 vars in 472 bytes} [Sat Apr  5 21:22:52 2014] GET /myalkin/user/details/?user=example%40mail.ru => generated 203 bytes in 6 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 0)
+[pid: 18288|app: 0|req: 1/4] 193.167.13.125 () {38 vars in 508 bytes} [Sat Apr  5 21:22:52 2014] POST /myalkin/user/create/ => generated 140 bytes in 200 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 0)
+[pid: 18290|app: 0|req: 4/5] 193.167.13.125 () {34 vars in 492 bytes} [Sat Apr  5 21:22:52 2014] GET /myalkin/user/details/?user=richard.nixon%40example.com => generated 195 bytes in 7 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 1)
+[pid: 18290|app: 0|req: 5/6] 193.167.13.125 () {38 vars in 508 bytes} [Sat Apr  5 21:22:52 2014] POST /myalkin/user/create/ => generated 148 bytes in 7 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 0)
+[pid: 18288|app: 0|req: 2/7] 193.167.13.125 () {34 vars in 474 bytes} [Sat Apr  5 21:22:52 2014] GET /myalkin/user/details/?user=example2%40mail.ru => generated 203 bytes in 8 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 1)
+[pid: 18288|app: 0|req: 3/8] 193.167.13.125 () {38 vars in 508 bytes} [Sat Apr  5 21:22:52 2014] POST /myalkin/user/create/ => generated 149 bytes in 9 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 0)
+[pid: 18290|app: 0|req: 6/9] 193.167.13.125 () {34 vars in 474 bytes} [Sat Apr  5 21:22:52 2014] GET /myalkin/user/details/?user=example3%40mail.ru => generated 204 bytes in 7 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 1)
+[pid: 18290|app: 0|req: 7/10] 193.167.13.125 () {38 vars in 508 bytes} [Sat Apr  5 21:22:52 2014] POST /myalkin/user/create/ => generated 148 bytes in 8 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 0)
+[pid: 18288|app: 0|req: 4/11] 193.167.13.125 () {34 vars in 474 bytes} [Sat Apr  5 21:22:52 2014] GET /myalkin/user/details/?user=example4%40mail.ru => generated 203 bytes in 7 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 1)
+[pid: 18288|app: 0|req: 5/12] 193.167.13.125 () {38 vars in 510 bytes} [Sat Apr  5 21:22:52 2014] POST /myalkin/forum/create/ => generated 165 bytes in 11 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 0)
+[pid: 18290|app: 0|req: 8/13] 193.167.13.125 () {34 vars in 552 bytes} [Sat Apr  5 21:22:52 2014] GET /myalkin/forum/details/?related=%5B%27user%27%5D&forum=forumwithsufficientlylargename => generated 308 bytes in 10 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 1)
+[pid: 18290|app: 0|req: 9/14] 193.167.13.125 () {38 vars in 508 bytes} [Sat Apr  5 21:22:52 2014] POST /myalkin/forum/create/ => generated 114 bytes in 10 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 0)
+[pid: 18288|app: 0|req: 6/15] 193.167.13.125 () {34 vars in 504 bytes} [Sat Apr  5 21:22:52 2014] GET /myalkin/forum/details/?related=%5B%27user%27%5D&forum=forum1 => generated 257 bytes in 8 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 1)
+[pid: 18290|app: 0|req: 10/16] 193.167.13.125 () {38 vars in 508 bytes} [Sat Apr  5 21:22:52 2014] POST /myalkin/forum/create/ => generated 106 bytes in 9 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 1)
+[pid: 18290|app: 0|req: 11/17] 193.167.13.125 () {34 vars in 504 bytes} [Sat Apr  5 21:22:52 2014] GET /myalkin/forum/details/?related=%5B%27user%27%5D&forum=forum2 => generated 267 bytes in 8 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 0)
+[pid: 18288|app: 0|req: 7/18] 193.167.13.125 () {38 vars in 510 bytes} [Sat Apr  5 21:22:52 2014] POST /myalkin/forum/create/ => generated 147 bytes in 16 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 0)
+[pid: 18290|app: 0|req: 12/19] 193.167.13.125 () {34 vars in 504 bytes} [Sat Apr  5 21:22:52 2014] GET /myalkin/forum/details/?related=%5B%27user%27%5D&forum=forum3 => generated 308 bytes in 8 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 1)
+[pid: 18290|app: 0|req: 13/20] 193.167.13.125 () {38 vars in 512 bytes} [Sat Apr  5 21:22:52 2014] POST /myalkin/thread/create/ => generated 273 bytes in 13 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 0)
+[pid: 18290|app: 0|req: 14/21] 193.167.13.125 () {34 vars in 528 bytes} [Sat Apr  5 21:22:52 2014] GET /myalkin/thread/details/?related=%5B%27forum%27%2C+%27user%27%5D&thread=1 => generated 558 bytes in 10 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 1)
+[pid: 18290|app: 0|req: 15/22] 193.167.13.125 () {38 vars in 512 bytes} [Sat Apr  5 21:22:52 2014] POST /myalkin/thread/create/ => generated 210 bytes in 11 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 0)
+[pid: 18288|app: 0|req: 8/23] 193.167.13.125 () {34 vars in 528 bytes} [Sat Apr  5 21:22:52 2014] GET /myalkin/thread/details/?related=%5B%27forum%27%2C+%27user%27%5D&thread=2 => generated 495 bytes in 13 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 1)
+[pid: 18290|app: 0|req: 16/24] 193.167.13.125 () {38 vars in 512 bytes} [Sat Apr  5 21:22:52 2014] POST /myalkin/thread/create/ => generated 215 bytes in 12 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 1)
+[pid: 18290|app: 0|req: 17/25] 193.167.13.125 () {34 vars in 528 bytes} [Sat Apr  5 21:22:52 2014] GET /myalkin/thread/details/?related=%5B%27forum%27%2C+%27user%27%5D&thread=3 => generated 541 bytes in 10 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 0)
+[pid: 18288|app: 0|req: 9/26] 193.167.13.125 () {38 vars in 512 bytes} [Sat Apr  5 21:22:52 2014] POST /myalkin/thread/create/ => generated 253 bytes in 11 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 0)
+[pid: 18290|app: 0|req: 18/27] 193.167.13.125 () {34 vars in 528 bytes} [Sat Apr  5 21:22:52 2014] GET /myalkin/thread/details/?related=%5B%27forum%27%2C+%27user%27%5D&thread=4 => generated 538 bytes in 10 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 1)
+[pid: 18290|app: 0|req: 19/28] 193.167.13.125 () {38 vars in 508 bytes} [Sat Apr  5 21:22:52 2014] POST /myalkin/post/create/ => generated 250 bytes in 19 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 0)
+[pid: 18290|app: 0|req: 20/29] 193.167.13.125 () {34 vars in 552 bytes} [Sat Apr  5 21:22:52 2014] GET /myalkin/post/details/?post=1&related=%5B%27thread%27%2C+%27forum%27%2C+%27user%27%5D => generated 839 bytes in 12 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 1)
+[pid: 18290|app: 0|req: 21/30] 193.167.13.125 () {38 vars in 508 bytes} [Sat Apr  5 21:22:52 2014] POST /myalkin/post/create/ => generated 251 bytes in 19 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 0)
+[pid: 18290|app: 0|req: 22/31] 193.167.13.125 () {34 vars in 552 bytes} [Sat Apr  5 21:22:52 2014] GET /myalkin/post/details/?post=2&related=%5B%27thread%27%2C+%27forum%27%2C+%27user%27%5D => generated 837 bytes in 11 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 1)
+[pid: 18290|app: 0|req: 23/32] 193.167.13.125 () {38 vars in 508 bytes} [Sat Apr  5 21:22:52 2014] POST /myalkin/post/create/ => generated 251 bytes in 19 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 0)
+[pid: 18290|app: 0|req: 24/33] 193.167.13.125 () {34 vars in 552 bytes} [Sat Apr  5 21:22:52 2014] GET /myalkin/post/details/?post=3&related=%5B%27thread%27%2C+%27forum%27%2C+%27user%27%5D => generated 836 bytes in 11 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 1)
+[pid: 18290|app: 0|req: 25/34] 193.167.13.125 () {38 vars in 508 bytes} [Sat Apr  5 21:22:52 2014] POST /myalkin/post/create/ => generated 251 bytes in 17 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 0)
+[pid: 18290|app: 0|req: 26/35] 193.167.13.125 () {34 vars in 552 bytes} [Sat Apr  5 21:22:53 2014] GET /myalkin/post/details/?post=4&related=%5B%27thread%27%2C+%27forum%27%2C+%27user%27%5D => generated 777 bytes in 12 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 1)
+[pid: 18290|app: 0|req: 27/36] 193.167.13.125 () {38 vars in 508 bytes} [Sat Apr  5 21:22:53 2014] POST /myalkin/post/create/ => generated 252 bytes in 15 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 0)
+[pid: 18290|app: 0|req: 28/37] 193.167.13.125 () {34 vars in 552 bytes} [Sat Apr  5 21:22:53 2014] GET /myalkin/post/details/?post=5&related=%5B%27thread%27%2C+%27forum%27%2C+%27user%27%5D => generated 778 bytes in 12 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 1)
+[pid: 18290|app: 0|req: 29/38] 193.167.13.125 () {34 vars in 656 bytes} [Sat Apr  5 21:22:53 2014] GET /myalkin/forum/listPosts/?related=%5B%27thread%27%5D&since=2014-01-02+00%3A00%3A00&limit=2&order=asc&forum=forumwithsufficientlylargename => generated 27 bytes in 4 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 0)
+[pid: 18288|app: 0|req: 10/39] 193.167.13.125 () {34 vars in 624 bytes} [Sat Apr  5 21:22:53 2014] GET /myalkin/forum/listPosts/?related=%5B%27thread%27%2C+%27forum%27%5D&since=2014-01-01+00%3A00%3A00&order=desc&forum=forum1 => generated 27 bytes in 5 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 1)
+[pid: 18288|app: 0|req: 11/40] 193.167.13.125 () {34 vars in 540 bytes} [Sat Apr  5 21:22:53 2014] GET /myalkin/forum/listPosts/?since=2014-01-01+00%3A00%3A00&order=desc&forum=forum2 => generated 1439 bytes in 13 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 0)
+[pid: 18290|app: 0|req: 30/41] 193.167.13.125 () {34 vars in 556 bytes} [Sat Apr  5 21:22:53 2014] GET /myalkin/forum/listPosts/?since=2014-01-03+00%3A00%3A00&limit=3&order=desc&forum=forum3 => generated 27 bytes in 4 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 1)
+[pid: 18290|app: 0|req: 31/42] 193.167.13.125 () {34 vars in 686 bytes} [Sat Apr  5 21:22:53 2014] GET /myalkin/forum/listThreads/?related=%5B%27forum%27%2C+%27user%27%5D&since=2013-12-30+00%3A00%3A00&limit=2&order=asc&forum=forumwithsufficientlylargename => generated 27 bytes in 4 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 0)
+[pid: 18288|app: 0|req: 12/43] 193.167.13.125 () {34 vars in 596 bytes} [Sat Apr  5 21:22:53 2014] GET /myalkin/forum/listThreads/?related=%5B%27forum%27%5D&since=2013-12-31+00%3A00%3A00&order=desc&forum=forum1 => generated 27 bytes in 5 msecs (HTTP/1.1 200) 1 headers in 51 bytes (2 switches on core 1)
+[pid: 18288|app: 0|req: 13/44] 193.167.13.125 () {34 vars in 594 bytes} [Sat Apr  5 21:22:53 2014] GET /myalkin/forum/listThreads/?related=%5B%27user%27%5D&since=2014-01-01+00%3A00%3A00&order=desc&forum=forum2 => generated 487 bytes in 11 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 0)
+[pid: 18290|app: 0|req: 32/45] 193.167.13.125 () {34 vars in 560 bytes} [Sat Apr  5 21:22:53 2014] GET /myalkin/forum/listThreads/?since=2013-12-29+00%3A00%3A00&limit=3&order=desc&forum=forum3 => generated 269 bytes in 6 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 1)
+[pid: 18290|app: 0|req: 33/46] 193.167.13.125 () {34 vars in 566 bytes} [Sat Apr  5 21:22:53 2014] GET /myalkin/forum/listUsers/?limit=2&since_id=10&forum=forumwithsufficientlylargename&order=asc => generated 27 bytes in 4 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 0)
+[pid: 18288|app: 0|req: 14/47] 193.167.13.125 () {34 vars in 480 bytes} [Sat Apr  5 21:22:53 2014] GET /myalkin/forum/listUsers/?order=desc&forum=forum1 => generated 27 bytes in 4 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 1)
+[pid: 18288|app: 0|req: 15/48] 193.167.13.125 () {34 vars in 590 bytes} [Sat Apr  5 21:22:53 2014] GET /myalkin/post/list/?since=2014-01-02+00%3A00%3A00&limit=2&order=asc&forum=forumwithsufficientlylargename => generated 27 bytes in 7 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 0)
+[pid: 18290|app: 0|req: 34/49] 193.167.13.125 () {34 vars in 528 bytes} [Sat Apr  5 21:22:53 2014] GET /myalkin/post/list/?since=2014-01-01+00%3A00%3A00&order=desc&forum=forum1 => generated 27 bytes in 4 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 0)
+[pid: 18290|app: 0|req: 35/50] 193.167.13.125 () {34 vars in 520 bytes} [Sat Apr  5 21:22:53 2014] GET /myalkin/post/list/?since=2014-01-01+00%3A00%3A00&order=desc&thread=3 => generated 27 bytes in 3 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 1)
+[pid: 18288|app: 0|req: 16/51] 193.167.13.125 () {34 vars in 536 bytes} [Sat Apr  5 21:22:53 2014] GET /myalkin/post/list/?since=2014-01-03+00%3A00%3A00&limit=3&order=desc&thread=1 => generated 27 bytes in 4 msecs (HTTP/1.1 200) 1 headers in 51 bytes (2 switches on core 1)
+[pid: 18288|app: 0|req: 17/52] 193.167.13.125 () {38 vars in 506 bytes} [Sat Apr  5 21:22:53 2014] POST /myalkin/post/remove/ => generated 36 bytes in 6 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 0)
+[pid: 18290|app: 0|req: 36/53] 193.167.13.125 () {34 vars in 440 bytes} [Sat Apr  5 21:22:53 2014] GET /myalkin/post/details/?post=2 => generated 303 bytes in 3 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 1)
+[pid: 18290|app: 0|req: 37/54] 193.167.13.125 () {38 vars in 508 bytes} [Sat Apr  5 21:22:53 2014] POST /myalkin/post/restore/ => generated 36 bytes in 6 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 0)
+[pid: 18288|app: 0|req: 18/55] 193.167.13.125 () {34 vars in 440 bytes} [Sat Apr  5 21:22:53 2014] GET /myalkin/post/details/?post=2 => generated 304 bytes in 3 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 1)
+[pid: 18288|app: 0|req: 19/56] 193.167.13.125 () {38 vars in 506 bytes} [Sat Apr  5 21:22:53 2014] POST /myalkin/post/update/ => generated 304 bytes in 7 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 0)
+[pid: 18290|app: 0|req: 38/57] 193.167.13.125 () {34 vars in 440 bytes} [Sat Apr  5 21:22:53 2014] GET /myalkin/post/details/?post=2 => generated 304 bytes in 3 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 1)
+[pid: 18288|app: 0|req: 20/58] 193.167.13.125 () {38 vars in 502 bytes} [Sat Apr  5 21:22:53 2014] POST /myalkin/post/vote/ => generated 307 bytes in 7 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 1)
+[pid: 18290|app: 0|req: 39/59] 193.167.13.125 () {34 vars in 440 bytes} [Sat Apr  5 21:22:53 2014] GET /myalkin/post/details/?post=4 => generated 307 bytes in 3 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 0)
+[pid: 18290|app: 0|req: 40/60] 193.167.13.125 () {34 vars in 594 bytes} [Sat Apr  5 21:22:53 2014] GET /myalkin/thread/list/?since=2014-01-02+00%3A00%3A00&limit=2&order=asc&forum=forumwithsufficientlylargename => generated 27 bytes in 4 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 1)
+[pid: 18290|app: 0|req: 41/61] 193.167.13.125 () {34 vars in 532 bytes} [Sat Apr  5 21:22:53 2014] GET /myalkin/thread/list/?since=2014-01-01+00%3A00%3A00&order=desc&forum=forum1 => generated 27 bytes in 4 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 0)
+[pid: 18288|app: 0|req: 21/62] 193.167.13.125 () {34 vars in 554 bytes} [Sat Apr  5 21:22:53 2014] GET /myalkin/thread/list/?since=2014-01-01+00%3A00%3A00&user=example2%40mail.ru&order=desc => generated 327 bytes in 7 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 0)
+[pid: 18288|app: 0|req: 22/63] 193.167.13.125 () {34 vars in 570 bytes} [Sat Apr  5 21:22:53 2014] GET /myalkin/thread/list/?since=2014-01-03+00%3A00%3A00&limit=3&user=example3%40mail.ru&order=desc => generated 27 bytes in 4 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 1)
+[pid: 18290|app: 0|req: 42/64] 193.167.13.125 () {34 vars in 548 bytes} [Sat Apr  5 21:22:53 2014] GET /myalkin/thread/listPosts/?since=2014-01-02+00%3A00%3A00&limit=2&order=asc&thread=2 => generated 594 bytes in 7 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 1)
+[pid: 18290|app: 0|req: 43/65] 193.167.13.125 () {34 vars in 534 bytes} [Sat Apr  5 21:22:53 2014] GET /myalkin/thread/listPosts/?since=2014-01-01+00%3A00%3A00&order=desc&thread=1 => generated 870 bytes in 9 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 0)
+[pid: 18288|app: 0|req: 23/66] 193.167.13.125 () {34 vars in 534 bytes} [Sat Apr  5 21:22:53 2014] GET /myalkin/thread/listPosts/?since=2014-01-01+00%3A00%3A00&order=desc&thread=2 => generated 594 bytes in 7 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 0)
+[pid: 18290|app: 0|req: 44/67] 193.167.13.125 () {34 vars in 550 bytes} [Sat Apr  5 21:22:53 2014] GET /myalkin/thread/listPosts/?since=2014-01-03+00%3A00%3A00&limit=3&order=desc&thread=3 => generated 27 bytes in 4 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 1)
+[pid: 18288|app: 0|req: 24/68] 193.167.13.125 () {38 vars in 510 bytes} [Sat Apr  5 21:22:53 2014] POST /myalkin/thread/remove/ => generated 38 bytes in 8 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 1)
+[pid: 18290|app: 0|req: 45/69] 193.167.13.125 () {34 vars in 448 bytes} [Sat Apr  5 21:22:53 2014] GET /myalkin/thread/details/?thread=3 => generated 266 bytes in 3 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 0)
+[pid: 18288|app: 0|req: 25/70] 193.167.13.125 () {38 vars in 512 bytes} [Sat Apr  5 21:22:53 2014] POST /myalkin/thread/restore/ => generated 38 bytes in 7 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 0)
+[pid: 18290|app: 0|req: 46/71] 193.167.13.125 () {34 vars in 448 bytes} [Sat Apr  5 21:22:53 2014] GET /myalkin/thread/details/?thread=3 => generated 267 bytes in 3 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 1)
+[pid: 18290|app: 0|req: 47/72] 193.167.13.125 () {38 vars in 508 bytes} [Sat Apr  5 21:22:53 2014] POST /myalkin/thread/close/ => generated 266 bytes in 7 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 0)
+[pid: 18288|app: 0|req: 26/73] 193.167.13.125 () {34 vars in 448 bytes} [Sat Apr  5 21:22:53 2014] GET /myalkin/thread/details/?thread=3 => generated 266 bytes in 3 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 1)
+[pid: 18290|app: 0|req: 48/74] 193.167.13.125 () {38 vars in 506 bytes} [Sat Apr  5 21:22:53 2014] POST /myalkin/thread/open/ => generated 267 bytes in 7 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 1)
+[pid: 18288|app: 0|req: 27/75] 193.167.13.125 () {34 vars in 448 bytes} [Sat Apr  5 21:22:53 2014] GET /myalkin/thread/details/?thread=3 => generated 267 bytes in 3 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 0)
+[pid: 18288|app: 0|req: 28/76] 193.167.13.125 () {38 vars in 510 bytes} [Sat Apr  5 21:22:53 2014] POST /myalkin/thread/update/ => generated 267 bytes in 6 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 1)
+[pid: 18290|app: 0|req: 49/77] 193.167.13.125 () {34 vars in 448 bytes} [Sat Apr  5 21:22:53 2014] GET /myalkin/thread/details/?thread=3 => generated 267 bytes in 3 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 0)
+[pid: 18290|app: 0|req: 50/78] 193.167.13.125 () {38 vars in 506 bytes} [Sat Apr  5 21:22:53 2014] POST /myalkin/thread/vote/ => generated 267 bytes in 9 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 1)
+[pid: 18290|app: 0|req: 51/79] 193.167.13.125 () {34 vars in 448 bytes} [Sat Apr  5 21:22:53 2014] GET /myalkin/thread/details/?thread=3 => generated 267 bytes in 3 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 0)
+[pid: 18288|app: 0|req: 29/80] 193.167.13.125 () {38 vars in 516 bytes} [Sat Apr  5 21:22:53 2014] POST /myalkin/thread/subscribe/ => generated 65 bytes in 12 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 0)
+[pid: 18290|app: 0|req: 52/81] 193.167.13.125 () {34 vars in 448 bytes} [Sat Apr  5 21:22:53 2014] GET /myalkin/thread/details/?thread=4 => generated 305 bytes in 3 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 0)
+[pid: 18288|app: 0|req: 30/82] 193.167.13.125 () {38 vars in 516 bytes} [Sat Apr  5 21:22:53 2014] POST /myalkin/thread/subscribe/ => generated 75 bytes in 12 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 1)
+[pid: 18290|app: 0|req: 53/83] 193.167.13.125 () {34 vars in 448 bytes} [Sat Apr  5 21:22:53 2014] GET /myalkin/thread/details/?thread=3 => generated 267 bytes in 3 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 1)
+[pid: 18290|app: 0|req: 54/84] 193.167.13.125 () {38 vars in 516 bytes} [Sat Apr  5 21:22:53 2014] POST /myalkin/thread/subscribe/ => generated 75 bytes in 11 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 0)
+[pid: 18288|app: 0|req: 31/85] 193.167.13.125 () {34 vars in 448 bytes} [Sat Apr  5 21:22:53 2014] GET /myalkin/thread/details/?thread=1 => generated 325 bytes in 3 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 0)
+[pid: 18290|app: 0|req: 55/86] 193.167.13.125 () {38 vars in 516 bytes} [Sat Apr  5 21:22:53 2014] POST /myalkin/thread/subscribe/ => generated 66 bytes in 11 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 1)
+[pid: 18288|app: 0|req: 32/87] 193.167.13.125 () {34 vars in 448 bytes} [Sat Apr  5 21:22:53 2014] GET /myalkin/thread/details/?thread=3 => generated 267 bytes in 3 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 1)
+[pid: 18288|app: 0|req: 33/88] 193.167.13.125 () {38 vars in 516 bytes} [Sat Apr  5 21:22:53 2014] POST /myalkin/thread/subscribe/ => generated 65 bytes in 7 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 0)
+[pid: 18290|app: 0|req: 56/89] 193.167.13.125 () {34 vars in 448 bytes} [Sat Apr  5 21:22:53 2014] GET /myalkin/thread/details/?thread=4 => generated 305 bytes in 3 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 0)
+./forumDB/views/thread.py:43: DeprecationWarning: BaseException.message has been deprecated as of Python 2.6
+  return response_error(exception.message)
+
+[pid: 18288|app: 0|req: 34/90] 193.167.13.125 () {38 vars in 520 bytes} [Sat Apr  5 21:22:53 2014] POST /myalkin/thread/unsubscribe/ => generated 51 bytes in 6 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 1)
+[pid: 18290|app: 0|req: 57/91] 193.167.13.125 () {34 vars in 448 bytes} [Sat Apr  5 21:22:53 2014] GET /myalkin/thread/details/?thread=4 => generated 305 bytes in 3 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 1)
+[pid: 18290|app: 0|req: 58/92] 193.167.13.125 () {34 vars in 572 bytes} [Sat Apr  5 21:22:53 2014] GET /myalkin/user/listPosts/?since=2014-01-02+00%3A00%3A00&limit=2&user=example%40mail.ru&order=asc => generated 309 bytes in 5 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 0)
+[pid: 18288|app: 0|req: 35/93] 193.167.13.125 () {34 vars in 578 bytes} [Sat Apr  5 21:22:53 2014] GET /myalkin/user/listPosts/?since=2014-01-01+00%3A00%3A00&user=richard.nixon%40example.com&order=desc => generated 27 bytes in 4 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 0)
+[pid: 18290|app: 0|req: 59/94] 193.167.13.125 () {34 vars in 558 bytes} [Sat Apr  5 21:22:53 2014] GET /myalkin/user/listPosts/?since=2014-01-01+00%3A00%3A00&user=example2%40mail.ru&order=asc => generated 306 bytes in 7 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 1)
+[pid: 18288|app: 0|req: 36/95] 193.167.13.125 () {34 vars in 576 bytes} [Sat Apr  5 21:22:53 2014] GET /myalkin/user/listPosts/?since=2014-01-03+00%3A00%3A00&limit=3&user=example3%40mail.ru&order=desc => generated 310 bytes in 7 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 1)
+[pid: 18290|app: 0|req: 60/96] 193.167.13.125 () {38 vars in 520 bytes} [Sat Apr  5 21:22:54 2014] POST /myalkin/user/updateProfile/ => generated 202 bytes in 13 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 0)
+[pid: 18290|app: 0|req: 61/97] 193.167.13.125 () {34 vars in 474 bytes} [Sat Apr  5 21:22:54 2014] GET /myalkin/user/details/?user=example2%40mail.ru => generated 202 bytes in 6 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 1)
+[pid: 18288|app: 0|req: 37/98] 193.167.13.125 () {38 vars in 520 bytes} [Sat Apr  5 21:22:54 2014] POST /myalkin/user/updateProfile/ => generated 206 bytes in 12 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 0)
+[pid: 18290|app: 0|req: 62/99] 193.167.13.125 () {34 vars in 474 bytes} [Sat Apr  5 21:22:54 2014] GET /myalkin/user/details/?user=example3%40mail.ru => generated 206 bytes in 7 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 0)
+[pid: 18290|app: 0|req: 63/100] 193.167.13.125 () {38 vars in 506 bytes} [Sat Apr  5 21:22:54 2014] POST /myalkin/user/follow/ => generated 223 bytes in 15 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 1)
+[pid: 18290|app: 0|req: 64/101] 193.167.13.125 () {34 vars in 474 bytes} [Sat Apr  5 21:22:54 2014] GET /myalkin/user/details/?user=example3%40mail.ru => generated 223 bytes in 7 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 0)
+[pid: 18288|app: 0|req: 38/102] 193.167.13.125 () {34 vars in 472 bytes} [Sat Apr  5 21:22:54 2014] GET /myalkin/user/details/?user=example%40mail.ru => generated 222 bytes in 7 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 1)
+[pid: 18288|app: 0|req: 39/103] 193.167.13.125 () {38 vars in 506 bytes} [Sat Apr  5 21:22:54 2014] POST /myalkin/user/follow/ => generated 240 bytes in 15 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 0)
+[pid: 18290|app: 0|req: 65/104] 193.167.13.125 () {34 vars in 472 bytes} [Sat Apr  5 21:22:54 2014] GET /myalkin/user/details/?user=example%40mail.ru => generated 240 bytes in 6 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 1)
+[pid: 18290|app: 0|req: 66/105] 193.167.13.125 () {34 vars in 474 bytes} [Sat Apr  5 21:22:54 2014] GET /myalkin/user/details/?user=example3%40mail.ru => generated 240 bytes in 7 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 0)
+[pid: 18288|app: 0|req: 40/106] 193.167.13.125 () {34 vars in 546 bytes} [Sat Apr  5 21:22:54 2014] GET /myalkin/user/listFollowers/?limit=3&user=example3%40mail.ru&since_id=2&order=desc => generated 27 bytes in 4 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 1)
+[pid: 18288|app: 0|req: 41/107] 193.167.13.125 () {34 vars in 504 bytes} [Sat Apr  5 21:22:54 2014] GET /myalkin/user/listFollowers/?user=example%40mail.ru&order=asc => generated 242 bytes in 9 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 0)
+[pid: 18290|app: 0|req: 67/108] 193.167.13.125 () {34 vars in 546 bytes} [Sat Apr  5 21:22:54 2014] GET /myalkin/user/listFollowing/?limit=3&user=example3%40mail.ru&since_id=1&order=desc => generated 242 bytes in 9 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 1)
+[pid: 18290|app: 0|req: 68/109] 193.167.13.125 () {34 vars in 504 bytes} [Sat Apr  5 21:22:54 2014] GET /myalkin/user/listFollowing/?user=example%40mail.ru&order=asc => generated 242 bytes in 10 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 0)
+[pid: 18288|app: 0|req: 42/110] 193.167.13.125 () {38 vars in 510 bytes} [Sat Apr  5 21:22:54 2014] POST /myalkin/user/unfollow/ => generated 223 bytes in 15 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 1)
+[pid: 18290|app: 0|req: 69/111] 193.167.13.125 () {34 vars in 474 bytes} [Sat Apr  5 21:22:54 2014] GET /myalkin/user/details/?user=example3%40mail.ru => generated 223 bytes in 6 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 1)
+[pid: 18290|app: 0|req: 70/112] 193.167.13.125 () {34 vars in 472 bytes} [Sat Apr  5 21:22:54 2014] GET /myalkin/user/details/?user=example%40mail.ru => generated 222 bytes in 6 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 0)
+[pid: 18288|app: 0|req: 43/113] 193.167.13.125 () {38 vars in 510 bytes} [Sat Apr  5 21:22:54 2014] POST /myalkin/user/unfollow/ => generated 204 bytes in 15 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 0)
+[pid: 18290|app: 0|req: 71/114] 193.167.13.125 () {34 vars in 472 bytes} [Sat Apr  5 21:22:54 2014] GET /myalkin/user/details/?user=example%40mail.ru => generated 204 bytes in 6 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 1)
+[pid: 18290|app: 0|req: 72/115] 193.167.13.125 () {34 vars in 474 bytes} [Sat Apr  5 21:22:54 2014] GET /myalkin/user/details/?user=example3%40mail.ru => generated 206 bytes in 6 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 0)
+[pid: 18290|app: 0|req: 73/116] 193.167.13.125 () {40 vars in 822 bytes} [Sat Apr  5 21:23:25 2014] GET /myalkin/user/listFollowers/?user=example3@mail.ru&limit=3&since_id=2&order=desc => generated 27 bytes in 5 msecs (HTTP/1.1 200) 1 headers in 51 bytes (1 switches on core 1)

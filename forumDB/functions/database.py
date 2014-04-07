@@ -23,7 +23,7 @@ def execInsertUpdateQuery(query, params):
         raise Exception('database exception')
 
 def execSelectQuery(query, params):
-    try:
+
         db = mdb.connect(Database.host, Database.user, Database.password, Database.database, init_command='SET NAMES UTF8')
         cursor = db.cursor()
         cursor.execute(query, params)
@@ -31,5 +31,3 @@ def execSelectQuery(query, params):
         cursor.close()
         db.close()
         return result
-    except Exception:
-        raise Exception('database exception')
