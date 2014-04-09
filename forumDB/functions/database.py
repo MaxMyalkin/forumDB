@@ -4,9 +4,9 @@ import MySQLdb as mdb
 
 class Database:
     host = 'localhost'
-    user = '*****'
+    user = 'maxim'
     password = '*****'
-    database = 'forumDB'
+    database = '*****'
 
     def __init__(self):
         pass
