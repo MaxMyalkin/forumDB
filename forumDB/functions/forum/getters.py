@@ -1,5 +1,5 @@
 from forumDB.functions.common import find
-from forumDB.functions.database import execSelectQuery
+from forumDB.functions.database import exec_select_query
 from forumDB.functions.user.getters import get_user_details
 
 __author__ = 'maxim'
@@ -19,7 +19,7 @@ def get_forum_details(short_name, related):
     return info
 
 
-def get_listThreads(what, value, related, optional_params):
+def get_list_threads(what, value, related, optional_params):
     from forumDB.functions.thread.thread_functions import get_thread_details
     if what == 'forum':
         find('forum', None, value)
@@ -42,7 +42,7 @@ def get_listThreads(what, value, related, optional_params):
     if optional_params['limit'] is not None:
         query += ' limit ' + str(optional_params['limit'])
 
-    for element in execSelectQuery(query , query_params):
+    for element in exec_select_query(query , query_params):
             list.append(get_thread_details(find('thread', 'slug', element[0]), related))
     return list
 

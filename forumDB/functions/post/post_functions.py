@@ -1,5 +1,5 @@
 from forumDB.functions.common import find
-from forumDB.functions.database import execInsertUpdateQuery, execSelectQuery
+from forumDB.functions.database import exec_insert_update_delete_query, exec_select_query
 from forumDB.functions.post.getters import get_post_main, get_post_details, get_id
 
 __author__ = 'maxim'
@@ -10,7 +10,7 @@ def create_post(required_parameters, optional_parameters):
     forum = find('forum', None, required_parameters['forum'])
     thread = find('thread', 'id', required_parameters['thread'])
     if user is not None and forum is not None and thread is not None:
-        threads_of_forum = execSelectQuery('select id from Threads where forum = %s',
+        threads_of_forum = exec_select_query('select id from Threads where forum = %s',
                                            (required_parameters['forum'],))
         for parameter in threads_of_forum:
             if parameter[0] == int(required_parameters['thread']):
@@ -21,7 +21,7 @@ def create_post(required_parameters, optional_parameters):
                                     required_parameters['user'], required_parameters['forum']]
 
                 if optional_parameters['parent'] is not None:
-                    parent = execSelectQuery('select id from Posts where thread = %s and id = %s',
+                    parent = exec_select_query('select id from Posts where thread = %s and id = %s',
                                              (required_parameters['thread'], optional_parameters['parent'],))
                     if len(parent) == 0:
                         return None
@@ -33,8 +33,8 @@ def create_post(required_parameters, optional_parameters):
                         query_parameters.append(optional_parameters[parameter])
 
                 query += ') values ' + values + ')'
-                post_id = execInsertUpdateQuery(query, query_parameters)
-                execInsertUpdateQuery('update Threads set posts = posts + 1 where id = %s',
+                post_id = exec_insert_update_delete_query(query, query_parameters)
+                exec_insert_update_delete_query('update Threads set posts = posts + 1 where id = %s',
                                       (required_parameters['thread'],))
                 return get_post_main(find('post', None, post_id))
     else:
@@ -43,24 +43,24 @@ def create_post(required_parameters, optional_parameters):
 
 def post_vote(required_params):
     if required_params['vote'] == 1:
-        execInsertUpdateQuery(
+        exec_insert_update_delete_query(
             'update Posts set likes = likes + 1 , points = likes - dislikes where id = %s', (required_params['post'],))
     if required_params['vote'] == -1:
-        execInsertUpdateQuery(
+        exec_insert_update_delete_query(
             'update Posts set dislikes = dislikes + 1, points = likes - dislikes where id = %s',
             (required_params['post'],))
     return get_post_details(find('post', None, required_params['post']), [])
 
 
 def post_update(required_params):
-    execInsertUpdateQuery("update Posts set message = %s where id = %s",
+    exec_insert_update_delete_query("update Posts set message = %s where id = %s",
                           (required_params['message'], required_params['post'],))
     return get_post_details(find('post', None, required_params['post']), [])
 
 
 def post_remove_restore(required_params, type):
     if type == 'remove':
-        execInsertUpdateQuery("update Posts set isDeleted = 1 where id = %s", (required_params['post'],))
+        exec_insert_update_delete_query("update Posts set isDeleted = 1 where id = %s", (required_params['post'],))
     if type == 'restore':
-        execInsertUpdateQuery("update Posts set isDeleted = 0 where id = %s", (required_params['post'],))
+        exec_insert_update_delete_query("update Posts set isDeleted = 0 where id = %s", (required_params['post'],))
     return {'post': get_id(find('post', None, required_params['post']))}

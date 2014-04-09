@@ -1,5 +1,5 @@
 from forumDB.functions.common import find
-from forumDB.functions.database import execSelectQuery
+from forumDB.functions.database import exec_select_query
 
 
 __author__ = 'maxim'
@@ -37,7 +37,7 @@ def get_follows(what, email):
     else:
         select = 'follower'
         where = 'followee'
-    for element in execSelectQuery('select ' + select + ' from Followers where ' + where + ' = %s', (email,)):
+    for element in exec_select_query('select ' + select + ' from Followers where ' + where + ' = %s', (email,)):
         list.append(element[0])
     return list
 
@@ -65,7 +65,7 @@ def get_follows_parametrized(what, required_params, optional_params):
     if optional_params['limit'] is not None:
         query += ' limit ' + str(optional_params['limit'])
 
-    for element in execSelectQuery(query, (required_params['user'],)):
+    for element in exec_select_query(query, (required_params['user'],)):
         list.append(element[0])
     return list
 
@@ -83,7 +83,7 @@ def get_main_info(user):
 
 def get_list_subscriptions(email):
     list = []
-    for element in execSelectQuery('select thread from Subscriptions where  user = %s', (email,)):
+    for element in exec_select_query('select thread from Subscriptions where  user = %s', (email,)):
         list.append(element[0])
     return list
 
@@ -107,7 +107,7 @@ def get_forum_user_list(required_params, optional_params):
         query += ' limit ' + optional_params['limit']
 
     list = []
-    for element in execSelectQuery(query, query_params):
+    for element in exec_select_query(query, query_params):
         list.append(get_user_details(element[0]))
     return list
 

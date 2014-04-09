@@ -1,6 +1,6 @@
 from django.http import HttpResponse
 from forumDB.functions.common import find, make_required, make_optional, response_error, response_ok
-from forumDB.functions.forum.getters import get_listThreads
+from forumDB.functions.forum.getters import get_list_threads
 from forumDB.functions.post.getters import get_thread_post_list
 from forumDB.functions.thread.thread_functions import close_or_open, thread_vote, get_thread_details, unsubscribe_thread, subscribe_thread, create_thread, thread_update, thread_remove_restore
 
@@ -96,9 +96,9 @@ def list(request):
                 if forum is None:
                     response_error('you should set "user" or "forum"')
                 else:
-                    response_data = get_listThreads('forum', forum, [], optional_parameters)
+                    response_data = get_list_threads('forum', forum, [], optional_parameters)
             else:
-                response_data = get_listThreads('user', user, [], optional_parameters)
+                response_data = get_list_threads('user', user, [], optional_parameters)
             return response_ok(response_data)
         except Exception as exception:
             return response_error(exception.message)

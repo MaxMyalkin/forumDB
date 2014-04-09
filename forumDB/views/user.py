@@ -1,8 +1,25 @@
 from forumDB.functions.common import make_required, make_optional, response_error, response_ok
+from forumDB.functions.database import exec_clear
 from forumDB.functions.post.getters import get_user_post_list
 from forumDB.functions.user.user_functions import *
 
 __author__ = 'maxim'
+
+
+def clear(request):
+    if request.method == 'POST':
+        try:
+            exec_clear('TRUNCATE Users', [])
+            exec_clear('TRUNCATE Forums', [])
+            exec_clear('TRUNCATE Threads', [])
+            exec_clear('TRUNCATE Posts', [])
+            exec_clear('TRUNCATE Subscriptions', [])
+            exec_clear('TRUNCATE Followers', [])
+            return response_ok(None)
+        except Exception as exception:
+            return response_error(exception.message)
+    else:
+        return response_error('incorrect type of request')
 
 
 def create(request):

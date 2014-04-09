@@ -1,6 +1,6 @@
 import json
 from django.http import HttpResponse
-from forumDB.functions.database import execSelectQuery
+from forumDB.functions.database import exec_select_query
 
 __author__ = 'maxim'
 
@@ -62,19 +62,19 @@ def make_required( request_type , request, parameters):
 def find(what, type, value):
     object = None
     if what == 'user':
-        object = execSelectQuery(
+        object = exec_select_query(
             'select about , email , id , isAnonymous , name , username from Users where email = %s',
             (value,))
     if what == 'forum':
-        object = execSelectQuery('select id, name , short_name , user  from Forums where short_name = %s',
+        object = exec_select_query('select id, name , short_name , user  from Forums where short_name = %s',
                                  (value,))
     if what == 'thread':
-        object = execSelectQuery(
+        object = exec_select_query(
             'select date, dislikes , forum , id , isClosed , isDeleted , likes , message ,points , posts, slug , title , '
             'user  from Threads where ' + type + ' = %s', (value,))
 
     if what == 'post':
-        object = execSelectQuery('select date , dislikes , forum , id , isApproved , isDeleted , isEdited , '
+        object = exec_select_query('select date , dislikes , forum , id , isApproved , isDeleted , isEdited , '
                                  'isHighlighted , isSpam , likes , message , parent , points , thread , user from Posts'
                                  ' where id = %s ', (value,))
 

@@ -12,7 +12,7 @@ urlpatterns = patterns('',
 
     url(r"^db/api/forum/create/$", 'forumDB.views.forum.create', name='forum_create'),
     url(r"^db/api/forum/details/$", 'forumDB.views.forum.details', name='forum_details'),
-    url(r"^db/api/forum/listThreads/$", 'forumDB.views.forum.listThreads', name='forum_list_threads'),
+    url(r"^db/api/forum/listThreads/$", 'forumDB.views.forum.list_threads', name='forum_list_threads'),
     url(r"^db/api/forum/listPosts/$", 'forumDB.views.forum.list_posts', name='forum_list_posts'),
     url(r"^db/api/forum/listUsers/$", 'forumDB.views.forum.list_users', name='forum_list_users'),
 
@@ -36,5 +36,7 @@ urlpatterns = patterns('',
     url(r"^db/api/post/restore/$", 'forumDB.views.post.restore', name='post_restore'),
     url(r"^db/api/post/vote/$", 'forumDB.views.post.vote', name='post_vote'),
     url(r"^db/api/post/list/$", 'forumDB.views.post.list', name='post_list'),
+
+    url(r"^db/api/clear/$", 'forumDB.views.user.clear', name='clear'),
 
 )

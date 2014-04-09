@@ -1,5 +1,5 @@
 from forumDB.functions.common import find
-from forumDB.functions.database import execSelectQuery
+from forumDB.functions.database import exec_select_query
 from forumDB.functions.forum.getters import get_forum_details
 from forumDB.functions.thread.getters import get_thread_details
 from forumDB.functions.user.getters import get_user_details
@@ -75,7 +75,7 @@ def get_post_list(required_params, optional_params):
         query += ' limit ' + optional_params['limit']
 
     list = []
-    for element in execSelectQuery(query, query_params):
+    for element in exec_select_query(query, query_params):
         list.append(get_post_details(find('post', None, element[0]), []))
     return list
 
@@ -98,7 +98,7 @@ def get_user_post_list(required_params, optional_params):
         query += ' limit ' + optional_params['limit']
 
     list = []
-    for element in execSelectQuery(query, query_params):
+    for element in exec_select_query(query, query_params):
         list.append(get_post_details(find('post', None, element[0]), []))
     return list
 
@@ -121,7 +121,7 @@ def get_forum_post_list(required_params, optional_params):
         query += ' limit ' + optional_params['limit']
 
     list = []
-    for element in execSelectQuery(query, query_params):
+    for element in exec_select_query(query, query_params):
         list.append(get_post_details(find('post', None, element[0]), optional_params['related']))
     return list
 
@@ -144,7 +144,7 @@ def get_thread_post_list(required_params, optional_params):
         query += ' limit ' + optional_params['limit']
 
     list = []
-    for element in execSelectQuery(query, query_params):
+    for element in exec_select_query(query, query_params):
         list.append(get_post_details(find('post', None, element[0]), []))
     return list
 
