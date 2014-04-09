@@ -67,7 +67,6 @@ CREATE TABLE IF NOT EXISTS `forumDB`.`Threads` (
   `user` VARCHAR(50) NOT NULL,
   `forum` VARCHAR(50) NOT NULL,
   PRIMARY KEY (`id`),
-  UNIQUE INDEX `slug_UNIQUE` (`slug` ASC),
   UNIQUE INDEX `id_UNIQUE` (`id` ASC),
   INDEX `fk_Treads_Users1_idx` (`user` ASC),
   INDEX `fk_Threads_Forums1_idx` (`forum` ASC),
