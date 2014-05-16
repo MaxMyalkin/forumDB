@@ -1,6 +1,6 @@
 from forumDB.functions.database import exec_insert_update_delete_query
 from forumDB.functions.user.getters import *
-from forumDB.functions.user.getters import get_main_info, get_user_details
+from forumDB.functions.user.getters import get_user_info, get_user_details
 
 __author__ = 'maxim'
 
@@ -36,7 +36,7 @@ def create_user(required_params, optional_params):
             query_parameters.append(int(optional_params['isAnonymous']))
         query += ') values ' + values + ')'
         exec_insert_update_delete_query( query , query_parameters )
-        return get_main_info(find('user', None, required_params['email']))
+        return get_user_info(find('user', None, required_params['email']))
     #else:
       #  return get_main_info(existed_user)
 

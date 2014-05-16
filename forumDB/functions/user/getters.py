@@ -6,7 +6,7 @@ __author__ = 'maxim'
 
 
 def get_user_details(email):
-    info = get_main_info(find('user', None, email))
+    info = get_user_info(find('user', None, email))
     info['followers'] = get_follows('follower', email)
     info['following'] = get_follows('followee', email)
     info['subscriptions'] = get_list_subscriptions(email)
@@ -70,7 +70,7 @@ def get_follows_parametrized(what, required_params, optional_params):
     return list
 
 
-def get_main_info(user):
+def get_user_info(user):
     return {
         'about': get_about(user),
         'email': get_email(user),

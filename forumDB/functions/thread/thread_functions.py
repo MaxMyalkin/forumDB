@@ -1,6 +1,6 @@
 from forumDB.functions.common import find
 from forumDB.functions.database import exec_select_query, exec_insert_update_delete_query
-from forumDB.functions.thread.getters import get_main_info, get_thread_details, get_id
+from forumDB.functions.thread.getters import get_thread_info, get_thread_details, get_id
 
 __author__ = 'maxim'
 
@@ -23,7 +23,8 @@ def create_thread(required_params, optional_params):
     except Exception:
         exec_insert_update_delete_query(query, query_params)
         thread = find('thread', 'slug', required_params['slug'])
-    return get_main_info(thread)
+    return get_thread_info(thread)
+
 
 
 def subscribe_thread(required_params):

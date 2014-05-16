@@ -52,15 +52,11 @@ def get_post_details(post, related):
 
 def get_post_list(required_params, optional_params):
     query_params = []
-    query = ''
     type = required_params['type']
-    if type == 'thread':
-        query = 'select id from Posts where thread = %s '
-        query_params.append(required_params['thread'])
-
-    if type == 'forum':
-        query = 'select id from Posts where forum = %s '
-        query_params.append(required_params['forum'])
+    query = """select date , dislikes , forum , id , isApproved , isDeleted , isEdited ,
+    isHighlighted , isSpam , likes , message , parent , points , thread , user from Posts where """ \
+            + type + " = %s"
+    query_params.append(required_params[type])
 
     if optional_params['since'] is not None:
         query += ' and date >= %s '
@@ -74,15 +70,16 @@ def get_post_list(required_params, optional_params):
     if optional_params['limit'] is not None:
         query += ' limit ' + optional_params['limit']
 
-    list = []
-    for element in exec_select_query(query, query_params):
-        list.append(get_post_details(find('post', None, element[0]), []))
-    return list
+    list = exec_select_query(query, query_params)
+    array = []
+    for row in list :
+        array.append(get_post_details(row, []))
+    return array
 
 
 def get_user_post_list(required_params, optional_params):
     #find('user', None, required_params['user'])
-    query = 'select id from Posts where user = %s '
+    query = 'select  from Posts where user = %s '
     query_params = [required_params['user']]
 
     if optional_params['since'] is not None:
@@ -126,7 +123,7 @@ def get_forum_post_list(required_params, optional_params):
     return list
 
 
-def get_thread_post_list(required_params, optional_params):
+def get_thread_user_post_list(type, required_params, optional_params):
     #find('thread', 'id', required_params['thread'])
     query = 'select id from Posts where thread = %s '
     query_params = [required_params['thread']]

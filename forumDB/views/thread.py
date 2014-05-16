@@ -1,7 +1,7 @@
 from django.http import HttpResponse
 from forumDB.functions.common import find, make_required, make_optional, response_error, response_ok
-from forumDB.functions.forum.getters import get_list_threads
-from forumDB.functions.post.getters import get_thread_post_list
+from forumDB.functions.post.getters import get_thread_user_post_list, get_post_list
+from forumDB.functions.thread.getters import get_list
 from forumDB.functions.thread.thread_functions import close_or_open, thread_vote, get_thread_details, unsubscribe_thread, subscribe_thread, create_thread, thread_update, thread_remove_restore
 
 __author__ = 'maxim'
@@ -96,9 +96,9 @@ def list(request):
                 if forum is None:
                     response_error('you should set "user" or "forum"')
                 else:
-                    response_data = get_list_threads('forum', forum, [], optional_parameters)
+                    response_data = get_list('forum', forum, optional_parameters)
             else:
-                response_data = get_list_threads('user', user, [], optional_parameters)
+                response_data = get_list('user', user, optional_parameters)
             return response_ok(response_data)
         except Exception as exception:
             return response_error(exception.message)
@@ -121,7 +121,8 @@ def list_posts(request):
         try:
             required_params = make_required("GET", request, ['thread'])
             optional_params = make_optional("GET", request, ['since', 'limit', 'order'])
-            response_data = get_thread_post_list(required_params,optional_params)
+            required_params['type'] = 'thread'
+            response_data = get_post_list(required_params, optional_params)
             return response_ok(response_data)
         except Exception as exception:
             return response_error(exception.message)
