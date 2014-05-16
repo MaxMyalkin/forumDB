@@ -14,7 +14,7 @@ def get_user_details(email):
 
 
 def get_list_followers(required_params, optional_parameters):
-    find('user', None, required_params['user'])
+    #find('user', None, required_params['user'])
     info = []
     for follower in get_follows_parametrized('follower', required_params, optional_parameters):
         info.append(get_user_details(follower))
@@ -22,7 +22,7 @@ def get_list_followers(required_params, optional_parameters):
 
 
 def get_list_following(required_params, optional_parameters):
-    find('user', None, required_params['user'])
+    #find('user', None, required_params['user'])
     info = []
     for follower in get_follows_parametrized('followee', required_params, optional_parameters):
         info.append(get_user_details(follower))
@@ -89,7 +89,7 @@ def get_list_subscriptions(email):
 
 
 def get_forum_user_list(required_params, optional_params):
-    find('forum', None, required_params['forum'])
+    #find('forum', None, required_params['forum'])
     query = 'select distinct Posts.user , Users.id as id from Posts inner join Forums on Posts.forum = Forums.short_name inner join Users ' \
             ' on Posts.user = Users.email where Forums.short_name = %s '
     query_params = [required_params['forum']]

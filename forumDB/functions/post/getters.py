@@ -81,7 +81,7 @@ def get_post_list(required_params, optional_params):
 
 
 def get_user_post_list(required_params, optional_params):
-    find('user', None, required_params['user'])
+    #find('user', None, required_params['user'])
     query = 'select id from Posts where user = %s '
     query_params = [required_params['user']]
 
@@ -104,7 +104,7 @@ def get_user_post_list(required_params, optional_params):
 
 
 def get_forum_post_list(required_params, optional_params):
-    find('forum', None, required_params['forum'])
+    #find('forum', None, required_params['forum'])
     query = 'select id from Posts where forum = %s '
     query_params = [required_params['forum']]
 
@@ -127,7 +127,7 @@ def get_forum_post_list(required_params, optional_params):
 
 
 def get_thread_post_list(required_params, optional_params):
-    find('thread', 'id', required_params['thread'])
+    #find('thread', 'id', required_params['thread'])
     query = 'select id from Posts where thread = %s '
     query_params = [required_params['thread']]
 

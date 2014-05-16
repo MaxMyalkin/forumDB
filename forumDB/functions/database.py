@@ -1,19 +1,13 @@
 __author__ = 'maxim'
 import MySQLdb as mdb
 
-
-class Database:
-    host = 'localhost'
-    user = 'maxim'
-    password = '*****'
-    database = '*****'
-
-    def __init__(self):
-        pass
-
+host = 'localhost'
+user = 'maxim'
+password = '12345'
+database = 'forumDB'
 
 def exec_clear(query, params):
-    db = mdb.connect(Database.host, Database.user, Database.password, Database.database, init_command='SET NAMES UTF8')
+    db = mdb.connect(host, user, password, database, init_command='SET NAMES UTF8')
     cursor = db.cursor()
     cursor.execute('SET FOREIGN_KEY_CHECKS=0', [])
     cursor.execute(query, params)
@@ -24,7 +18,7 @@ def exec_clear(query, params):
 
 
 def exec_insert_update_delete_query(query, params):
-    db = mdb.connect(Database.host, Database.user, Database.password, Database.database, init_command='SET NAMES UTF8')
+    db = mdb.connect(host, user, password, database, init_command='SET NAMES UTF8')
     cursor = db.cursor()
     cursor.execute(query, params)
     db.commit()
@@ -35,7 +29,7 @@ def exec_insert_update_delete_query(query, params):
 
 
 def exec_select_query(query, params):
-    db = mdb.connect(Database.host, Database.user, Database.password, Database.database, init_command='SET NAMES UTF8')
+    db = mdb.connect(host, user, password, database, init_command='SET NAMES UTF8')
     cursor = db.cursor()
     cursor.execute(query, params)
     result = cursor.fetchall()

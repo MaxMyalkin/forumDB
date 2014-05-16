@@ -6,10 +6,10 @@ __author__ = 'maxim'
 
 
 def create_post(required_parameters, optional_parameters):
-    user = find('user', None, required_parameters['user'])
-    forum = find('forum', None, required_parameters['forum'])
-    thread = find('thread', 'id', required_parameters['thread'])
-    if user is not None and forum is not None and thread is not None:
+    #user = find('user', None, required_parameters['user'])
+    #forum = find('forum', None, required_parameters['forum'])
+    #thread = find('thread', 'id', required_parameters['thread'])
+    #if user is not None and forum is not None and thread is not None:
         threads_of_forum = exec_select_query('select id from Threads where forum = %s',
                                            (required_parameters['forum'],))
         for parameter in threads_of_forum:
@@ -37,8 +37,8 @@ def create_post(required_parameters, optional_parameters):
                 exec_insert_update_delete_query('update Threads set posts = posts + 1 where id = %s',
                                       (required_parameters['thread'],))
                 return get_post_main(find('post', None, post_id))
-    else:
-        return None
+    #else:
+        #return None
 
 
 def post_vote(required_params):

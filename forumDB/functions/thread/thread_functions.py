@@ -6,8 +6,8 @@ __author__ = 'maxim'
 
 
 def create_thread(required_params, optional_params):
-    find('user', None, required_params['user'])
-    find('forum', None, required_params['forum'])
+    #find('user', None, required_params['user'])
+    #find('forum', None, required_params['forum'])
     query = 'insert into Threads (forum , title , isClosed , user , date , message , slug '
     values = '(%s, %s, %s, %s, %s, %s, %s '
     query_params = [required_params['forum'], required_params['title'], required_params['isClosed'],
@@ -27,19 +27,19 @@ def create_thread(required_params, optional_params):
 
 
 def subscribe_thread(required_params):
-    find('user', None, required_params['user'])
-    find('thread', 'id', required_params['thread'])
-    try:
-        find_subscription(required_params['user'], required_params['thread'])
-    except Exception:
+    #find('user', None, required_params['user'])
+    #find('thread', 'id', required_params['thread'])
+   # try:
+        #find_subscription(required_params['user'], required_params['thread'])
+    #except Exception:
         exec_insert_update_delete_query('insert into Subscriptions (user , thread) values (%s , %s)',
                               (required_params['user'], required_params['thread'],))
-    return subscription_info(find_subscription(required_params['user'], required_params['thread']))
+        return subscription_info(find_subscription(required_params['user'], required_params['thread']))
 
 
 def unsubscribe_thread(required_params):
-    find('user', None, required_params['user'])
-    find('thread', 'id', required_params['thread'])
+    #find('user', None, required_params['user'])
+    #find('thread', 'id', required_params['thread'])
     subscription = find_subscription(required_params['user'], required_params['thread'])
     exec_insert_update_delete_query('delete from Subscriptions where user = %s and thread= %s',
                           (required_params['user'], required_params['thread'],))

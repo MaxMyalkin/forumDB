@@ -5,7 +5,7 @@ __author__ = 'maxim'
 
 
 def create_forum(required_params):
-    find('user', None, required_params['user'])
+    #find('user', None, required_params['user'])
     try:
         existed_forum = find('forum', None, required_params['short_name'])
     except Exception:
