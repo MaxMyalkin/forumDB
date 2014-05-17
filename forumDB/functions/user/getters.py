@@ -1,16 +1,41 @@
 from forumDB.functions.common import find
-from forumDB.functions.database import exec_select_query
+from forumDB.functions.database import exec_select_query, exec_many_queries
 
 
 __author__ = 'maxim'
 
 
 def get_user_details(email):
-    info = get_user_info(find('user', None, email))
-    info['followers'] = get_follows('follower', email)
-    info['following'] = get_follows('followee', email)
-    info['subscriptions'] = get_list_subscriptions(email)
+    queries= ['select about , email , Users.id , isAnonymous , name , username, group_concat(thread) from Users ' \
+           'inner join Subscriptions on Users.email = Subscriptions.user where email = %s ']
+    params = [email]
+
+    queries.append('select follower from Followers where followee = %s')
+    queries.append('select followee from Followers where follower = %s')
+    params.append(email)
+    params.append(email)
+    result = exec_many_queries(queries, params)
+    if result[0][0][6] is not None:
+        subscriptions = map(int, result[0][0][6].split(','))
+    else:
+        subscriptions = []
+
+    followers = [i[0] for i in result[1]]
+    following = [i[0] for i in result[2]]
+
+    info = {
+        'about': get_about(result[0][0]),
+        'email': get_email(result[0][0]),
+        'id': get_id(result[0][0]),
+        'isAnonymous': get_isAnonymous(result[0][0]),
+        'name': get_name(result[0][0]),
+        'username': get_username(result[0][0]),
+        'subscriptions': subscriptions,
+        'followers': followers,
+        'following' : following
+    }
     return info
+
 
 
 def get_list_followers(required_params, optional_parameters):

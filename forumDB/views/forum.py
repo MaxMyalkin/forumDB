@@ -1,7 +1,6 @@
 from forumDB.functions.common import make_required, make_optional, response_error, response_ok
 from forumDB.functions.forum.forum_functions import create_forum, get_forum_details
-from forumDB.functions.forum.getters import get_list_threads
-from forumDB.functions.post.getters import get_forum_post_list
+from forumDB.functions.forum.getters import get_list_threads, get_list_posts
 from forumDB.functions.user.getters import get_forum_user_list
 
 __author__ = 'maxim'
@@ -47,7 +46,7 @@ def list_posts(request):
         try:
             required_params = make_required("GET", request, ['forum'])
             optional_params = make_optional("GET", request, ['since', 'limit', 'order', 'related'])
-            response_data = get_forum_post_list(required_params, optional_params)
+            response_data = get_list_posts(required_params['forum'], optional_params)
             return response_ok(response_data)
         except Exception as exception:
             return response_error(exception.message)

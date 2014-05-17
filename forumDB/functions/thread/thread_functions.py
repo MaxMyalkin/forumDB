@@ -73,7 +73,7 @@ def thread_vote(required_params):
         exec_insert_update_delete_query(
             'update Threads set dislikes = dislikes + 1, points = likes - dislikes where id = %s',
             (required_params['thread'],))
-    return get_thread_details(find('thread', 'id', required_params['thread']), None)
+    return get_thread_details(required_params['thread'], None)
 
 
 def close_or_open(type, thread):
@@ -81,13 +81,13 @@ def close_or_open(type, thread):
         exec_insert_update_delete_query('update Threads set isClosed = 0 where id = %s', (thread,))
     if type == 'close':
         exec_insert_update_delete_query('update Threads set isClosed = 1 where id = %s', (thread,))
-    return get_thread_details(find('thread', 'id', thread), None)
+    return get_thread_details(thread, None)
 
 
 def thread_update(required_params):
     exec_insert_update_delete_query("update Threads set message = %s , slug = %s where id = %s",
                           (required_params['message'], required_params['slug'], required_params['thread'],))
-    return get_thread_details(find('thread', 'id', required_params['thread'],), None)
+    return get_thread_details(required_params['thread'], None)
 
 
 def thread_remove_restore(required_params, type):

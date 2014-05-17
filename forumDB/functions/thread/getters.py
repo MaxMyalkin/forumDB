@@ -1,5 +1,4 @@
 from forumDB.functions.database import exec_select_query
-from forumDB.functions.forum.forum_functions import get_forum_details
 from forumDB.functions.user.getters import get_user_details
 
 __author__ = 'maxim'
@@ -44,9 +43,8 @@ def get_thread_info(thread):
         'posts': get_posts(thread),
     }
 
-
-def get_thread_details(thread, related):
-    info = {
+def thread_to_json(thread):
+    return {
         'date': get_date(thread),
         'dislikes': get_dislikes(thread),
         'forum': get_forum(thread),
@@ -62,11 +60,27 @@ def get_thread_details(thread, related):
         'user': get_user(thread)
     }
 
+
+def get_thread_details(thread, related):
+    from forumDB.functions.forum.getters import forum_to_json
+    thread_parameters = ' date, dislikes , forum , Threads.id , isClosed , isDeleted , likes , message ,points , posts, slug , title ,Threads.user '
+    #0-12
+    if related is not None and 'forum' in related:
+        forum_parameters = 'Forums.id, name , short_name , Forums.user '
+    #12-16
+        query = 'select ' + thread_parameters + ',' + forum_parameters + \
+                "from Threads inner join Forums on Threads.forum = Forums.short_name where Threads.id = %s"
+    else:
+        query = "select " + thread_parameters + " from Threads where id = %s"
+    result = exec_select_query(query, (thread,))
+
+    info = thread_to_json(result[0])
+
     if related is not None:
         if 'user' in related:
-            info['user'] = get_user_details(get_user(thread))
+            info['user'] = get_user_details(get_user(result[0]))
         if 'forum' in related:
-            info['forum'] = get_forum_details(get_forum(thread), [])
+            info['forum'] = forum_to_json(result[0][13:17])
     return info
 
 

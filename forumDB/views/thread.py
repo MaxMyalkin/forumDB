@@ -1,6 +1,6 @@
 from django.http import HttpResponse
-from forumDB.functions.common import find, make_required, make_optional, response_error, response_ok
-from forumDB.functions.post.getters import get_thread_user_post_list, get_post_list
+from forumDB.functions.common import make_required, make_optional, response_error, response_ok
+from forumDB.functions.post.getters import get_post_list
 from forumDB.functions.thread.getters import get_list
 from forumDB.functions.thread.thread_functions import close_or_open, thread_vote, get_thread_details, unsubscribe_thread, subscribe_thread, create_thread, thread_update, thread_remove_restore
 
@@ -49,7 +49,7 @@ def details(request):
         try:
             required_params = make_required("GET", request, ['thread'])
             optional_params = make_optional("GET", request, ['related'])
-            response_data = get_thread_details(find('thread', 'id', required_params['thread']), optional_params['related'])
+            response_data = get_thread_details(required_params['thread'], optional_params['related'])
             return response_ok(response_data)
         except Exception as exception:
             return response_error(exception.message)

@@ -49,13 +49,13 @@ def post_vote(required_params):
         exec_insert_update_delete_query(
             'update Posts set dislikes = dislikes + 1, points = likes - dislikes where id = %s',
             (required_params['post'],))
-    return get_post_details(find('post', None, required_params['post']), [])
+    return get_post_main(find('post', None, required_params['post']))
 
 
 def post_update(required_params):
     exec_insert_update_delete_query("update Posts set message = %s where id = %s",
                           (required_params['message'], required_params['post'],))
-    return get_post_details(find('post', None, required_params['post']), [])
+    return get_post_main(find('post', None, required_params['post']))
 
 
 def post_remove_restore(required_params, type):

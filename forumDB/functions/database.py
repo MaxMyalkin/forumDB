@@ -36,3 +36,15 @@ def exec_select_query(query, params):
     cursor.close()
     db.close()
     return result
+
+
+def exec_many_queries(queries, parameters):
+    db = mdb.connect(host, user, password, database, init_command='SET NAMES UTF8')
+    results = []
+    cursor = db.cursor()
+    for query, param in zip(queries, parameters):
+        cursor.execute(query, param)
+        results.append(cursor.fetchall())
+    cursor.close()
+    db.close()
+    return results
