@@ -34,7 +34,7 @@ def list_threads(request):
         try:
             required_params = make_required("GET", request, ['forum'])
             optional_parameters = make_optional("GET", request, ['since', 'limit', 'order', 'related'])
-            response_data = get_list_threads('forum', required_params['forum'],optional_parameters['related'], optional_parameters)
+            response_data = get_list_threads(required_params, optional_parameters)
             return response_ok(response_data)
         except Exception as exception:
             return response_error(exception.message)

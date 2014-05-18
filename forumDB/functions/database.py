@@ -1,13 +1,14 @@
 __author__ = 'maxim'
-import MySQLdb as mdb
+import MySQLdb as mDB
 
 host = 'localhost'
 user = 'maxim'
 password = '12345'
 database = 'forumDB'
 
+
 def exec_clear(query, params):
-    db = mdb.connect(host, user, password, database, init_command='SET NAMES UTF8')
+    db = mDB.connect(host, user, password, database, init_command='SET NAMES UTF8')
     cursor = db.cursor()
     cursor.execute('SET FOREIGN_KEY_CHECKS=0', [])
     cursor.execute(query, params)
@@ -18,7 +19,7 @@ def exec_clear(query, params):
 
 
 def exec_insert_update_delete_query(query, params):
-    db = mdb.connect(host, user, password, database, init_command='SET NAMES UTF8')
+    db = mDB.connect(host, user, password, database, init_command='SET NAMES UTF8')
     cursor = db.cursor()
     cursor.execute(query, params)
     db.commit()
@@ -29,7 +30,7 @@ def exec_insert_update_delete_query(query, params):
 
 
 def exec_select_query(query, params):
-    db = mdb.connect(host, user, password, database, init_command='SET NAMES UTF8')
+    db = mDB.connect(host, user, password, database, init_command='SET NAMES UTF8')
     cursor = db.cursor()
     cursor.execute(query, params)
     result = cursor.fetchall()
@@ -39,7 +40,7 @@ def exec_select_query(query, params):
 
 
 def exec_many_queries(queries, parameters):
-    db = mdb.connect(host, user, password, database, init_command='SET NAMES UTF8')
+    db = mDB.connect(host, user, password, database, init_command='SET NAMES UTF8')
     results = []
     cursor = db.cursor()
     for query, param in zip(queries, parameters):

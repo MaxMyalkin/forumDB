@@ -1,8 +1,8 @@
 from forumDB.functions.common import find
 from forumDB.functions.database import exec_select_query
-from forumDB.functions.forum.getters import get_forum_details
+from forumDB.functions.forum.getters import forum_to_json
 
-from forumDB.functions.thread.getters import get_thread_details
+from forumDB.functions.thread.getters import thread_to_json
 from forumDB.functions.user.getters import get_user_details
 
 __author__ = 'maxim'
@@ -37,19 +37,43 @@ def post_to_json(post):
 
 
 def get_post_details(post, related):
-    if post is not None:
-        post = find('post', post)
-        info = post_to_json(post)
-        if related is not None:
-            if 'user' in related:
-                info['user'] = get_user_details(info['user'])
-            if 'thread' in related:
-                info['thread'] = get_thread_details(info['thread'], [])
-            if 'forum' in related:
-                info['forum'] = get_forum_details(info['forum'], [])
-        return info
-    else:
-        raise Exception('you cant get info of None')
+    thread_parameters = """ t.date, t.dislikes, t.forum, t.id, t.isClosed, t.isDeleted, t.likes, t.message, t.points,
+                      t.posts, t.slug, t.title, t.user """
+
+    post_parameters = """ p.date, p.dislikes, p.forum, p.id, p.isApproved, p.isDeleted, p.isEdited,
+                                 p.isHighlighted, p.isSpam, p.likes, p.message, p.parent, p.points, p.thread, p.user """
+
+    forum_parameters = """ f.id, f.name, f.short_name, f.user """
+
+    columns = "select " + post_parameters
+    tables = " from Posts p "
+    forum_in_related = False
+    if related is not None:
+        if 'forum' in related:
+            columns += ", " + forum_parameters
+            tables += "join Forums f on p.forum = f.short_name "
+            forum_in_related = True
+        if 'thread' in related:
+            columns += ", " + thread_parameters
+            tables += " join Threads t on p.thread = t.id "
+
+    query = columns + tables + " where p.id = %s"
+
+    result = exec_select_query(query, (int(post),))
+
+    info = post_to_json(result[0][0:15])
+    if related is not None:
+        if 'user' in related:
+            info['user'] = get_user_details(info['user'], 'email')
+        if 'forum' in related:
+            info['forum'] = forum_to_json(result[0][15:19])
+        if 'thread' in related:
+            if forum_in_related:
+                info['thread'] = thread_to_json(result[0][19:32])
+            else:
+                 info['thread'] = thread_to_json(result[0][15:28])
+
+    return info
 
 
 def get_post_list(required_params, optional_params):

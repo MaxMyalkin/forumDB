@@ -33,13 +33,14 @@ def get_thread_details(thread, related):
                 "from Threads inner join Forums on Threads.forum = Forums.short_name where Threads.id = %s"
     else:
         query = "select " + thread_parameters + " from Threads where id = %s"
+
     result = exec_select_query(query, (thread,))
 
     info = thread_to_json(result[0])
 
     if related is not None:
         if 'user' in related:
-            info['user'] = get_user_details(info['user'])
+            info['user'] = get_user_details(info['user'], 'email')
         if 'forum' in related:
             info['forum'] = forum_to_json(result[0][13:17])
     return info

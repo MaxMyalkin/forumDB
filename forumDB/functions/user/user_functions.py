@@ -32,16 +32,16 @@ def create_user(required_params, optional_params):
 def save_follow(required_params):
     exec_insert_update_delete_query('insert into Followers (follower , followee) values (%s , %s)',
                               (required_params['follower'], required_params['followee'],))
-    return get_user_details(required_params['follower']) #email
+    return get_user_details(required_params['follower'], 'email')
 
 
 def remove_follow(required_params):
     exec_insert_update_delete_query('delete from Followers where follower = %s and followee = %s',
                           (required_params['follower'], required_params['followee'],))
-    return get_user_details(required_params['follower'])
+    return get_user_details(required_params['follower'], 'email')
 
 
 def update_user(required_params):
     exec_insert_update_delete_query('update Users set name = %s , about = %s where email = %s',
                                     (required_params['name'], required_params['about'], required_params['user'],))
-    return get_user_details(required_params['user'])
+    return get_user_details(required_params['user'], 'email')

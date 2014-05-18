@@ -62,7 +62,7 @@ def details(request):
     if request.method == 'GET':
         try:
             required_params = make_required("GET", request, ['user'])
-            response_data = get_user_details(required_params['user'])
+            response_data = get_user_details(required_params['user'], 'email')
             return response_ok(response_data)
         except Exception as exception:
             return response_error(exception.message)

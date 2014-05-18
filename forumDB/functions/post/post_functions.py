@@ -1,4 +1,4 @@
-from forumDB.functions.database import exec_insert_update_delete_query
+from forumDB.functions.database import exec_insert_update_delete_query, exec_select_query
 from forumDB.functions.post.getters import get_post_main
 
 __author__ = 'maxim'
@@ -12,11 +12,12 @@ def create_post(required_parameters, optional_parameters):
         'user': required_parameters['user'],
         'forum': required_parameters['forum']
     }
-    query = 'insert into Posts (date , thread , message , user , forum '
-    values = "( %s , %s , %s , %s , %s "
+    id = exec_select_query('select id from Users where email = %s',required_parameters['user'])[0][0]
+    query = 'insert into Posts (date , thread , message , user , forum, u_id '
+    values = "( %s , %s , %s , %s , %s , %s  "
     query_parameters = [required_parameters['date'], required_parameters['thread'],
-                        required_parameters['message'],
-                        required_parameters['user'], required_parameters['forum']]
+                        required_parameters['message'], required_parameters['user'],
+                        required_parameters['forum'], id]
 
     for parameter in optional_parameters:
         if optional_parameters[parameter] is not None:
