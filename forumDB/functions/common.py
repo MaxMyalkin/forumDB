@@ -59,7 +59,7 @@ def make_required( request_type , request, parameters):
     return required_parameters
 
 
-def find(what, type, value):
+def find(what, value):
     object = None
     if what == 'user':
         object = exec_select_query(
@@ -71,7 +71,7 @@ def find(what, type, value):
     if what == 'thread':
         object = exec_select_query(
             'select date, dislikes , forum , id , isClosed , isDeleted , likes , message ,points , posts, slug , title , '
-            'user  from Threads where ' + type + ' = %s', (value,))
+            'user  from Threads where id = %s', (value,))
 
     if what == 'post':
         object = exec_select_query('select date , dislikes , forum , id , isApproved , isDeleted , isEdited , '

@@ -1,13 +1,10 @@
-from forumDB.functions.common import find
 from forumDB.functions.database import exec_select_query, exec_many_queries
-
 
 __author__ = 'maxim'
 
-
 def get_user_details(email):
-    queries= ['select about , email , Users.id , isAnonymous , name , username, group_concat(thread) from Users ' \
-           'inner join Subscriptions on Users.email = Subscriptions.user where email = %s ']
+    queries= ["""select about , email , Users.id , isAnonymous , name , username, group_concat(thread) from Users
+              inner join Subscriptions on Users.email = Subscriptions.user where email = %s """]
     params = [email]
 
     queries.append('select follower from Followers where followee = %s')
@@ -24,22 +21,19 @@ def get_user_details(email):
     following = [i[0] for i in result[2]]
 
     info = {
-        'about': get_about(result[0][0]),
-        'email': get_email(result[0][0]),
-        'id': get_id(result[0][0]),
-        'isAnonymous': get_isAnonymous(result[0][0]),
-        'name': get_name(result[0][0]),
-        'username': get_username(result[0][0]),
+        'about': result[0][0][0],
+        'email': result[0][0][1],
+        'id': result[0][0][2],
+        'isAnonymous': result[0][0][3],
+        'name': result[0][0][4],
+        'username': result[0][0][5],
         'subscriptions': subscriptions,
         'followers': followers,
         'following' : following
     }
     return info
 
-
-
 def get_list_followers(required_params, optional_parameters):
-    #find('user', None, required_params['user'])
     info = []
     for follower in get_follows_parametrized('follower', required_params, optional_parameters):
         info.append(get_user_details(follower))
@@ -47,7 +41,6 @@ def get_list_followers(required_params, optional_parameters):
 
 
 def get_list_following(required_params, optional_parameters):
-    #find('user', None, required_params['user'])
     info = []
     for follower in get_follows_parametrized('followee', required_params, optional_parameters):
         info.append(get_user_details(follower))
@@ -95,17 +88,6 @@ def get_follows_parametrized(what, required_params, optional_params):
     return list
 
 
-def get_user_info(user):
-    return {
-        'about': get_about(user),
-        'email': get_email(user),
-        'id': get_id(user),
-        'isAnonymous': get_isAnonymous(user),
-        'name': get_name(user),
-        'username': get_username(user)
-    }
-
-
 def get_list_subscriptions(email):
     list = []
     for element in exec_select_query('select thread from Subscriptions where  user = %s', (email,)):
@@ -135,39 +117,3 @@ def get_forum_user_list(required_params, optional_params):
     for element in exec_select_query(query, query_params):
         list.append(get_user_details(element[0]))
     return list
-
-
-def get_id(user):
-    if user is not None:
-        return user[2]
-    raise Exception('you cant get info of None')
-
-
-def get_email(user):
-    if user is not None:
-        return user[1]
-    raise Exception('you cant get info of None')
-
-
-def get_about(user):
-    if user is not None:
-        return user[0]
-    raise Exception('you cant get info of None')
-
-
-def get_isAnonymous(user):
-    if user is not None:
-        return bool(user[3])
-    raise Exception('you cant get info of None')
-
-
-def get_name(user):
-    if user is not None:
-        return user[4]
-    raise Exception('you cant get info of None')
-
-
-def get_username(user):
-    if user is not None:
-        return user[5]
-    raise Exception('you cant get info of None')

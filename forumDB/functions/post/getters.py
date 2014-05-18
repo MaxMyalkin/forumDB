@@ -9,43 +9,44 @@ __author__ = 'maxim'
 
 
 def get_post_main(post):
-    if post is not None:
-        info = {
-            'date': get_date(post),
-            'forum': get_forum(post),
-            'id': get_id(post),
-            'isApproved': get_approved(post),
-            'isDeleted': get_deleted(post),
-            'isEdited': get_edited(post),
-            'isHighlighted': get_highlighted(post),
-            'isSpam': get_spam(post),
-            'message': get_message(post),
-            'thread': get_thread(post),
-            'user': get_user(post)
+    post = find('post', post)
+    return post_to_json(post)
+
+
+def post_to_json(post):
+    parent = post[11]
+    if parent == 'null':
+        parent = None
+    return {
+            'date': str(post[0]),
+            'dislikes': int(post[1]),
+            'forum': post[2],
+            'id': int(post[3]),
+            'isApproved': bool(post[4]),
+            'isDeleted': bool(post[5]),
+            'isEdited': bool(post[6]),
+            'isHighlighted': bool(post[7]),
+            'isSpam': bool(post[8]),
+            'likes': int(post[9]),
+            'message': post[10],
+            'parent': parent,
+            'points': int(post[12]),
+            'thread': int(post[13]),
+            'user': post[14]
         }
-        return info
-    else:
-        raise Exception('you cant get info of None')
 
 
 def get_post_details(post, related):
     if post is not None:
-        info = get_post_main(post)
-        info['dislikes'] = get_dislikes(post)
-        info['likes'] = get_likes(post)
-        parent = get_parent(post)
-        if parent == 'null':
-            info['parent'] = None
-        else:
-            info['parent'] = parent
-        info['points'] = get_points(post)
+        post = find('post', post)
+        info = post_to_json(post)
         if related is not None:
             if 'user' in related:
-                info['user'] = get_user_details(get_user(post))
+                info['user'] = get_user_details(info['user'])
             if 'thread' in related:
-                info['thread'] = get_thread_details(get_thread(post), [])
+                info['thread'] = get_thread_details(info['thread'], [])
             if 'forum' in related:
-                info['forum'] = get_forum_details(get_forum(post), [])
+                info['forum'] = get_forum_details(info['forum'], [])
         return info
     else:
         raise Exception('you cant get info of None')
@@ -73,8 +74,8 @@ def get_post_list(required_params, optional_params):
 
     list = exec_select_query(query, query_params)
     array = []
-    for row in list :
-        array.append(get_post_details(row, []))
+    for row in list:
+        array.append(post_to_json(row))
     return array
 
 
@@ -145,93 +146,3 @@ def get_post_list(required_params, optional_params):
 #    for element in exec_select_query(query, query_params):
 #        list.append(get_post_details(find('post', None, element[0]), []))
 #    return list
-
-
-def get_date(post):
-    if post is not None:
-        return str(post[0])
-    raise Exception('you cant get info of None')
-
-
-def get_forum(post):
-    if post is not None:
-        return post[2]
-    raise Exception('you cant get info of None')
-
-
-def get_id(post):
-    if post is not None:
-        return int(post[3])
-    raise Exception('you cant get info of None')
-
-
-def get_dislikes(post):
-    if post is not None:
-        return int(post[1])
-    raise Exception('you cant get info of None')
-
-
-def get_approved(post):
-    if post is not None:
-        return bool(post[4])
-    raise Exception('you cant get info of None')
-
-
-def get_deleted(post):
-    if post is not None:
-        return bool(post[5])
-    raise Exception('you cant get info of None')
-
-
-def get_edited(post):
-    if post is not None:
-        return bool(post[6])
-    raise Exception('you cant get info of None')
-
-
-def get_highlighted(post):
-    if post is not None:
-        return bool(post[7])
-    raise Exception('you cant get info of None')
-
-
-def get_spam(post):
-    if post is not None:
-        return bool(post[8])
-    raise Exception('you cant get info of None')
-
-
-def get_likes(post):
-    if post is not None:
-        return int(post[9])
-    raise Exception('you cant get info of None')
-
-
-def get_message(post):
-    if post is not None:
-        return post[10]
-    raise Exception('you cant get info of None')
-
-
-def get_parent(post):
-    if post is not None:
-        return post[11]
-    raise Exception('you cant get info of None')
-
-
-def get_points(post):
-    if post is not None:
-        return int(post[12])
-    raise Exception('you cant get info of None')
-
-
-def get_thread(post):
-    if post is not None:
-        return int(post[13])
-    raise Exception('you cant get info of None')
-
-
-def get_user(post):
-    if post is not None:
-        return post[14]
-    raise Exception('you cant get info of None')

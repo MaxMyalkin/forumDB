@@ -1,13 +1,13 @@
 from forumDB.functions.common import find
 from forumDB.functions.database import exec_select_query
-from forumDB.functions.thread.getters import get_thread_details, thread_to_json
+from forumDB.functions.thread.getters import thread_to_json
 from forumDB.functions.user.getters import get_user_details
 
 __author__ = 'maxim'
 
 
 def get_forum_details(short_name, related):
-    forum = find('forum', None, short_name)
+    forum = find('forum', short_name)
     info = forum_to_json(forum)
     if related is not None:
         if 'user' in related:
@@ -25,7 +25,7 @@ def forum_to_json(forum):
 
 
 def get_list_posts(forum_shortname, optional_params):
-    from forumDB.functions.post.getters import get_post_details
+    from forumDB.functions.post.getters import post_to_json
 
     if optional_params['related'] is not None and 'forum' in optional_params['related']:
         forum = get_forum_details(forum_shortname, [])
@@ -55,7 +55,7 @@ def get_list_posts(forum_shortname, optional_params):
     result = []
 
     for row in list:
-        row_json = get_post_details(row[0:15], [])
+        row_json = post_to_json(row[0:15])
 
         row_json['forum'] = forum
         if optional_params['related'] is not None and 'thread' in optional_params['related']:
@@ -69,7 +69,6 @@ def get_list_posts(forum_shortname, optional_params):
 
 
 def get_list_threads(what, value, related, optional_params):
-    from forumDB.functions.thread.getters import get_thread_info
 
     if related is not None and 'forum' in related:
         forum = get_forum_details(value, [])
@@ -94,9 +93,9 @@ def get_list_threads(what, value, related, optional_params):
     list = exec_select_query(query, query_params)
     result = []
     for row in list:
-        row_json = get_thread_info(row)
+        row_json = thread_to_json(row)
         row_json['forum'] = forum
-        if 'user' in forum:
+        if related is not None and 'user' in related:
             user = row_json['user']
             row_json['user'] = get_user_details(user)
         result.append(row_json)

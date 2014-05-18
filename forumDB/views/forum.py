@@ -1,6 +1,6 @@
 from forumDB.functions.common import make_required, make_optional, response_error, response_ok
-from forumDB.functions.forum.forum_functions import create_forum, get_forum_details
-from forumDB.functions.forum.getters import get_list_threads, get_list_posts
+from forumDB.functions.forum.forum_functions import create_forum
+from forumDB.functions.forum.getters import get_list_threads, get_list_posts, get_forum_details
 from forumDB.functions.user.getters import get_forum_user_list
 
 __author__ = 'maxim'

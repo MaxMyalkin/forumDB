@@ -24,8 +24,6 @@ def subscribe(request):
     if request.method == 'POST':
         try:
             required_params = make_required("POST", request, ['user', 'thread'])
-            if required_params is None:
-                return HttpResponse(status=400)
             response_data = subscribe_thread(required_params)
             return response_ok(response_data)
         except Exception as exception:

@@ -1,6 +1,7 @@
 from forumDB.functions.common import make_required, make_optional, response_error, response_ok
 from forumDB.functions.database import exec_clear
 from forumDB.functions.post.getters import get_post_list
+from forumDB.functions.user.getters import get_list_following, get_list_followers
 from forumDB.functions.user.user_functions import *
 
 __author__ = 'maxim'
@@ -25,11 +26,8 @@ def clear(request):
 def create(request):
     if request.method == 'POST':
         try:
-            optional_parameters = make_optional("POST", request, ['isAnonymous', 'name', 'username', 'about'])
-            if optional_parameters['isAnonymous']:
-                required_params = make_required("POST", request, ['email', ])
-            else:
-                required_params = make_required("POST", request, ['email', 'name', 'username', 'about'])
+            optional_parameters = make_optional("POST", request, ['isAnonymous'])
+            required_params = make_required("POST", request, ['email', 'name', 'username', 'about'])
             response_data = create_user(required_params, optional_parameters)
             return response_ok(response_data)
         except Exception as exception:

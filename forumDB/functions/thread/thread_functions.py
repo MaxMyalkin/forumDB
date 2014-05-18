@@ -1,13 +1,19 @@
-from forumDB.functions.common import find
-from forumDB.functions.database import exec_select_query, exec_insert_update_delete_query
-from forumDB.functions.thread.getters import get_thread_info, get_thread_details, get_id
+from forumDB.functions.database import exec_insert_update_delete_query
+from forumDB.functions.thread.getters import get_thread_details
 
 __author__ = 'maxim'
 
 
 def create_thread(required_params, optional_params):
-    #find('user', None, required_params['user'])
-    #find('forum', None, required_params['forum'])
+    info = {
+        'forum': required_params['forum'],
+        'title': required_params['title'],
+        'isClosed': required_params['isClosed'],
+        'user': required_params['user'],
+        'date': required_params['date'],
+        'message': required_params['message'],
+        'slug': required_params['slug']
+    }
     query = 'insert into Threads (forum , title , isClosed , user , date , message , slug '
     values = '(%s, %s, %s, %s, %s, %s, %s '
     query_params = [required_params['forum'], required_params['title'], required_params['isClosed'],
@@ -17,50 +23,27 @@ def create_thread(required_params, optional_params):
         query += ' , isDeleted '
         values += ' , %s '
         query_params.append(optional_params['isDeleted'])
+        info['isDeleted'] = optional_params['isDeleted']
     query += ') values ' + values + ' )'
-    try:
-        thread = find('thread', 'slug', required_params['slug'])
-    except Exception:
-        exec_insert_update_delete_query(query, query_params)
-        thread = find('thread', 'slug', required_params['slug'])
-    return get_thread_info(thread)
-
+    info['id'] = exec_insert_update_delete_query(query, query_params)
+    return info
 
 
 def subscribe_thread(required_params):
-    #find('user', None, required_params['user'])
-    #find('thread', 'id', required_params['thread'])
-   # try:
-        #find_subscription(required_params['user'], required_params['thread'])
-    #except Exception:
-        exec_insert_update_delete_query('insert into Subscriptions (user , thread) values (%s , %s)',
-                              (required_params['user'], required_params['thread'],))
-        return subscription_info(find_subscription(required_params['user'], required_params['thread']))
+    exec_insert_update_delete_query('insert into Subscriptions (user , thread) values (%s , %s)',
+                          (required_params['user'], required_params['thread'],))
+    return {
+        'thread': required_params['thread'],
+        'user': required_params['user']
+    }
 
 
 def unsubscribe_thread(required_params):
-    #find('user', None, required_params['user'])
-    #find('thread', 'id', required_params['thread'])
-    subscription = find_subscription(required_params['user'], required_params['thread'])
     exec_insert_update_delete_query('delete from Subscriptions where user = %s and thread= %s',
                           (required_params['user'], required_params['thread'],))
-    return subscription_info(subscription)
-
-
-def find_subscription(user, thread_id):
-    subscription = exec_select_query('select user, thread from Subscriptions where user= %s and thread = %s',
-                                   (user, thread_id,))
-    if len(subscription) == 0:
-        raise Exception('subscription doesnt exist')
-    return subscription[0]
-
-
-def subscription_info(subscription):
-    if subscription is None:
-        raise Exception('you cant get info of None')
     return {
-        'user': subscription[0],
-        'thread': subscription[1]
+        'thread': required_params['thread'],
+        'user': required_params['user']
     }
 
 
@@ -78,10 +61,12 @@ def thread_vote(required_params):
 
 def close_or_open(type, thread):
     if type == 'open':
-        exec_insert_update_delete_query('update Threads set isClosed = 0 where id = %s', (thread,))
+        id = exec_insert_update_delete_query('update Threads set isClosed = 0 where id = %s', (thread,))
     if type == 'close':
-        exec_insert_update_delete_query('update Threads set isClosed = 1 where id = %s', (thread,))
-    return get_thread_details(thread, None)
+        id = exec_insert_update_delete_query('update Threads set isClosed = 1 where id = %s', (thread,))
+    return {
+        'id': id
+    }
 
 
 def thread_update(required_params):
@@ -91,8 +76,9 @@ def thread_update(required_params):
 
 
 def thread_remove_restore(required_params, type):
+    id = 0
     if type == 'remove':
-        exec_insert_update_delete_query("update Threads set isDeleted = 1 where id = %s", (required_params['thread'],))
+        id = exec_insert_update_delete_query("update Threads set isDeleted = 1 where id = %s", (required_params['thread'],))
     if type == 'restore':
-        exec_insert_update_delete_query("update Threads set isDeleted = 0 where id = %s", (required_params['thread'],))
-    return {'thread': get_id(find('thread', 'id', required_params['thread']))}
+        id = exec_insert_update_delete_query("update Threads set isDeleted = 0 where id = %s", (required_params['thread'],))
+    return {'thread': id}
