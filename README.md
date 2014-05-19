@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Технопарк. Курс СУБД.
 =================
 Мялкин Максим 
@@ -44,3 +45,9 @@
 * [unsubscribe](https://github.com/s-stupnikov/technopark-db-api/blob/master/doc/thread/unsubscribe.md)
 * [update](https://github.com/s-stupnikov/technopark-db-api/blob/master/doc/thread/update.md)
 * [vote](https://github.com/s-stupnikov/technopark-db-api/blob/master/doc/thread/vote.md)
+=======
+forumDB_id
+==========
+
+db project id experiment
+>>>>>>> 902fe9749744695c6f48d9d1de38b5dc19cf0e81
