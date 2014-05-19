@@ -4,13 +4,14 @@ from forumDB.functions.forum.getters import forum_to_json
 
 from forumDB.functions.thread.getters import thread_to_json
 from forumDB.functions.user.getters import get_user_details
+import MySQLdb as mDB
 
 __author__ = 'maxim'
 
-
-def get_post_main(post):
-    post = find('post', post)
-    return post_to_json(post)
+host = 'localhost'
+user = 'maxim'
+password = '12345'
+database = 'forumDB_ID'
 
 
 def post_to_json(post):
@@ -36,7 +37,13 @@ def post_to_json(post):
     }
 
 
-def get_post_details(post, related):
+def get_post_details(post, related, cursor):
+    if cursor is None:
+        db = mDB.connect(host, user, password, database, init_command='SET NAMES UTF8')
+        new_cursor = db.cursor()
+    else:
+        new_cursor = cursor
+
     thread_parameters = """ t.date, t.dislikes, t.forum, t.id, t.isClosed, t.isDeleted, t.likes, t.message, t.points,
                       t.posts, t.slug, t.title, t.user """
 
@@ -51,7 +58,7 @@ def get_post_details(post, related):
     if related is not None:
         if 'forum' in related:
             columns += ", " + forum_parameters
-            tables += "join Forums f on p.forum = f.short_name "
+            tables += "join Forums f on p.f_id = f.id "
             forum_in_related = True
         if 'thread' in related:
             columns += ", " + thread_parameters
@@ -59,30 +66,47 @@ def get_post_details(post, related):
 
     query = columns + tables + " where p.id = %s"
 
-    result = exec_select_query(query, (int(post),))
+    new_cursor.execute(query, (int(post),))
+    result = new_cursor.fetchone()
 
-    info = post_to_json(result[0][0:15])
+    info = post_to_json(result[0:15])
     if related is not None:
         if 'user' in related:
-            info['user'] = get_user_details(info['user'], 'email')
+            info['user'] = get_user_details(info['user'], 'email', new_cursor)
         if 'forum' in related:
-            info['forum'] = forum_to_json(result[0][15:19])
+            info['forum'] = forum_to_json(result[15:19])
         if 'thread' in related:
             if forum_in_related:
-                info['thread'] = thread_to_json(result[0][19:32])
+                info['thread'] = thread_to_json(result[19:32])
             else:
-                info['thread'] = thread_to_json(result[0][15:28])
+                info['thread'] = thread_to_json(result[15:28])
 
+    if cursor is None:
+        new_cursor.close()
+        db.close()
     return info
 
 
 def get_post_list(required_params, optional_params):
+    db = mDB.connect(host, user, password, database, init_command='SET NAMES UTF8')
+    cursor = db.cursor()
     query_params = []
-    type = required_params['type']
+    if required_params['type'] == 'user':
+        type = 'u_id'
+        cursor.execute('select id from Users where email= %s', (required_params['user'],))
+        value = cursor.fetchone()[0]
+    if required_params['type'] == 'forum':
+        type = 'f_id'
+        cursor.execute('select id from Forums where short_name= %s', (required_params['forum'],))
+        value = cursor.fetchone()[0]
+    if required_params['type'] == 'thread':
+        type = 'thread'
+        value = required_params['thread']
+
     query = """select date , dislikes , forum , id , isApproved , isDeleted , isEdited ,
     isHighlighted , isSpam , likes , message , parent , points , thread , user from Posts where """ \
             + type + " = %s"
-    query_params.append(required_params[type])
+    query_params.append(value)
 
     if optional_params['since'] is not None:
         query += ' and date >= %s '
@@ -96,77 +120,12 @@ def get_post_list(required_params, optional_params):
     if optional_params['limit'] is not None:
         query += ' limit ' + optional_params['limit']
 
-    list = exec_select_query(query, query_params)
+    cursor.execute(query, query_params)
+    list = cursor.fetchall()
     array = []
     for row in list:
         array.append(post_to_json(row))
+
+    cursor.close()
+    db.close()
     return array
-
-
-#def get_user_post_list(required_params, optional_params):
-#    #find('user', None, required_params['user'])
-#    query = 'select  from Posts where user = %s '
-#    query_params = [required_params['user']]
-#
-#    if optional_params['since'] is not None:
-#        query += ' and date >= %s '
-#        query_params.append(optional_params['since'])
-#
-#    if optional_params['order'] is not None:
-#        query += ' order by date ' + optional_params['order']
-#    else:
-#        query += ' order by date desc '
-#
-#    if optional_params['limit'] is not None:
-#        query += ' limit ' + optional_params['limit']
-#
-#    list = []
-#    for element in exec_select_query(query, query_params):
-#        list.append(get_post_details(find('post', None, element[0]), []))
-#    return list
-#
-#
-#def get_forum_post_list(required_params, optional_params):
-#    #find('forum', None, required_params['forum'])
-#    query = 'select id from Posts where forum = %s '
-#    query_params = [required_params['forum']]
-#
-#    if optional_params['since'] is not None:
-#        query += ' and date >= %s '
-#        query_params.append(optional_params['since'])
-#
-#    if optional_params['order'] is not None:
-#        query += ' order by date ' + optional_params['order']
-#    else:
-#        query += ' order by desc '
-#
-#    if optional_params['limit'] is not None:
-#        query += ' limit ' + optional_params['limit']
-#
-#    list = []
-#    for element in exec_select_query(query, query_params):
-#        list.append(get_post_details(find('post', None, element[0]), optional_params['related']))
-#    return list
-#
-#
-#def get_thread_user_post_list(type, required_params, optional_params):
-#    #find('thread', 'id', required_params['thread'])
-#    query = 'select id from Posts where thread = %s '
-#    query_params = [required_params['thread']]
-#
-#    if optional_params['since'] is not None:
-#        query += ' and date >= %s '
-#        query_params.append(optional_params['since'])
-#
-#    if optional_params['order'] is not None:
-#        query += ' order by date ' + optional_params['order']
-#    else:
-#        query += ' order by desc '
-#
-#    if optional_params['limit'] is not None:
-#        query += ' limit ' + optional_params['limit']
-#
-#    list = []
-#    for element in exec_select_query(query, query_params):
-#        list.append(get_post_details(find('post', None, element[0]), []))
-#    return list

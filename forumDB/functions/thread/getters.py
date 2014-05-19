@@ -1,8 +1,12 @@
 from forumDB.functions.database import exec_select_query
 from forumDB.functions.user.getters import get_user_details
-
+import MySQLdb as mDB
 __author__ = 'maxim'
 
+host = 'localhost'
+user = 'maxim'
+password = '12345'
+database = 'forumDB_ID'
 
 def thread_to_json(thread):
     return {
@@ -22,7 +26,7 @@ def thread_to_json(thread):
     }
 
 
-def get_thread_details(thread, related):
+def get_thread_details(thread, related, cursor):
     from forumDB.functions.forum.getters import forum_to_json
     thread_parameters = ' date, dislikes , forum , Threads.id , isClosed , isDeleted , likes , message ,points , posts, slug , title ,Threads.user '
     #0-12
@@ -30,26 +34,47 @@ def get_thread_details(thread, related):
         forum_parameters = 'Forums.id, name , short_name , Forums.user '
     #12-16
         query = 'select ' + thread_parameters + ',' + forum_parameters + \
-                "from Threads inner join Forums on Threads.forum = Forums.short_name where Threads.id = %s"
+                "from Threads inner join Forums on Threads.f_id = Forums.id where Threads.id = %s"
     else:
         query = "select " + thread_parameters + " from Threads where id = %s"
 
-    result = exec_select_query(query, (thread,))
+    if cursor is None:
+        db = mDB.connect(host, user, password, database, init_command='SET NAMES UTF8')
+        new_cursor = db.cursor()
+    else:
+        new_cursor = cursor
 
-    info = thread_to_json(result[0])
+    new_cursor.execute(query, (thread,))
+    result = new_cursor.fetchone()
+
+    info = thread_to_json(result)
 
     if related is not None:
         if 'user' in related:
-            info['user'] = get_user_details(info['user'], 'email')
+            info['user'] = get_user_details(info['user'], 'email', new_cursor)
         if 'forum' in related:
-            info['forum'] = forum_to_json(result[0][13:17])
+            info['forum'] = forum_to_json(result[13:17])
+
+    if cursor is None:
+        new_cursor.close()
+        db.close()
     return info
 
 
 def get_list(what, value, optional_params):
+    db = mDB.connect(host, user, password, database, init_command='SET NAMES UTF8')
+    cursor = db.cursor()
 
-    query = """select date, dislikes , forum , id , isClosed , isDeleted , likes , message ,points , posts, slug , title ,
-            user from Threads where """ + what + """ = %s """
+    if what == 'user':
+        cursor.execute('select id from Users where email = %s', (value,) )
+        value = cursor.fetchone()[0]
+        query = """select date, dislikes , forum , id , isClosed , isDeleted , likes , message ,points , posts, slug , title ,
+                user from Threads where u_id = %s """
+    if what == 'forum':
+        cursor.execute('select id from Forums where short_name = %s', (value,) )
+        value = cursor.fetchone()[0]
+        query = """select date, dislikes , forum , id , isClosed , isDeleted , likes , message ,points , posts, slug , title ,
+                user from Threads where f_id = %s """
     query_params = [value]
 
     if optional_params['since'] is not None:
@@ -64,8 +89,12 @@ def get_list(what, value, optional_params):
     if optional_params['limit'] is not None:
         query += ' limit ' + str(optional_params['limit'])
 
-    list = exec_select_query(query, query_params)
+    cursor.execute(query, query_params)
+    list = cursor.fetchall()
     array = []
     for row in list:
         array.append(thread_to_json(row))
+
+    cursor.close()
+    db.close()
     return array

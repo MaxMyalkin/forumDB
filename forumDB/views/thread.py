@@ -46,7 +46,7 @@ def details(request):
         try:
             required_params = make_required("GET", request, ['thread'])
             optional_params = make_optional("GET", request, ['related'])
-            response_data = get_thread_details(required_params['thread'], optional_params['related'])
+            response_data = get_thread_details(required_params['thread'], optional_params['related'], None)
             return response_ok(response_data)
         except Exception as exception:
             return response_error(exception.message)

@@ -26,7 +26,7 @@ def details(request):
             optional_parameters = make_optional("GET", request,
                                                 ['related'])
             response_data = get_post_details(required_params['post'],
-                                             optional_parameters['related'])
+                                             optional_parameters['related'], None)
             return response_ok(response_data)
         except Exception as exception:
             return response_error(exception.message)

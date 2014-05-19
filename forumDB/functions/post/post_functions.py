@@ -1,7 +1,13 @@
-from forumDB.functions.database import exec_insert_update_delete_query, exec_select_query
-from forumDB.functions.post.getters import get_post_main
+from forumDB.functions.database import exec_insert_update_delete_query
+from forumDB.functions.post.getters import post_to_json
+import MySQLdb as mDB
 
 __author__ = 'maxim'
+
+host = 'localhost'
+user = 'maxim'
+password = '12345'
+database = 'forumDB_ID'
 
 
 def create_post(required_parameters, optional_parameters):
@@ -10,15 +16,22 @@ def create_post(required_parameters, optional_parameters):
         'thread': required_parameters['thread'],
         'message': required_parameters['message'],
         'user': required_parameters['user'],
-        'forum': required_parameters['forum']
+        'forum': required_parameters['forum'],
     }
-    id = exec_select_query('select id from Users where email = %s', required_parameters['user'])[0][0]
-    query = 'insert into Posts (date , thread , message , user , forum, u_id '
-    values = "( %s , %s , %s , %s , %s , %s  "
+    db = mDB.connect(host, user, password, database, init_command='SET NAMES UTF8')
+    cursor = db.cursor()
+
+    cursor.execute('select id from Users where email = %s', (required_parameters['user'],))
+    u_id = cursor.fetchone()[0]
+
+    cursor.execute('select id from Forums where short_name = %s', (required_parameters['forum'],))
+    f_id = cursor.fetchone()[0]
+
+    query = 'insert into Posts (date , thread , message , user , forum, u_id, f_id '
+    values = "( %s , %s , %s , %s , %s , %s, %s  "
     query_parameters = [required_parameters['date'], required_parameters['thread'],
                         required_parameters['message'], required_parameters['user'],
-                        required_parameters['forum'], id]
-
+                        required_parameters['forum'], u_id, f_id]
     for parameter in optional_parameters:
         if optional_parameters[parameter] is not None:
             query += ',' + parameter
@@ -27,29 +40,56 @@ def create_post(required_parameters, optional_parameters):
             info[parameter] = optional_parameters[parameter]
 
     query += ') values ' + values + ')'
+    cursor.execute(query, query_parameters)
+    db.commit()
+    info['id'] = cursor.lastrowid
+    cursor.execute('update Threads set posts = posts + 1 where id = %s', (required_parameters['thread'],))
+    db.commit()
+    cursor.close()
+    db.close()
 
-    info['id'] = exec_insert_update_delete_query(query, query_parameters)
-
-    exec_insert_update_delete_query('update Threads set posts = posts + 1 where id = %s',
-                                    (required_parameters['thread'],))
     return info
 
 
 def post_vote(required_params):
+    db = mDB.connect(host, user, password, database, init_command='SET NAMES UTF8')
+    cursor = db.cursor()
+
+
     if required_params['vote'] == 1:
-        exec_insert_update_delete_query(
+        cursor.execute(
             'update Posts set likes = likes + 1 , points = points + 1 where id = %s', (required_params['post'],))
     if required_params['vote'] == -1:
-        exec_insert_update_delete_query(
+        cursor.execute(
             'update Posts set dislikes = dislikes + 1, points = points - 1 where id = %s',
             (required_params['post'],))
-    return get_post_main(required_params['post'])
+    db.commit()
+
+    cursor.execute('select date , dislikes , forum , id , isApproved , isDeleted , isEdited , '
+                                   'isHighlighted , isSpam , likes , message , parent , points , thread , user from Posts'
+                                   ' where id = %s ', (required_params['post'],))
+    post = cursor.fetchone()
+    cursor.close()
+    db.close()
+    return post_to_json(post)
+
+
 
 
 def post_update(required_params):
-    exec_insert_update_delete_query("update Posts set message = %s where id = %s",
+    db = mDB.connect(host, user, password, database, init_command='SET NAMES UTF8')
+    cursor = db.cursor()
+
+    cursor.execute("update Posts set message = %s where id = %s",
                                     (required_params['message'], required_params['post'],))
-    return get_post_main(required_params['post'])
+    db.commit()
+    cursor.execute('select date , dislikes , forum , id , isApproved , isDeleted , isEdited , '
+                                   'isHighlighted , isSpam , likes , message , parent , points , thread , user from Posts'
+                                   ' where id = %s ', (required_params['post'],))
+    post = cursor.fetchone()
+    cursor.close()
+    db.close()
+    return post_to_json(post)
 
 
 def post_remove_restore(required_params, type):

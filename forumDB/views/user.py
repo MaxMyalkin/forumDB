@@ -1,7 +1,7 @@
 from forumDB.functions.common import make_required, make_optional, response_error, response_ok
 from forumDB.functions.database import exec_clear
 from forumDB.functions.post.getters import get_post_list
-from forumDB.functions.user.getters import get_list_following, get_list_followers, get_list_followers2
+from forumDB.functions.user.getters import get_list_followers2
 from forumDB.functions.user.user_functions import *
 
 __author__ = 'maxim'
@@ -62,7 +62,7 @@ def details(request):
     if request.method == 'GET':
         try:
             required_params = make_required("GET", request, ['user'])
-            response_data = get_user_details(required_params['user'], 'email')
+            response_data = get_user_details(required_params['user'], 'email', None)
             return response_ok(response_data)
         except Exception as exception:
             return response_error(exception.message)

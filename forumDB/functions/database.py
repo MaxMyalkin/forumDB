@@ -4,7 +4,7 @@ import MySQLdb as mDB
 host = 'localhost'
 user = 'maxim'
 password = '12345'
-database = 'forumDB'
+database = 'forumDB_ID'
 
 
 def exec_clear(query, params):
@@ -19,6 +19,7 @@ def exec_clear(query, params):
 
 
 def exec_insert_update_delete_query(query, params):
+    print query
     db = mDB.connect(host, user, password, database, init_command='SET NAMES UTF8')
     cursor = db.cursor()
     cursor.execute(query, params)
@@ -26,6 +27,7 @@ def exec_insert_update_delete_query(query, params):
     last_id = cursor.lastrowid
     cursor.close()
     db.close()
+    print 'ok'
     return last_id
 
 

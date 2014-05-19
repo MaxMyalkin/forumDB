@@ -1,7 +1,13 @@
 from forumDB.functions.database import exec_insert_update_delete_query
 from forumDB.functions.user.getters import get_user_details
+import MySQLdb as mDB
 
 __author__ = 'maxim'
+
+host = 'localhost'
+user = 'maxim'
+password = '12345'
+database = 'forumDB_ID'
 
 
 def create_user(required_params, optional_params):
@@ -30,15 +36,53 @@ def create_user(required_params, optional_params):
 
 
 def save_follow(required_params):
-    exec_insert_update_delete_query('insert into Followers (follower , followee) values (%s , %s)',
-                                    (required_params['follower'], required_params['followee'],))
-    return get_user_details(required_params['follower'], 'email')
+    db = mDB.connect(host, user, password, database, init_command='SET NAMES UTF8')
+    cursor = db.cursor()
+
+    query = """select id from Users where email = %s"""
+
+    cursor.execute(query, (required_params['follower'],))
+    id = cursor.fetchone()
+    follower = id[0]
+
+    cursor.execute(query, (required_params['followee'],))
+    id = cursor.fetchone()
+    followee = id[0]
+
+    exec_insert_update_delete_query("""insert into Followers (follower , followee) values (%s, %s)""",
+                                    (follower, followee,))
+
+    cursor.close()
+    db.close()
+
+
+    return get_user_details(follower, 'id')
 
 
 def remove_follow(required_params):
-    exec_insert_update_delete_query('delete from Followers where follower = %s and followee = %s',
-                                    (required_params['follower'], required_params['followee'],))
-    return get_user_details(required_params['follower'], 'email')
+    #index follower followee
+
+    db = mDB.connect(host, user, password, database, init_command='SET NAMES UTF8')
+    cursor = db.cursor()
+
+    query = """select id from Users where email = %s"""
+
+    cursor.execute(query, (required_params['follower'],))
+    id = cursor.fetchone()
+    follower = id[0]
+
+    cursor.execute(query, (required_params['followee'],))
+    id = cursor.fetchone()
+    followee = id[0]
+
+    exec_insert_update_delete_query("""delete from Followers
+                                        where follower = %s and followee = %s""",
+                                    (follower, followee,))
+
+    cursor.close()
+    db.close()
+
+    return get_user_details(follower, 'id')
 
 
 def update_user(required_params):

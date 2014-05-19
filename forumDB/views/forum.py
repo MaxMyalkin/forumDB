@@ -22,7 +22,7 @@ def details(request):
         try:
             required_params = make_required("GET", request, ['forum'])
             optional = make_optional("GET", request, ['related'])
-            response_data = get_forum_details(required_params['forum'], optional['related'])
+            response_data = get_forum_details(required_params['forum'], optional['related'], None)
             return response_ok(response_data)
         except Exception as exception:
             return response_error(exception.message)

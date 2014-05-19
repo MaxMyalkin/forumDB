@@ -66,7 +66,7 @@ def find(what, value):
             'select about , email , id , isAnonymous , name , username from Users where email = %s',
             (value,))
     if what == 'forum':
-        object = exec_select_query('select id, name , short_name , user  from Forums where short_name = %s',
+        object = exec_select_query('select id, name , short_name , user, u_id  from Forums where short_name = %s',
                                    (value,))
     if what == 'thread':
         object = exec_select_query(
