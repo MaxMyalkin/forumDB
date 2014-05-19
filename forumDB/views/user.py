@@ -1,7 +1,7 @@
 from forumDB.functions.common import make_required, make_optional, response_error, response_ok
 from forumDB.functions.database import exec_clear
 from forumDB.functions.post.getters import get_post_list
-from forumDB.functions.user.getters import get_list_following, get_list_followers
+from forumDB.functions.user.getters import get_list_following, get_list_followers, get_list_followers2
 from forumDB.functions.user.user_functions import *
 
 __author__ = 'maxim'
@@ -74,7 +74,8 @@ def list_followers(request):
         try:
             required_params = make_required("GET", request, ['user'])
             optional_parameters = make_optional("GET", request, ['limit', 'since_id', 'order'])
-            response_data = get_list_followers(required_params, optional_parameters)
+            required_params['type'] = 'follower'
+            response_data = get_list_followers2(required_params, optional_parameters)
             return response_ok(response_data)
         except Exception as exception:
             return response_error(exception.message)
@@ -86,7 +87,8 @@ def list_following(request):
         try:
             required_params = make_required("GET", request, ['user'])
             optional_parameters = make_optional("GET", request, ['limit', 'since_id', 'order'])
-            response_data = get_list_following(required_params, optional_parameters)
+            required_params['type'] = 'followee'
+            response_data = get_list_followers2(required_params, optional_parameters)
             return response_ok(response_data)
         except Exception as exception:
             return response_error(exception.message)

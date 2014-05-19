@@ -1,4 +1,3 @@
-from django.http import HttpResponse
 from forumDB.functions.common import make_required, make_optional, response_error, response_ok
 from forumDB.functions.post.getters import get_post_list
 from forumDB.functions.thread.getters import get_list
@@ -90,6 +89,7 @@ def list(request):
             user = request.GET.get('user')
             forum = request.GET.get('forum')
             optional_parameters = make_optional("GET", request, ['since', 'limit', 'order'])
+            response_data = []
             if user is None:
                 if forum is None:
                     response_error('you should set "user" or "forum"')

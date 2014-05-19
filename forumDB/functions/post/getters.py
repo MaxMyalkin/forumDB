@@ -18,22 +18,22 @@ def post_to_json(post):
     if parent == 'null':
         parent = None
     return {
-            'date': str(post[0]),
-            'dislikes': int(post[1]),
-            'forum': post[2],
-            'id': int(post[3]),
-            'isApproved': bool(post[4]),
-            'isDeleted': bool(post[5]),
-            'isEdited': bool(post[6]),
-            'isHighlighted': bool(post[7]),
-            'isSpam': bool(post[8]),
-            'likes': int(post[9]),
-            'message': post[10],
-            'parent': parent,
-            'points': int(post[12]),
-            'thread': int(post[13]),
-            'user': post[14]
-        }
+        'date': str(post[0]),
+        'dislikes': int(post[1]),
+        'forum': post[2],
+        'id': int(post[3]),
+        'isApproved': bool(post[4]),
+        'isDeleted': bool(post[5]),
+        'isEdited': bool(post[6]),
+        'isHighlighted': bool(post[7]),
+        'isSpam': bool(post[8]),
+        'likes': int(post[9]),
+        'message': post[10],
+        'parent': parent,
+        'points': int(post[12]),
+        'thread': int(post[13]),
+        'user': post[14]
+    }
 
 
 def get_post_details(post, related):
@@ -71,7 +71,7 @@ def get_post_details(post, related):
             if forum_in_related:
                 info['thread'] = thread_to_json(result[0][19:32])
             else:
-                 info['thread'] = thread_to_json(result[0][15:28])
+                info['thread'] = thread_to_json(result[0][15:28])
 
     return info
 

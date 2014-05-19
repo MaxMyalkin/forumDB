@@ -12,7 +12,7 @@ def create_post(required_parameters, optional_parameters):
         'user': required_parameters['user'],
         'forum': required_parameters['forum']
     }
-    id = exec_select_query('select id from Users where email = %s',required_parameters['user'])[0][0]
+    id = exec_select_query('select id from Users where email = %s', required_parameters['user'])[0][0]
     query = 'insert into Posts (date , thread , message , user , forum, u_id '
     values = "( %s , %s , %s , %s , %s , %s  "
     query_parameters = [required_parameters['date'], required_parameters['thread'],
@@ -31,24 +31,24 @@ def create_post(required_parameters, optional_parameters):
     info['id'] = exec_insert_update_delete_query(query, query_parameters)
 
     exec_insert_update_delete_query('update Threads set posts = posts + 1 where id = %s',
-                          (required_parameters['thread'],))
+                                    (required_parameters['thread'],))
     return info
 
 
 def post_vote(required_params):
     if required_params['vote'] == 1:
         exec_insert_update_delete_query(
-            'update Posts set likes = likes + 1 , points = likes - dislikes where id = %s', (required_params['post'],))
+            'update Posts set likes = likes + 1 , points = points + 1 where id = %s', (required_params['post'],))
     if required_params['vote'] == -1:
         exec_insert_update_delete_query(
-            'update Posts set dislikes = dislikes + 1, points = likes - dislikes where id = %s',
+            'update Posts set dislikes = dislikes + 1, points = points - 1 where id = %s',
             (required_params['post'],))
     return get_post_main(required_params['post'])
 
 
 def post_update(required_params):
     exec_insert_update_delete_query("update Posts set message = %s where id = %s",
-                          (required_params['message'], required_params['post'],))
+                                    (required_params['message'], required_params['post'],))
     return get_post_main(required_params['post'])
 
 

@@ -21,7 +21,7 @@ def details(request):
     if request.method == 'GET':
         try:
             required_params = make_required("GET", request, ['forum'])
-            optional = make_optional("GET" , request , ['related'])
+            optional = make_optional("GET", request, ['related'])
             response_data = get_forum_details(required_params['forum'], optional['related'])
             return response_ok(response_data)
         except Exception as exception:

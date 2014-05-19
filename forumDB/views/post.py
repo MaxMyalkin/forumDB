@@ -1,4 +1,4 @@
-from forumDB.functions.common import make_required, make_optional, find, response_error, response_ok
+from forumDB.functions.common import make_required, make_optional, response_error, response_ok
 from forumDB.functions.post.getters import get_post_details, get_post_list
 from forumDB.functions.post.post_functions import create_post, post_vote, post_update, post_remove_restore
 

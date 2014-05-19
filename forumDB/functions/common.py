@@ -6,14 +6,14 @@ __author__ = 'maxim'
 
 
 def response_ok(response_data):
-        return HttpResponse(json.dumps({'code': 0, 'response': response_data}), content_type='application/json')
+    return HttpResponse(json.dumps({'code': 0, 'response': response_data}), content_type='application/json')
 
 
 def response_error(response_data):
-        return HttpResponse(json.dumps({'code': 1, 'message': response_data}), content_type='application/json')
+    return HttpResponse(json.dumps({'code': 1, 'message': response_data}), content_type='application/json')
 
 
-def make_optional( request_type , request, parameters):
+def make_optional(request_type, request, parameters):
     optional_parameters = {}
     if request_type == "POST":
         request_data = json.loads(request.body)
@@ -36,7 +36,7 @@ def make_optional( request_type , request, parameters):
     return optional_parameters
 
 
-def make_required( request_type , request, parameters):
+def make_required(request_type, request, parameters):
     required_parameters = {}
     if request_type == "POST":
         request_data = json.loads(request.body)
@@ -44,7 +44,7 @@ def make_required( request_type , request, parameters):
             try:
                 required_parameters[parameter] = request_data[parameter].encode('utf-8')
             except KeyError:
-                raise Exception('you should set parameter "' + parameter+'"')
+                raise Exception('you should set parameter "' + parameter + '"')
             except Exception:
                 required_parameters[parameter] = request_data[parameter]
 
@@ -67,7 +67,7 @@ def find(what, value):
             (value,))
     if what == 'forum':
         object = exec_select_query('select id, name , short_name , user  from Forums where short_name = %s',
-                                 (value,))
+                                   (value,))
     if what == 'thread':
         object = exec_select_query(
             'select date, dislikes , forum , id , isClosed , isDeleted , likes , message ,points , posts, slug , title , '
@@ -75,8 +75,8 @@ def find(what, value):
 
     if what == 'post':
         object = exec_select_query('select date , dislikes , forum , id , isApproved , isDeleted , isEdited , '
-                                 'isHighlighted , isSpam , likes , message , parent , points , thread , user from Posts'
-                                 ' where id = %s ', (value,))
+                                   'isHighlighted , isSpam , likes , message , parent , points , thread , user from Posts'
+                                   ' where id = %s ', (value,))
 
     if len(object) == 0 or object is None:
         raise Exception(what + ' with ' + value + ' parameter doesnt exist')

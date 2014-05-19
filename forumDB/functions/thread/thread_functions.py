@@ -31,7 +31,7 @@ def create_thread(required_params, optional_params):
 
 def subscribe_thread(required_params):
     exec_insert_update_delete_query('insert into Subscriptions (user , thread) values (%s , %s)',
-                          (required_params['user'], required_params['thread'],))
+                                    (required_params['user'], required_params['thread'],))
     return {
         'thread': required_params['thread'],
         'user': required_params['user']
@@ -40,7 +40,7 @@ def subscribe_thread(required_params):
 
 def unsubscribe_thread(required_params):
     exec_insert_update_delete_query('delete from Subscriptions where user = %s and thread= %s',
-                          (required_params['user'], required_params['thread'],))
+                                    (required_params['user'], required_params['thread'],))
     return {
         'thread': required_params['thread'],
         'user': required_params['user']
@@ -50,16 +50,17 @@ def unsubscribe_thread(required_params):
 def thread_vote(required_params):
     if required_params['vote'] == 1:
         exec_insert_update_delete_query(
-            'update Threads set likes = likes + 1 , points = likes - dislikes where id = %s',
+            'update Threads set likes = likes + 1 , points = points + 1 where id = %s',
             (required_params['thread'],))
     if required_params['vote'] == -1:
         exec_insert_update_delete_query(
-            'update Threads set dislikes = dislikes + 1, points = likes - dislikes where id = %s',
+            'update Threads set dislikes = dislikes + 1, points = points - 1 where id = %s',
             (required_params['thread'],))
     return get_thread_details(required_params['thread'], None)
 
 
 def close_or_open(type, thread):
+    id = 0
     if type == 'open':
         id = exec_insert_update_delete_query('update Threads set isClosed = 0 where id = %s', (thread,))
     if type == 'close':
@@ -71,14 +72,16 @@ def close_or_open(type, thread):
 
 def thread_update(required_params):
     exec_insert_update_delete_query("update Threads set message = %s , slug = %s where id = %s",
-                          (required_params['message'], required_params['slug'], required_params['thread'],))
+                                    (required_params['message'], required_params['slug'], required_params['thread'],))
     return get_thread_details(required_params['thread'], None)
 
 
 def thread_remove_restore(required_params, type):
     id = 0
     if type == 'remove':
-        id = exec_insert_update_delete_query("update Threads set isDeleted = 1 where id = %s", (required_params['thread'],))
+        id = exec_insert_update_delete_query("update Threads set isDeleted = 1 where id = %s",
+                                             (required_params['thread'],))
     if type == 'restore':
-        id = exec_insert_update_delete_query("update Threads set isDeleted = 0 where id = %s", (required_params['thread'],))
+        id = exec_insert_update_delete_query("update Threads set isDeleted = 0 where id = %s",
+                                             (required_params['thread'],))
     return {'thread': id}

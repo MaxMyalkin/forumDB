@@ -37,8 +37,8 @@ def get_list_posts(forum_shortname, optional_params):
         if 'thread' in optional_params['related']:
             thread_parameters = """ t.date, t.dislikes , t.forum , t.id , t.isClosed , t.isDeleted , t.likes ,
             t.message , t.points , t.posts, t.slug , t.title , t.user"""
-            query = ' select ' + post_parameters + ' , ' + thread_parameters + ' from Posts as p ' \
-                    'inner join Threads as t on p.thread = t.id where p.forum = %s'
+            query = ' select ' + post_parameters + ' , ' + thread_parameters + """ from Posts as p
+                        inner join Threads as t on p.thread = t.id where p.forum = %s"""
     else:
         query = ' select ' + post_parameters + ' from Posts as p where p.forum = %s'
 
