@@ -1,5 +1,4 @@
-from forumDB.functions.common import find
-from forumDB.functions.database import exec_select_query
+from forumDB.functions.database import Database
 from forumDB.functions.forum.getters import forum_to_json
 
 from forumDB.functions.thread.getters import thread_to_json
@@ -7,11 +6,6 @@ from forumDB.functions.user.getters import get_user_details
 import MySQLdb as mDB
 
 __author__ = 'maxim'
-
-host = 'localhost'
-user = 'maxim'
-password = '12345'
-database = 'forumDB_ID'
 
 
 def post_to_json(post):
@@ -39,7 +33,7 @@ def post_to_json(post):
 
 def get_post_details(post, related, cursor):
     if cursor is None:
-        db = mDB.connect(host, user, password, database, init_command='SET NAMES UTF8')
+        db = mDB.connect(Database.host, Database.user, Database.password, Database.database, init_command='SET NAMES UTF8')
         new_cursor = db.cursor()
     else:
         new_cursor = cursor
@@ -88,7 +82,7 @@ def get_post_details(post, related, cursor):
 
 
 def get_post_list(required_params, optional_params):
-    db = mDB.connect(host, user, password, database, init_command='SET NAMES UTF8')
+    db = mDB.connect(Database.host, Database.user, Database.password, Database.database, init_command='SET NAMES UTF8')
     cursor = db.cursor()
     query_params = []
     if required_params['type'] == 'user':

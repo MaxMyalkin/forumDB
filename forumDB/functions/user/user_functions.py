@@ -1,14 +1,8 @@
-from forumDB.functions.database import exec_insert_update_delete_query
+from forumDB.functions.database import exec_insert_update_delete_query, Database
 from forumDB.functions.user.getters import get_user_details
 import MySQLdb as mDB
 
 __author__ = 'maxim'
-
-host = 'localhost'
-user = 'maxim'
-password = '12345'
-database = 'forumDB_ID'
-
 
 def create_user(required_params, optional_params):
     query = 'insert into Users (email, about, username, name'
@@ -36,7 +30,7 @@ def create_user(required_params, optional_params):
 
 
 def save_follow(required_params):
-    db = mDB.connect(host, user, password, database, init_command='SET NAMES UTF8')
+    db = mDB.connect(Database.host, Database.user, Database.password, Database.database, init_command='SET NAMES UTF8')
     cursor = db.cursor()
 
     query = """select id from Users where email = %s"""
@@ -49,20 +43,19 @@ def save_follow(required_params):
     id = cursor.fetchone()
     followee = id[0]
 
-    exec_insert_update_delete_query("""insert into Followers (follower , followee) values (%s, %s)""",
+    cursor.execute("""insert into Followers (follower , followee) values (%s, %s)""",
                                     (follower, followee,))
-
+    db.commit()
+    info = get_user_details(follower, 'id', cursor)
     cursor.close()
     db.close()
-
-
-    return get_user_details(follower, 'id')
+    return info
 
 
 def remove_follow(required_params):
     #index follower followee
 
-    db = mDB.connect(host, user, password, database, init_command='SET NAMES UTF8')
+    db = mDB.connect(Database.host, Database.user, Database.password, Database.database, init_command='SET NAMES UTF8')
     cursor = db.cursor()
 
     query = """select id from Users where email = %s"""
@@ -75,17 +68,24 @@ def remove_follow(required_params):
     id = cursor.fetchone()
     followee = id[0]
 
-    exec_insert_update_delete_query("""delete from Followers
+    cursor.execute("""delete from Followers
                                         where follower = %s and followee = %s""",
                                     (follower, followee,))
-
+    db.commit()
+    info = get_user_details(follower, 'id', cursor)
     cursor.close()
     db.close()
 
-    return get_user_details(follower, 'id')
+    return info
 
 
 def update_user(required_params):
-    exec_insert_update_delete_query('update Users set name = %s , about = %s where email = %s',
+    db = mDB.connect(Database.host, Database.user, Database.password, Database.database, init_command='SET NAMES UTF8')
+    cursor = db.cursor()
+    cursor.execute('update Users set name = %s , about = %s where email = %s',
                                     (required_params['name'], required_params['about'], required_params['user'],))
-    return get_user_details(required_params['user'], 'email')
+    db.commit()
+    info = get_user_details(required_params['user'], 'email', cursor)
+    cursor.close()
+    db.close()
+    return info

@@ -1,14 +1,8 @@
-from forumDB.functions.database import exec_insert_update_delete_query
+from forumDB.functions.database import exec_insert_update_delete_query, Database
 from forumDB.functions.post.getters import post_to_json
 import MySQLdb as mDB
 
 __author__ = 'maxim'
-
-host = 'localhost'
-user = 'maxim'
-password = '12345'
-database = 'forumDB_ID'
-
 
 def create_post(required_parameters, optional_parameters):
     info = {
@@ -18,7 +12,7 @@ def create_post(required_parameters, optional_parameters):
         'user': required_parameters['user'],
         'forum': required_parameters['forum'],
     }
-    db = mDB.connect(host, user, password, database, init_command='SET NAMES UTF8')
+    db = mDB.connect(Database.host, Database.user, Database.password, Database.database, init_command='SET NAMES UTF8')
     cursor = db.cursor()
 
     cursor.execute('select id from Users where email = %s', (required_parameters['user'],))
@@ -52,9 +46,8 @@ def create_post(required_parameters, optional_parameters):
 
 
 def post_vote(required_params):
-    db = mDB.connect(host, user, password, database, init_command='SET NAMES UTF8')
+    db = mDB.connect(Database.host, Database.user, Database.password, Database.database, init_command='SET NAMES UTF8')
     cursor = db.cursor()
-
 
     if required_params['vote'] == 1:
         cursor.execute(
@@ -77,7 +70,7 @@ def post_vote(required_params):
 
 
 def post_update(required_params):
-    db = mDB.connect(host, user, password, database, init_command='SET NAMES UTF8')
+    db = mDB.connect(Database.host, Database.user, Database.password, Database.database, init_command='SET NAMES UTF8')
     cursor = db.cursor()
 
     cursor.execute("update Posts set message = %s where id = %s",

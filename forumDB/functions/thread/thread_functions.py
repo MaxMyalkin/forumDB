@@ -1,14 +1,8 @@
-from forumDB.functions.database import exec_insert_update_delete_query
+from forumDB.functions.database import exec_insert_update_delete_query, Database
 from forumDB.functions.thread.getters import get_thread_details
 import MySQLdb as mDB
 
 __author__ = 'maxim'
-
-host = 'localhost'
-user = 'maxim'
-password = '12345'
-database = 'forumDB_ID'
-
 
 def create_thread(required_params, optional_params):
     info = {
@@ -20,7 +14,7 @@ def create_thread(required_params, optional_params):
         'message': required_params['message'],
         'slug': required_params['slug']
     }
-    db = mDB.connect(host, user, password, database, init_command='SET NAMES UTF8')
+    db = mDB.connect(Database.host, Database.user, Database.password, Database.database, init_command='SET NAMES UTF8')
     cursor = db.cursor()
 
     cursor.execute('select id from Forums where short_name = %s',(required_params['forum'],))
@@ -50,7 +44,7 @@ def create_thread(required_params, optional_params):
 
 def subscribe_thread(required_params):
 
-    db = mDB.connect(host, user, password, database, init_command='SET NAMES UTF8')
+    db = mDB.connect(Database.host, Database.user, Database.password, Database.database, init_command='SET NAMES UTF8')
     cursor = db.cursor()
 
     cursor.execute('select id from Users where email = %s', (required_params['user'],))
@@ -69,7 +63,7 @@ def subscribe_thread(required_params):
 
 def unsubscribe_thread(required_params):
 
-    db = mDB.connect(host, user, password, database, init_command='SET NAMES UTF8')
+    db = mDB.connect(Database.host, Database.user, Database.password, Database.database, init_command='SET NAMES UTF8')
     cursor = db.cursor()
 
     cursor.execute('select id from Users where email = %s', (required_params['user'],))
@@ -89,7 +83,7 @@ def unsubscribe_thread(required_params):
 
 def thread_vote(required_params):
 
-    db = mDB.connect(host, user, password, database, init_command='SET NAMES UTF8')
+    db = mDB.connect(Database.host, Database.user, Database.password, Database.database, init_command='SET NAMES UTF8')
     cursor = db.cursor()
 
     if required_params['vote'] == 1:
@@ -119,7 +113,7 @@ def close_or_open(type, thread):
 
 
 def thread_update(required_params):
-    db = mDB.connect(host, user, password, database, init_command='SET NAMES UTF8')
+    db = mDB.connect(Database.host, Database.user, Database.password, Database.database, init_command='SET NAMES UTF8')
     cursor = db.cursor()
     cursor.execute("update Threads set message = %s , slug = %s where id = %s",
                                     (required_params['message'], required_params['slug'], required_params['thread'],))

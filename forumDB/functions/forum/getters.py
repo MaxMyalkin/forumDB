@@ -1,20 +1,13 @@
-from forumDB.functions.database import exec_select_query
+from forumDB.functions.database import Database
 from forumDB.functions.thread.getters import thread_to_json
 from forumDB.functions.user.getters import get_user_details
 import MySQLdb as mDB
 
 __author__ = 'maxim'
 
-
-host = 'localhost'
-user = 'maxim'
-password = '12345'
-database = 'forumDB_ID'
-
-
 def get_forum_details(short_name, related, cursor):
     if cursor is None:
-        db = mDB.connect(host, user, password, database, init_command='SET NAMES UTF8')
+        db = mDB.connect(Database.host, Database.user, Database.password, Database.database, init_command='SET NAMES UTF8')
         new_cursor = db.cursor()
     else:
         new_cursor = cursor
@@ -44,7 +37,7 @@ def forum_to_json(forum):
 def get_list_posts(forum_shortname, optional_params):
     from forumDB.functions.post.getters import post_to_json
 
-    db = mDB.connect(host, user, password, database, init_command='SET NAMES UTF8')
+    db = mDB.connect(Database.host, Database.user, Database.password, Database.database, init_command='SET NAMES UTF8')
     cursor = db.cursor()
 
     cursor.execute('select id from Forums where short_name = %s', (forum_shortname, ))
@@ -100,7 +93,7 @@ def get_list_posts(forum_shortname, optional_params):
 
 def get_list_threads(required_params, optional_params):
 
-    db = mDB.connect(host, user, password, database, init_command='SET NAMES UTF8')
+    db = mDB.connect(Database.host, Database.user, Database.password, Database.database, init_command='SET NAMES UTF8')
     cursor = db.cursor()
 
     related = optional_params['related']

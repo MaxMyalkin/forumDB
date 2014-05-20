@@ -1,12 +1,7 @@
-from forumDB.functions.database import exec_select_query
+from forumDB.functions.database import Database
 from forumDB.functions.user.getters import get_user_details
 import MySQLdb as mDB
 __author__ = 'maxim'
-
-host = 'localhost'
-user = 'maxim'
-password = '12345'
-database = 'forumDB_ID'
 
 def thread_to_json(thread):
     return {
@@ -39,7 +34,7 @@ def get_thread_details(thread, related, cursor):
         query = "select " + thread_parameters + " from Threads where id = %s"
 
     if cursor is None:
-        db = mDB.connect(host, user, password, database, init_command='SET NAMES UTF8')
+        db = mDB.connect(Database.host, Database.user, Database.password, Database.database, init_command='SET NAMES UTF8')
         new_cursor = db.cursor()
     else:
         new_cursor = cursor
@@ -62,7 +57,7 @@ def get_thread_details(thread, related, cursor):
 
 
 def get_list(what, value, optional_params):
-    db = mDB.connect(host, user, password, database, init_command='SET NAMES UTF8')
+    db = mDB.connect(Database.host, Database.user, Database.password, Database.database, init_command='SET NAMES UTF8')
     cursor = db.cursor()
 
     if what == 'user':

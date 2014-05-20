@@ -1,6 +1,5 @@
 import json
 from django.http import HttpResponse
-from forumDB.functions.database import exec_select_query
 
 __author__ = 'maxim'
 
@@ -57,28 +56,3 @@ def make_required(request_type, request, parameters):
             if required_parameters[parameter] is None:
                 raise Exception('you should set parameter "' + parameter + '"')
     return required_parameters
-
-
-def find(what, value):
-    object = None
-    if what == 'user':
-        object = exec_select_query(
-            'select about , email , id , isAnonymous , name , username from Users where email = %s',
-            (value,))
-    if what == 'forum':
-        object = exec_select_query('select id, name , short_name , user, u_id  from Forums where short_name = %s',
-                                   (value,))
-    if what == 'thread':
-        object = exec_select_query(
-            'select date, dislikes , forum , id , isClosed , isDeleted , likes , message ,points , posts, slug , title , '
-            'user  from Threads where id = %s', (value,))
-
-    if what == 'post':
-        object = exec_select_query('select date , dislikes , forum , id , isApproved , isDeleted , isEdited , '
-                                   'isHighlighted , isSpam , likes , message , parent , points , thread , user from Posts'
-                                   ' where id = %s ', (value,))
-
-    if len(object) == 0 or object is None:
-        raise Exception(what + ' with ' + value + ' parameter doesnt exist')
-    else:
-        return object[0]

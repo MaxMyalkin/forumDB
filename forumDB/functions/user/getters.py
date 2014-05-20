@@ -1,16 +1,11 @@
-from forumDB.functions.database import exec_select_query, exec_many_queries
 import MySQLdb as mDB
+from forumDB.functions.database import Database
+
 __author__ = 'maxim'
-
-host = 'localhost'
-user = 'maxim'
-password = '12345'
-database = 'forumDB_ID'
-
 
 def get_user_details(value, type, cursor):
     if cursor is None:
-        db = mDB.connect(host, user, password, database, init_command='SET NAMES UTF8')
+        db = mDB.connect(Database.host, Database.user, Database.password, Database.database, init_command='SET NAMES UTF8')
         new_cursor = db.cursor()
     else:
         new_cursor = cursor
@@ -62,7 +57,7 @@ def get_list_followers2(required_params, optional_params):
     if required_params['type'] == 'followee':
         column = 'follower'
 
-    db = mDB.connect(host, user, password, database, init_command='SET NAMES UTF8')
+    db = mDB.connect(Database.host, Database.user, Database.password, Database.database, init_command='SET NAMES UTF8')
     cursor = db.cursor()
 
     query = "select " + required_params['type'] + " from Followers f join Users u on f." + column + \
@@ -94,7 +89,7 @@ def get_list_followers2(required_params, optional_params):
 
 
 def get_forum_user_list(required_params, optional_params):
-    db = mDB.connect(host, user, password, database, init_command='SET NAMES UTF8')
+    db = mDB.connect(Database.host, Database.user, Database.password, Database.database, init_command='SET NAMES UTF8')
     cursor = db.cursor()
 
     cursor.execute('select id from Forums where short_name = %s', (required_params['forum'], ))
