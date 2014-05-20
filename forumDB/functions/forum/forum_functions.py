@@ -15,6 +15,8 @@ def create_forum(required_params):
                                           required_params['user'], id ,))
     db.commit()
     id = cursor.lastrowid
+    cursor.close()
+    db.close()
     return {
         'name': required_params['name'],
         'short_name': required_params['short_name'],

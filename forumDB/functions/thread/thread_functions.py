@@ -4,6 +4,7 @@ import MySQLdb as mDB
 
 __author__ = 'maxim'
 
+
 def create_thread(required_params, optional_params):
     info = {
         'forum': required_params['forum'],
@@ -38,7 +39,8 @@ def create_thread(required_params, optional_params):
     cursor.execute(query, query_params)
     info['id'] = cursor.lastrowid
     db.commit()
-
+    cursor.close()
+    db.close()
     return info
 
 

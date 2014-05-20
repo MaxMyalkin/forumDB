@@ -4,6 +4,7 @@ import MySQLdb as mDB
 
 __author__ = 'maxim'
 
+
 def create_user(required_params, optional_params):
     query = 'insert into Users (email, about, username, name'
     values = '(%s, %s, %s, %s '

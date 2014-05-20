@@ -5,6 +5,7 @@ import MySQLdb as mDB
 
 __author__ = 'maxim'
 
+
 def get_forum_details(short_name, related, cursor):
     if cursor is None:
         db = mDB.connect(Database.host, Database.user, Database.password, Database.database, init_command='SET NAMES UTF8')
@@ -12,7 +13,7 @@ def get_forum_details(short_name, related, cursor):
     else:
         new_cursor = cursor
 
-    new_cursor.execute('select id, name , short_name , user, u_id  from Forums where short_name = %s', short_name)
+    new_cursor.execute('select id, name , short_name , user, u_id  from Forums where short_name = %s', (short_name,))
     forum = new_cursor.fetchone()
     info = forum_to_json(forum)
     if related is not None:

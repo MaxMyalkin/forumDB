@@ -3,9 +3,9 @@ import MySQLdb as mDB
 
 class Database:
     host = 'localhost'
-    user = 'maxim'
-    password = '12345'
-    database = 'forumDB_ID'
+    user = '*****'
+    password = '*****'
+    database = 'forumDB'
 
 
 def exec_clear(query, params):

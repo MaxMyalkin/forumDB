@@ -2,16 +2,16 @@ SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='TRADITIONAL,ALLOW_INVALID_DATES';
 
-DROP SCHEMA IF EXISTS `forumDB_ID` ;
-CREATE SCHEMA IF NOT EXISTS `forumDB_ID` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci ;
-USE `forumDB_ID` ;
+DROP SCHEMA IF EXISTS `forumDB` ;
+CREATE SCHEMA IF NOT EXISTS `forumDB` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci ;
+USE `forumDB` ;
 
 -- -----------------------------------------------------
 -- Table `forumDB_ID`.`Users`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `forumDB_ID`.`Users` ;
+DROP TABLE IF EXISTS `forumDB`.`Users` ;
 
-CREATE TABLE IF NOT EXISTS `forumDB_ID`.`Users` (
+CREATE TABLE IF NOT EXISTS `forumDB`.`Users` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `email` VARCHAR(50) NOT NULL,
   `name` VARCHAR(100) NULL DEFAULT NULL,
@@ -26,9 +26,9 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 -- Table `forumDB_ID`.`Forums`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `forumDB_ID`.`Forums` ;
+DROP TABLE IF EXISTS `forumDB`.`Forums` ;
 
-CREATE TABLE IF NOT EXISTS `forumDB_ID`.`Forums` (
+CREATE TABLE IF NOT EXISTS `forumDB`.`Forums` (
   `id` INT UNSIGNED NOT NULL AUTO_INCREMENT,
   `name` VARCHAR(100) NOT NULL,
   `short_name` VARCHAR(50) NOT NULL,
@@ -39,7 +39,7 @@ CREATE TABLE IF NOT EXISTS `forumDB_ID`.`Forums` (
   INDEX `idx_shortname_id` (`short_name` ASC, `id` ASC),
   CONSTRAINT `fk_Forums_Users1`
     FOREIGN KEY (`u_id`)
-    REFERENCES `forumDB_ID`.`Users` (`id`)
+    REFERENCES `forumDB`.`Users` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
@@ -48,9 +48,9 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 -- Table `forumDB_ID`.`Threads`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `forumDB_ID`.`Threads` ;
+DROP TABLE IF EXISTS `forumDB`.`Threads` ;
 
-CREATE TABLE IF NOT EXISTS `forumDB_ID`.`Threads` (
+CREATE TABLE IF NOT EXISTS `forumDB`.`Threads` (
   `id` INT UNSIGNED NOT NULL AUTO_INCREMENT,
   `date` DATETIME NOT NULL,
   `dislikes` INT UNSIGNED NOT NULL DEFAULT 0,
@@ -71,12 +71,12 @@ CREATE TABLE IF NOT EXISTS `forumDB_ID`.`Threads` (
   INDEX `idx_uid_date` (`u_id` ASC, `date` ASC),
   CONSTRAINT `fk_Threads_Users1`
     FOREIGN KEY (`u_id`)
-    REFERENCES `forumDB_ID`.`Users` (`id`)
+    REFERENCES `forumDB`.`Users` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_Threads_Forums1`
     FOREIGN KEY (`f_id`)
-    REFERENCES `forumDB_ID`.`Forums` (`id`)
+    REFERENCES `forumDB`.`Forums` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
@@ -85,9 +85,9 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 -- Table `forumDB_ID`.`Posts`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `forumDB_ID`.`Posts` ;
+DROP TABLE IF EXISTS `forumDB`.`Posts` ;
 
-CREATE TABLE IF NOT EXISTS `forumDB_ID`.`Posts` (
+CREATE TABLE IF NOT EXISTS `forumDB`.`Posts` (
   `id` INT UNSIGNED NOT NULL AUTO_INCREMENT,
   `date` DATETIME NOT NULL,
   `dislikes` INT UNSIGNED NOT NULL DEFAULT 0,
@@ -112,12 +112,12 @@ CREATE TABLE IF NOT EXISTS `forumDB_ID`.`Posts` (
   INDEX `idx_thread_date` (`thread` ASC, `date` ASC),
   CONSTRAINT `fk_Posts_Forums1`
     FOREIGN KEY (`f_id`)
-    REFERENCES `forumDB_ID`.`Forums` (`id`)
+    REFERENCES `forumDB`.`Forums` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_Posts_Users1`
     FOREIGN KEY (`u_id`)
-    REFERENCES `forumDB_ID`.`Users` (`id`)
+    REFERENCES `forumDB`.`Users` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
@@ -126,9 +126,9 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 -- Table `forumDB_ID`.`Followers`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `forumDB_ID`.`Followers` ;
+DROP TABLE IF EXISTS `forumDB`.`Followers` ;
 
-CREATE TABLE IF NOT EXISTS `forumDB_ID`.`Followers` (
+CREATE TABLE IF NOT EXISTS `forumDB`.`Followers` (
   `follower` INT NOT NULL,
   `followee` INT NOT NULL,
   INDEX `follower_ee` (`follower` ASC, `followee` ASC),
@@ -139,9 +139,9 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 -- Table `forumDB_ID`.`Subscriptions`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `forumDB_ID`.`Subscriptions` ;
+DROP TABLE IF EXISTS `forumDB`.`Subscriptions` ;
 
-CREATE TABLE IF NOT EXISTS `forumDB_ID`.`Subscriptions` (
+CREATE TABLE IF NOT EXISTS `forumDB`.`Subscriptions` (
   `thread` INT NOT NULL,
   `u_id` INT NOT NULL,
   `user` VARCHAR(50) NULL,
@@ -152,3 +152,4 @@ ENGINE = InnoDB;
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
+

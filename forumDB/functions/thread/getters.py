@@ -3,6 +3,7 @@ from forumDB.functions.user.getters import get_user_details
 import MySQLdb as mDB
 __author__ = 'maxim'
 
+
 def thread_to_json(thread):
     return {
         'date': str(thread[0]),
