@@ -44,6 +44,3 @@
 * [unsubscribe](https://github.com/s-stupnikov/technopark-db-api/blob/master/doc/thread/unsubscribe.md)
 * [update](https://github.com/s-stupnikov/technopark-db-api/blob/master/doc/thread/update.md)
 * [vote](https://github.com/s-stupnikov/technopark-db-api/blob/master/doc/thread/vote.md)
-
-
-db project id experiment
